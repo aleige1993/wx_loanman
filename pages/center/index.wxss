@@ -1,0 +1,63 @@
+/* pages/center/index.wxss */
+.center_panl{
+  position: relative;
+}
+.conter_model{
+  position: absolute;
+  top: 100rpx;
+  /* background-color: #ccc; */
+  width: 94%;
+  left: 3%;
+}
+.user_info{
+  background-color: #fff;
+  padding:30rpx;
+  border-radius:6rpx;
+  display: flex;
+}
+.user_info image{
+  width:140rpx;
+  height: 140rpx;
+  border-radius:100%; 
+  margin-right: 20rpx;
+}
+.user_model{
+  flex: 1;
+  align-items: center;
+  align-self: center;
+  justify-content: space-between;
+  align-content: space-between;
+}
+.level{
+  width: 100%;
+  display: flex;
+  justify-content:space-between;
+  align-content: center;
+  align-items: center;
+  align-self: center;
+}
+.days{
+  margin-top: 20rpx;
+}
+.nechens icon{
+  margin-left: 20rpx;
+}
+
+.ul_panl{
+  background-color: #fff;
+  border-radius:10rpx;
+  margin-top: 30rpx;
+}
+.wx_li{
+  display: flex;
+  justify-content:space-between;
+  padding:30rpx;
+  border-bottom: 1px solid #eee;
+}
+.wx_li .heder text{
+  color: #8799a3;
+  margin-left: 20rpx;
+}
+.b_g{
+  height: 260rpx;
+}

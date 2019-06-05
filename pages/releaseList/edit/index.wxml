@@ -1,0 +1,44 @@
+<!--pages/releaseNES/index.wxml-->
+
+<view class='rele_panl'>
+  <form bindsubmit="formSubmit">
+    <view class='wx_li'>
+      <picker bindchange="onPickerUser" value="{{indUser}}" range-key='lable' range="{{arrUser}}">
+        <view class="picker">
+          <text>{{arrUser[indUser]?arrUser[indUser].lable:'请选择角色'}}</text>
+          <icon class='iconfont iconicon-arrow-bottom2'></icon>
+        </view>
+      </picker>
+    </view>
+
+    <view class='wx_li'>
+      <picker bindchange="onPickerType" value="{{indType}}" range-key='lable' range="{{arrType}}">
+        <view class="picker">
+          <text>{{arrType[indType]?arrType[indType].lable:'请选择信息类型'}}</text>
+          <icon class='iconfont iconicon-arrow-bottom2'></icon>
+        </view>
+      </picker>
+    </view>
+
+    <view class='wx_li'>
+      <input type='text' value='{{msgItem.msgTitle}}'  name='msgTitle' placeholder='标题：建议限20字以内'></input>
+    </view>
+
+    <view class='wx_li'>
+      <textarea value='{{msgItem.content}}' maxlength='200'name='msgConent' bindinput='textChange' placeholder='信息详情描述，建议按照四个部分进行描述：我是谁、现有业务描述、我的诉求、其他（含预期业务量）使读者尽量对你有一个清晰的初步认识，加快信息传递速度'></textarea>
+      <view class='text_num'>{{tNum}}/200</view>
+    </view>
+    
+    <view class='wx_li'>
+      <input type='text' value='{{msgItem.publishName}}' name='msgName' placeholder='您的姓名，请以真实姓名或姓+先生/女士'></input>
+    </view>
+
+    <view class='wx_li'>
+      <input type='number' value='{{msgItem.publishMobile}}' name='msgIpone' placeholder='您的电话，方便有意者联系您'></input>
+    </view>
+
+    <view class="padding flex flex-direction">
+      <button form-type="submit" class="cu-btn margin-tb-sm lg bg-gradual-blue shadow-blur">发布</button>
+    </view>
+  </form> 
+</view>

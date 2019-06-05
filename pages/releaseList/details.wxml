@@ -1,0 +1,46 @@
+<!--pages/info/index.wxml-->
+<view class='info_details'>
+    <view class='wx_li'>
+        <text>发布人角色：</text>
+        <view>{{msgItem.publishRole == '1' ? '服务需求方':'服务提供者'}}</view>
+    </view>
+    <view class='wx_li'>
+        <text>信息类型：</text>
+        <view wx:if="{{msgItem.msgType == 1}}">通道挂靠</view>
+    <view wx:if="{{msgItem.msgType == 2}}">电子签章</view>
+    <view wx:if="{{msgItem.msgType == 3}}">其他</view>
+    </view>
+    <view class='wx_li'>
+        <text>标题：</text>
+        <view>{{msgItem.msgTitle}}</view>
+    </view>
+    <view class='wx_li'>
+        <text>详情：</text>
+        <view>{{msgItem.content}}</view>
+    </view>
+    <view class='wx_li'>
+        <text>发布时间：</text>
+        <view>{{msgItem.firstPublishTime}}</view>
+    </view>
+    <view class='wx_li'>
+        <text>发布人姓名：</text>
+        <view>{{msgItem.publishName}}</view>
+        <!-- <view>
+      您本月查看3条信息的免费次数已用完，希望这些信息已为您创造了价值！
+    </view> -->
+    </view>
+    <view class='wx_li'>
+        <text>发布人电话：</text>
+        <view>{{msgItem.publishMobile}} </view>
+        <!-- <view>
+      为了能持续为您创造价值，点击下方按钮获取无限信息查询权限!
+    </view> -->
+    </view>
+
+    <view class='button_panl'>
+        <button bindtap='msgRefresh' class="cu-btn  bg-green" >刷新</button>
+        <button bindtap='gotoBack'  class="cu-btn   bg-blue" >编辑</button>
+        <button bindtap='msgDown' class="cu-btn  bg-grey">下架</button>
+    </view>
+
+</view>

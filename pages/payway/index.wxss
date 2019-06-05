@@ -1,0 +1,36 @@
+/* pages/payway/index.wxss */
+.meony_panl{
+  width: 94%;
+  margin:30rpx 3%;
+  background-color: #fff;
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap:wrap;
+}
+.selThis{
+  flex: 1;
+  min-width:40%;
+  display: inline-block;
+  text-align: center;
+  border:1px solid #f37b1d;
+  margin:12rpx;
+  /* margin-right: 30rpx; */
+  padding:20rpx 15rpx;
+  border-radius:10rpx; 
+}
+.selThis text{
+  display:block;
+  font-weight: 600;
+  font-size: 24rpx;
+  color: #f37b1d;
+}
+view.active{
+  background-color: #f37b1d;
+}
+view.active text{
+  color: #fff;
+}
+.migbton{
+  margin: 0 10%;
+}

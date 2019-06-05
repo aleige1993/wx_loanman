@@ -1,0 +1,26 @@
+/* pages/releaseNES/index.wxss */
+.rele_panl{
+  padding:30rpx;
+}
+.wx_li{
+  background-color: #fff;
+  border-radius:6rpx;
+  margin-bottom: 40rpx;
+  padding:14rpx 30rpx; 
+  position: relative;
+}
+.wx_li textarea{
+  width: 100%;
+}
+.text_num{
+  text-align: right;
+}
+
+.picker{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.picker icon{
+  margin-top:-10rpx;
+}

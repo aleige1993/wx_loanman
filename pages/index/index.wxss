@@ -1,0 +1,62 @@
+.section_panl{
+  display: flex;
+  /* margin:20rpx 0;
+  padding: 0 30rpx; */
+  background-color: #fff;
+}
+.picker_model{
+  background-color: #fff;
+  width: 33.33%;
+  padding: 30rpx 0;
+}
+.picker{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  /* border-right:1px double #eee;  */
+}
+.picker text{
+  display: inline-block;
+}
+.picker icon{
+  height: 60rpx;
+  margin-top:-20rpx;
+  font-size: 16rpx;
+  margin-left:4rpx;
+
+  /* line-height: 40rpx; */
+}
+.listProud{
+  border-top:1px solid #ccc;
+  padding:20rpx 0 60rpx 0; 
+}
+.list_bar{
+  display: flex;
+  justify-content: center;
+}
+.list_bar view{
+  font-size:22rpx;
+  margin-right: 50rpx;
+  padding-left: 10rpx; 
+}
+.provide{
+ border-left:28rpx solid #0081ff;
+}
+.needs{
+ border-left:28rpx solid #e54d42;
+}
+.list_panl{
+  width: 94%;
+  margin: 0 3%;
+  background-color: #fff;
+  border-radius:6rpx;
+  margin-top: 20rpx;
+  padding: 20rpx;
+}
+.list_panl .wx_li{
+  display: flex;
+  justify-content:space-between;
+}
+.list_panl .wx_li:last-child{
+  margin-top: 30rpx;
+}

@@ -1,0 +1,25 @@
+/* pages/orderList/index.wxss */
+.order_model{
+    width: 94%;
+    background-color: #fff;
+    margin: 30rpx 3%; 
+    border-radius:10rpx; 
+}
+.header{
+ padding: 20rpx;
+ border-bottom: 1px solid #eee;
+ display: flex;
+ justify-content: space-between;
+}
+.header view{
+     font-size: 24rpx;
+}
+.order_center{
+    padding: 20rpx;
+}
+.order_center view{
+    margin-bottom: 20rpx;
+}
+.order_center view:last-child{
+    margin-bottom: 0;
+}

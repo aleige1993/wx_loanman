@@ -1,0 +1,13 @@
+<!--pages/about/index.wxml-->
+<view class='about'>
+ <view class="cu-bar bg-white solid-bottom" role="" aria-label="">
+    <view class="action" role="" aria-label="">
+      <text class="cuIcon-titles text-orange"></text> 联系我们
+    </view>
+  </view> 
+    <view class='wx_li'>
+        <view>邮箱：</view>
+        <view>daisutong@tom.com</view>
+        <button bindtap='cope'  class="cope cu-btn round sm bg-blue">复制</button>
+    </view>
+</view>

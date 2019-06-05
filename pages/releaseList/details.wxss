@@ -1,0 +1,10 @@
+/* pages/releaseList/details.wxss */
+@import '/pages/info/index.wxss';
+.button_panl{
+    text-align: center;
+}
+
+.button_panl button{
+    margin: 0 30rpx;
+    padding:  0  40rpx;
+}

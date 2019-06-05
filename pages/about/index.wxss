@@ -1,0 +1,12 @@
+/* pages/about/index.wxss */
+page{
+    background-color: #fff;
+}
+.wx_li{
+    display: flex;
+    padding: 30rpx;
+    align-items: center;
+}
+.cope{
+    margin-left: 20rpx;
+}

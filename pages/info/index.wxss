@@ -1,0 +1,25 @@
+/* pages/info/index.wxss */
+.info_details{
+  margin: 30rpx;
+  padding:30rpx;
+  border-radius:6rpx; 
+  background-color: #fff;
+}
+.wx_li{
+  display: flex;
+  margin-bottom: 40rpx;
+}
+.wx_li text{
+  width: 200rpx;
+  font-weight: 600;
+}
+.wx_li view{
+  flex: 1;
+}
+.bada{
+  background-color: #1cbbb4;
+  color: #fff;
+  padding: 6rpx 20rpx;
+  margin-left:10rpx;
+  border-radius:6rpx; 
+}

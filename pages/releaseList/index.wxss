@@ -1,0 +1,14 @@
+/* pages/releaseList/index.wxss */
+@import '/pages/index/index.wxss';
+.see_panl{
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    align-self: center;
+}
+.see{
+    font-size: 24rpx;
+    margin-top: 20rpx;
+    color:#999;
+    margin-left: 4rpx;
+}

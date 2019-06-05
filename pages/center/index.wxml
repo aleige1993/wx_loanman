@@ -1,0 +1,69 @@
+<!--pages/center/index.wxml-->
+<view class='center_panl'>
+  <view class='b_g bg-gradual-blue  text-center shadow-blur'></view>
+  <view class='conter_model'>
+    <view class='user_info'>
+      <image src='{{wxUserInfo?wxUserInfo.avatarUrl:"/static/images/error.png"}}'></image>
+      <view class='user_model'>
+        <view class='font-w6 text-blue'>{{wxUserInfo.nickName}}</view>
+        <view class='level'>
+          <view class='nechens'>
+            <text class='text-orange'>大地主</text>
+            <icon class="iconfont iconiconfontwenhao c-999"></icon>
+            <!-- <label>购买了查看信息和发布信息的客户</label> -->
+          </view>
+          <view class='days c-999'>
+            权益剩余天数：<text class='text-green font-w6'>90天</text>
+          </view>
+
+        </view>
+      </view>
+    </view>
+
+    <view class='ul_panl'>
+    <navigator class='wx_li'  url='/pages/equity/index'>
+      <view class='heder'>
+        <icon class='iconfont iconbaitiaoquanyi text-mauve text-shadow'></icon>
+        <text>更多权益</text>
+      </view>
+      <icon class='iconfont icontubiaozhizuo-1'></icon>
+    </navigator>
+
+    <navigator class='wx_li' url='/pages/orderList/index'>
+      <view class='heder'>
+        <icon class='iconfont icondingdanjilu text-shadow text-blue'></icon>
+        <text>订单记录</text>
+      </view>
+      <icon class='iconfont icontubiaozhizuo-1'></icon>
+    </navigator>
+
+    <navigator class='wx_li' url='/pages/releaseList/index'>
+      <view class='heder'>
+        <icon class='iconfont iconfabu text-shadow text-red'></icon>
+        <text>已发布信息</text>
+      </view>
+      <icon class='iconfont icontubiaozhizuo-1'></icon>
+    </navigator>
+
+    <navigator class='wx_li' url='/pages/statement/index'>
+      <view class='heder'>
+        <icon class='iconfont iconxitongzhiguize text-shadow text-brown'></icon>
+        <text>规则声明</text>
+      </view>
+      <icon class='iconfont icontubiaozhizuo-1'></icon>
+    </navigator>
+
+    <navigator class='wx_li' url='/pages/about/index'>
+      <view class='heder'>
+        <icon class='iconfont iconicon-- text-shadow  text-cyan '></icon>
+        <text>商务合作</text>
+      </view>
+      <icon class='iconfont icontubiaozhizuo-1'></icon>
+    </navigator>
+    
+    
+    </view>
+  </view>
+
+
+</view>

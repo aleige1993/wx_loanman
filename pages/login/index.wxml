@@ -1,0 +1,33 @@
+<!--pages/login/index.wxml-->
+
+<view>
+    <view class='login_panl'>
+        <view class='logo_mobel'>
+             <image src='/static/images/logo.png'></image>
+        </view> 
+    </view>
+    <view class='text_panl text-shadow text-blue'>
+        贷速通：金融服务一网打尽，金融零配件服务平台
+    </view>
+
+    <view class='button_panl'>
+            <view class='line_panl'>
+                <view class='line_model'>
+                    <text>请先登录</text>
+                </view>
+            </view>
+            <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" disabled="{{disabled}}" class='wx_button' >
+                <icon class='iconfont iconweixin'></icon>
+                <text>微信快捷登录</text>
+            </button>
+    </view>
+
+</view>
+
+<view class='layer' wx:if="{{isLogin}}"></view>
+<view class='wxuser'  wx:if="{{isLogin}}">
+    <image src='/static/images/error.png'></image>
+    <view class='butBox'>
+        <button class='but_info' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">授权微信用户信息</button>
+    </view>
+</view>

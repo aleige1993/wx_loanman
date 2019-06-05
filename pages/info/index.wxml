@@ -1,0 +1,46 @@
+<!--pages/info/index.wxml-->
+ <view class='info_details'>
+  <view class='wx_li'>
+    <text>发布人角色：</text>
+    <view>{{infoItme.publishRole == '1' ? '服务需求方':'服务提供者'}}</view>
+  </view>
+  <view class='wx_li'>
+    <text>信息类型：</text>
+    <view wx:if="{{infoItme.msgType == 1}}">通道挂靠</view>
+    <view wx:if="{{infoItme.msgType == 2}}">电子签章</view>
+    <view wx:if="{{infoItme.msgType == 3}}">其他</view>
+  </view>
+  <view class='wx_li'>
+    <text>标题：</text>
+    <view>{{infoItme.msgTitle}}</view>
+  </view>
+  <view class='wx_li'>
+    <text>详情：</text>
+    <view>{{infoItme.content}}</view>
+  </view>
+  <view class='wx_li'>
+    <text>发布时间：</text>
+    <view>{{infoItme.firstPublishTime}}</view>
+  </view>
+  <view class='wx_li'>
+    <text>发布人姓名：</text>
+    <view wx:if="{{freeCount}}">{{infoItme.publishName}}</view>
+    <view wx:else class='text-orange '>
+      您本月查看{{infoItme.viewCount}}条信息的免费次数已用完，希望这些信息已为您创造了价值！
+    </view>
+  </view>
+  <view class='wx_li'>
+    <text>发布人电话：</text>
+    <view wx:if="{{freeCount}}">{{infoItme.publishMobile}}<label class='bada'  bindtap='telIpone'>拨打</label></view>
+    <view  wx:else class='text-orange'>
+      为了能持续为您创造价值，点击下方按钮获取无限信息查询权限!
+    </view>
+  </view>
+
+  <view class="padding flex flex-direction"> 
+    <button bindtap='gotoBack' class="cu-btn margin-tb-sm lg bg-gradual-blue shadow-blur">获取无限查询权限</button>
+  </view>
+  
+ </view>
+
+ <!-- <button open-type='share'>转发</button> -->

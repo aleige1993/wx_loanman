@@ -1,0 +1,25 @@
+/* pages/statement/index.wxss */
+.font_conetn{
+  padding:30rpx;
+}
+.hader{
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: 600;
+  margin:30rpx 0;
+
+}
+.big{
+  font-weight: 600;
+  margin-bottom: 20rpx;
+  line-height:50rpx;
+}
+.seall{
+  text-indent: 1em;
+  margin-bottom: 20rpx;
+  line-height:42rpx;
+}
+.movesell{
+  text-indent: 2em;
+  margin-bottom: 20rpx;
+}

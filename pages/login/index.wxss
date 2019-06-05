@@ -1,0 +1,89 @@
+/* pages/login/index.wxss */
+.login_panl{
+    text-align: center;
+}
+.logo_mobel{
+    width: 200rpx;
+    height: 200rpx;
+    background-color: #fff;
+    display: inline-block;
+    border-radius:100%; 
+    line-height: 200rpx;
+    text-align: center;
+    margin: 60rpx 0;
+}
+.logo_mobel image{
+    width: 80%;
+    height: 80%;
+    margin-top: 10%;
+}
+.text_panl{
+    text-align: center;
+    font-weight: 600;
+    font-size: 30rpx;
+}
+.button_panl{
+    margin-top: 45vh;
+}
+.line_panl{
+    text-align:center;
+    padding: 0 20%;
+}
+.line_model{
+    text-align: center;
+}
+.line_model::before{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #999;
+    position: relative;
+    top: 20rpx;
+    left: 0;
+}
+.line_model text{
+    display: inline-block;
+    background: #f2f2f2;
+    padding: 0 40rpx;
+    position: relative;
+    font-weight: 600;
+}
+.wx_button{
+    width: 80%;
+    margin: 30rpx 10%;
+    background-color:rgb(46, 203, 112);
+    color: #fff;
+    text-align: center;
+    border-radius:10rpx;
+    line-height: 80rpx; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wx_button icon,.wx_button text{
+    color: #fff;
+}
+.wx_button icon{
+    margin-right: 10rpx;
+    line-height: 90rpx;
+    height: 80rpx;
+}
+.wxuser{
+    z-index: 11;
+    background-color: #fff;
+    position: fixed;
+    width: 80%;
+    left: 10%;
+    top: 25%;
+}
+.wxuser image{
+    width: 100%;
+}
+.wxuser .butBox{
+    padding:30rpx 40rpx;
+}
+.but_info{
+    color: #fff;
+   background-color:rgb(46, 203, 112);
+}

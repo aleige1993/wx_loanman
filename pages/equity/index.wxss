@@ -1,0 +1,21 @@
+/* pages/equity/index.wxss */
+.pice_panl{
+    width: 94%;
+    margin:40rpx 3%;
+    background-color: #fff;
+    padding: 20rpx;
+    border-radius:6rpx; 
+}
+.wx_li{
+    display: flex;
+    margin-bottom: 60rpx;
+    justify-content: space-between;
+    padding: 20rpx;
+    align-items: center;
+}
+.wx_li:last-child{
+    margin-bottom: 0;
+}
+.font-w600{
+    font-weight: 600;
+}
