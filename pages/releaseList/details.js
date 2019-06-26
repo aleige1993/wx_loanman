@@ -28,6 +28,9 @@ Page({
     }
     app.Formdata.post('/api/msg/down',parms,(res)=>{
       if (res.code == '0000') {
+        this.setData({
+            'msgItem.status':2
+        })
         wx.showToast({
           title: '下架成功！',
         })

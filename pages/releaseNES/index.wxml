@@ -21,24 +21,25 @@
     </view>
 
     <view class='wx_li'>
-      <input type='text' name='msgTitle' placeholder='标题：建议限20字以内'></input>
+      <input type='text' name='msgTitle' maxlength='20' value='{{msgTitle}}' placeholder='标题：建议限20字以内'></input>
     </view>
 
     <view class='wx_li'>
-      <textarea maxlength='200'name='msgConent' bindinput='textChange' placeholder='信息详情描述，建议按照四个部分进行描述：我是谁、现有业务描述、我的诉求、其他（含预期业务量）使读者尽量对你有一个清晰的初步认识，加快信息传递速度'></textarea>
+      <textarea value='{{msgConent}}' maxlength='200'name='msgConent' bindinput='textChange' placeholder='信息详情描述，建议按照四个部分进行描述：我是谁、现有业务描述、我的诉求、其他（含预期业务量）使读者尽量对你有一个清晰的初步认识，加快信息传递速度'></textarea>
       <view class='text_num'>{{tNum}}/200</view>
     </view>
     
     <view class='wx_li'>
-      <input type='text' name='msgName' placeholder='您的姓名，请以真实姓名或姓+先生/女士'></input>
+      <input type='text' value='{{msgName}}' name='msgName' placeholder='您的姓名，请以真实姓名或姓+先生/女士'></input>
     </view>
 
     <view class='wx_li'>
-      <input type='number' name='msgIpone' placeholder='您的电话，方便有意者联系您'></input>
+      <button wx:if="{{!mobile}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号,方便有意者联系您</button>
+      <input wx:else type='number' value='{{mobile}}' name='msgIpone' placeholder='您的电话，方便有意者联系您'></input>
     </view>
 
     <view class="padding flex flex-direction" wx:if="{{showFree}}">
-      <button form-type="submit" class="cu-btn margin-tb-sm lg bg-gradual-blue shadow-blur">发布</button>
+      <button loading="{{isDisabled}}" disabled="{{isDisabled}}" form-type="submit" class="cu-btn margin-tb-sm lg bg-gradual-blue  text_white"  >发布</button>
     </view>
   </form> 
 </view>

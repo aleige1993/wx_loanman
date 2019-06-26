@@ -1,4 +1,7 @@
 {
-    "navigationBarTitleText": "发布列表",
+    "navigationBarTitleText": "已发布列表",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 50,
   "usingComponents": {}
 }

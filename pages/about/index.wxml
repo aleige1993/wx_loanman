@@ -8,6 +8,22 @@
     <view class='wx_li'>
         <view>邮箱：</view>
         <view>daisutong@tom.com</view>
-        <button bindtap='cope'  class="cope cu-btn round sm bg-blue">复制</button>
+        <button bindtap='copeEmail'  class="cope cu-btn round sm bg-blue">复制</button>
     </view>
+    <view class='wx_li'>
+        <view>微信公众号搜索：</view>
+        <view>BTHaoShengHuo</view>
+        <button bindtap='copeWxNo'  class="cope cu-btn round sm bg-blue">复制</button>
+    </view>
+    <!-- <view>
+        <view class='wx_imgs' bindtap='previewImage'>
+          <image src='/static/images/erweima.png'></image>
+        </view>
+       <view class="wx_text">*点击、长按识别，关注公众号*</view>
+        
+    </view> -->
+</view>
+
+<view class='flexBut'>
+    <button open-type='feedback' class='cu-btn bg-blue'>意见反馈</button>
 </view>

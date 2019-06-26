@@ -1,14 +1,15 @@
 {
     "pages": [
-        "pages/index/index",
-        "pages/about/index",
+      "pages/index/index",
+      "pages/about/index",
+        "pages/info/index",
         "pages/login/index",
+        "pages/payway/result",
         "pages/releaseList/edit/index",
         "pages/releaseList/index",
         "pages/releaseNES/index",
         "pages/payway/index",
         "pages/orderList/index",
-        "pages/info/index",
         "pages/center/index",
         "pages/statement/index",
         "pages/releaseList/details",

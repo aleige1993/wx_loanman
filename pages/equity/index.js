@@ -7,8 +7,64 @@ Page({
      */
     data: {
       viewProducts:[],
-      publishProducts:[]
-
+      publishProducts:[],
+      types:0
+    },
+   //支付
+    palyMoeny(e){
+        console.log(e);
+        let productNo = e.currentTarget.dataset.productno;
+        wx.login({
+            success(data){
+                if(data.code){
+                    let pames = {
+                        code:data.code,
+                        productNo:productNo
+                    }
+                    app.Formdata.post('/api/wx/pay', pames,(res)=>{
+                        console.log(res)
+                        if (res.code == '0000') {
+                            wx.requestPayment({
+                                timeStamp: res.data.timeStamp,
+                                nonceStr: res.data.nonceStr,
+                                package: res.data.repay_id,
+                                signType: res.data.signType,
+                                paySign: res.data.paySign,
+                                success(rult) {
+                                   wx.redirectTo({
+                                       url: '/pages/payway/result?isTrue=1',
+                                   })
+                                },
+                                fail(err) {
+                                    wx.redirectTo({
+                                        url: '/pages/payway/result?isTrue=2',
+                                    })
+                                }
+                            })
+                        } else {
+                            wx.showModal({
+                                content: '支付失败',
+                                showCancel: false,
+                                confirmText: '我知道了',
+                                success(res) {
+                                    if (res.confirm) {
+                                        wx.navigateBack({
+                                            delta: 1
+                                        })
+                                    }
+                                }
+                            })
+                        }
+                    })
+                }
+            },
+            fail(err){
+                wx.showToast({
+                    title: '支付失败',
+                    icon:'none'
+                })
+            }
+        })
     },
   //获取产品充值
   getProductList() {
@@ -28,6 +84,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      if (options.types){
+        this.setData({
+          types: options.types
+        })
+      }
       this.getProductList();
     },
 

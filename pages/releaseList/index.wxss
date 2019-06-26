@@ -5,10 +5,44 @@
     align-items: center;
     justify-content:space-between;
     align-self: center;
+    margin-top: 10rpx;
+    margin-bottom: 20rpx;
+}
+.sebox{
+    display: flex;
+    align-items: center;
+    margin-top: -12rpx;
 }
 .see{
     font-size: 24rpx;
-    margin-top: 20rpx;
+    margin-top:12rpx;
     color:#999;
-    margin-left: 4rpx;
+    margin-left: 4rpx; 
+}
+.list_panl .wx_li{
+  display:flex;
+  justify-content:space-between;
+}
+.msgTitle{
+    width: 80%;
+    font-size:30rpx;
+}
+.slltext{
+    font-size: 24rpx;
+}
+.back_bar{
+    display:flex;
+    padding: 0 22rpx;
+}
+.back_bar view{
+    width: 50%;
+    line-height: 80rpx;
+    color: #fff;
+    text-align: center;
+}
+.back_bar view.provide{
+    background-color: #0081ff;
+}
+.back_bar view.needs{
+    background-color: #e54d42;
 }

@@ -1,4 +1,5 @@
 /* pages/releaseNES/index.wxss */
+
 .rele_panl{
   padding:30rpx;
 }
@@ -14,6 +15,12 @@
 }
 .text_num{
   text-align: right;
+}
+.text_white{
+    color: #fff;
+}
+button[disabled] {
+    color: #fff !important;
 }
 
 .picker{

@@ -31,7 +31,10 @@ Page({
     indUser: null,
     indType: null,
     tNum:0,
-    msgItem:''
+    msgItem:'',
+    cunt:true,
+    showFree:true,
+    isDisabled: false
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
@@ -65,6 +68,9 @@ Page({
       app.Tools.showToast('请输入有效手机号');
       return false
     }
+      this.setData({
+          isDisabled: true
+      })
     let parms = {
       msgId: _data.msgItem.msgId,
       msgTitle: valueItem.msgTitle,
@@ -74,11 +80,22 @@ Page({
       publishName: valueItem.msgName,
       publishMobile: valueItem.msgIpone
     }
-      app.Formdata.post('/api/msg/publish',parms,(res)=>{
+      app.Formdata.post('/api/msg/republish',parms,(res)=>{
       if(res.code == '0000'){
         wx.showToast({
           title: '发布成功!',
+            success: () => {
+                setTimeout(() => {
+                    wx.switchTab({
+                      url: '/pages/index/index',
+                    })
+                }, 1000)
+            }
         })
+      }else{
+          this.setData({
+              isDisabled: false
+          })
       }
     })
    
@@ -104,6 +121,49 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+    //可发布次数
+    publishCount() {
+        let _this = this;
+        app.Formdata.post('/api/msg/free/publish/count', {}, (res) => {
+            if (res.code == '0000') {
+                this.setData({
+                    freeCount: res.data.freeCount
+                }, () => {
+                    if (res.data.freeCount == 0) {
+                        
+                        wx.showModal({
+                            title: '温馨提示',
+                            content: '为保证发布信息的质量，您每天可免费发布' + res.data.maxPublishCount + '条信息，剩余' + res.data.freeCount + '条',
+                            cancelText: '我知道了',
+                            confirmText: '去购买',
+                            success(res) {
+                                if (res.confirm) {
+                                    wx.navigateTo({
+                                      url: '/pages/equity/index?types=2',
+                                    })
+                                } else if (res.cancel) {
+                                    _this.setData({
+                                        showFree: false
+                                    })
+                                }
+                            }
+                        })
+                    }
+                    //  else {
+                    //   wx.showModal({
+                    //     title: '温馨提示',
+                    //     content: '为保证发布信息的质量，您每天可免费发布' + res.data.maxPublishCount + '条信息，剩余' + res.data.freeCount + '条',
+                    //     showCancel: false,
+                    //     confirmText: '我知道了',
+                    //     success(res) {
+                           
+                    //     }
+                    //   })
+                    // }
+                })
+            }
+        })
+    },
   onLoad: function (options) {
     let msgItem = JSON.parse(options.msgItem);
     if (msgItem){
@@ -127,7 +187,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      this.publishCount();
   },
 
   /**

@@ -1,6 +1,6 @@
 /* pages/info/index.wxss */
 .info_details{
-  margin: 30rpx;
+  margin:60rpx  30rpx;
   padding:30rpx;
   border-radius:6rpx; 
   background-color: #fff;
@@ -22,4 +22,100 @@
   padding: 6rpx 20rpx;
   margin-left:10rpx;
   border-radius:6rpx; 
+}
+.fenx{
+    position: fixed;
+    z-index: 9;
+    top: 16rpx;
+    right: 16rpx;
+}
+.iconfabu{
+    width: 80rpx;
+    height: 80rpx;
+    border-radius:100%;
+    background-color: #1cbbb4; 
+    font-size: 50rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 80rpx;
+}
+.fenx_but{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 11;
+}
+.but_hader{
+    text-align: right;
+    padding: 10rpx 30rpx;
+    border-bottom: 1px solid #eee;
+}
+.but_center{
+    display: flex;
+    margin: 30rpx 0;
+}
+.but_center .center{
+    width: 50%;
+    text-align: center;
+    line-height:normal;
+    background-color: #fff;
+}
+.but_center .center .iconfont{
+    font-size: 100rpx;
+}
+.but_center .center .iconweixin-copy{
+    color: #8dc63f;
+}
+.but_center .center .iconpengyouquan{
+    color: #fbbd08;
+}
+.but_center .center view{
+    font-size: 22rpx;
+}
+.iconcuo{
+    font-size: 40rpx;
+}
+.imgdown{
+    position: fixed;
+    z-index: 12;
+    top: 10%;
+    left: 10%;
+    background-color: #fff;
+    width: 80%;
+    padding: 20rpx;
+    border-radius:10rpx; 
+}
+.hideImg{
+    position: absolute;
+    right: -50rpx;
+    top: -50rpx;
+    z-index: 13;
+    font-size: 60rpx;
+    color: #fff;
+    transform: rotateZ(15deg);
+}
+.but_box{
+    padding: 0 50rpx;
+    margin-top: 30rpx;
+    margin-bottom: 10rpx;
+}
+.but_box button{
+    width: 100%;
+}
+.backIndex{
+    position: fixed;
+    z-index: 9;
+    left: 0;
+    top: 20rpx;
+    background-color: #1cbbb4;
+    border-top-right-radius:30rpx;
+    border-bottom-right-radius:30rpx;
+    color: #fff;
+    line-height: 60rpx;
+    padding: 0 30rpx 0  10rpx;
+}
+.backIndex icon,.backIndex text{
+    color: #fff;
 }

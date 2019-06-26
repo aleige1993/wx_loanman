@@ -1,45 +1,31 @@
 <!--pages/equity/index.wxml-->
 <view>
-    <view class="cu-bar bg-white solid-bottom" role="" aria-label="">
+    <view class="cu-bar bg-white solid-bottom" role="" aria-label="" wx:if="{{types==1||types==0}}">
         <view class="action" role="" aria-label="">
             <text class="cuIcon-titles text-orange "></text> 任意看
         </view>
     </view>
-    <view class='pice_panl'>
-        <!-- <view class='wx_li'>
-            <view class='font-w600 text-shadow text-purple'>90天内任意看信息</view>
-            <view class='text-orange  text-shadow'>49元</view>
-            <view>
-                <button class="cu-btn button-hover  bg-red" role="button" aria-label="" aria-disabled="false">去支付</button>
-            </view>
-        </view> -->
+    <view class='pice_panl' wx:if="{{types==1||types==0}}">
         <view class='wx_li' wx:for="{{viewProducts}}" wx:key="viewProducts">
             <view class='font-w600  text-shadow text-mauve'>{{item.productName}}</view>
             <view class='text-orange  text-shadow'>{{item.fee}}元</view>
             <view>
-                <button class="cu-btn button-hover  bg-red" role="button" aria-label="" aria-disabled="false">去支付</button>
+                <button class="cu-btn button-hover  bg-red"  data-productNo="{{item.productNo}}"  role="button" aria-label="" aria-disabled="false"  bindtap='palyMoeny'>去支付</button>
             </view>
         </view>
-        <!-- <view class='wx_li'>
-            <view class='font-w600  text-shadow  text-pink '>365天内任意看信息</view>
-            <view class='text-orange  text-shadow'>196元</view>
-            <view>
-                <button class="cu-btn button-hover  bg-red" role="button" aria-label="" aria-disabled="false">去支付</button>
-            </view>
-        </view> -->
     </view>
 
-    <view class="cu-bar bg-white solid-bottom" role="" aria-label="">
+    <view class="cu-bar bg-white solid-bottom" role="" aria-label="" wx:if="{{types==2||types==0}}">
         <view class="action" role="" aria-label="">
             <text class="cuIcon-titles text-orange "></text> 任意发
         </view>
     </view>
-    <view class='pice_panl'>
+    <view class='pice_panl' wx:if="{{types==2||types==0}}">
         <view class='wx_li' wx:for="{{publishProducts}}" wx:key="publishProducts">
             <view class='font-w600 text-shadow text-blue'>{{item.productName}}</view>
             <view class='text-orange  text-shadow'>{{item.fee}}元</view>
             <view>
-                <button class="cu-btn button-hover  bg-red" role="button" aria-label="" aria-disabled="false">去支付</button>
+                <button class="cu-btn button-hover  bg-red" role="button" aria-label="" aria-disabled="false" data-productNo="{{item.productNo}}"  bindtap='palyMoeny'>去支付</button>
             </view>
         </view>
     </view>

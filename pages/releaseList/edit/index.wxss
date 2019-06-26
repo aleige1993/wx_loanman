@@ -24,3 +24,9 @@
 .picker icon{
   margin-top:-10rpx;
 }
+.text_white{
+    color: #fff;
+}
+button[disabled] {
+    color: #fff !important;
+}

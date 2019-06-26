@@ -9,18 +9,17 @@ App({
       this.Tools = require('/utils/Tools.js');
       this.Date = require('/utils/Date.js');
       this.Md5 = require('/utils/md5.js'); 
-      let userInfo =  this.UserLogin.get('userInfo'); 
-      console.log(userInfo)
-      if (!userInfo){
-          setTimeout(()=>{
-              wx.navigateTo({
-                  url: '/pages/login/index',
-              })
-          },3000)
-      }else{
-          console.log(2)
-      }
+      let userInfo =  this.UserLogin.get('userInfo');  
+    //   if (!userInfo){
+    //       setTimeout(()=>{
+    //           wx.navigateTo({
+    //               url: '/pages/login/index',
+    //           })
+    //       },3000)
+    //   }else{ 
+    //   }
   },
   globalData: {
+    msgId:null
   }
 })

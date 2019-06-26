@@ -6,7 +6,28 @@ page{
     display: flex;
     padding: 30rpx;
     align-items: center;
+    padding-bottom: 0;
 }
 .cope{
     margin-left: 20rpx;
+}
+.flexBut{
+    padding: 0 30%;
+    margin-top: 30vh;
+}
+.flexBut button{
+    width: 100%;
+}
+.wx_imgs{
+  text-align: center;
+}
+.wx_imgs image{
+  width: 60%;
+  height:400rpx;
+}
+.wx_text{
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
 }

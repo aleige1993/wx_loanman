@@ -1,55 +1,37 @@
 <!--pages/releaseList/index.wxml-->
- <view class='listProud'>
-  <view class='list_bar'>
-      <view class='provide'>服务提供方</view>
-      <view class='needs'>服务需求方</view>
-  </view>
-  <view wx:for="{{msgList}}" wx:key="msgList" data-item="{{item}}" bindtap='gotoBackDetail'  class='list_panl {{item.publishRole == 1?"needs":"provide"}}  shadow-just'>
-      <view class='wx_li'>
-        <view class='font-w6'>{{item.msgTitle}}</view>
-        <view wx:if="{{item.status == 1}}" class='text-shadow text-pink'>展示中</view>
-        <view wx:if="{{item.status == 2}}" class='text-shadow text-brown'>已下架</view>
-        <view wx:if="{{item.status == 3}}" class='text-shadow text-gray'>已失效</view>
-        <view wx:if="{{item.status == 4}}" class='text-shadow text-gray'>已删除</view>
-      </view>
-      <view class='see_panl'>
-        <view>
-          <icon class='iconfont iconliulan'></icon><text class='see'>{{item.viewCount?item.viewCount:0}}</text>
+<view class='listProud'>
+    <!-- <view class='list_bar'>
+        <view class='provide'>服务提供方</view>
+        <view class='needs'>服务需求方</view>
+    </view> -->
+    <view class='back_bar'>
+         <view class='provide'>服务提供方</view>
+        <view class='needs'>服务需求方</view>
+    </view>
+    <view wx:for="{{msgList}}" wx:key="msgList" data-item="{{item}}" bindtap='gotoBackDetail' class='list_panl {{item.publishRole == 1?"needs":"provide"}}  shadow-just'>
+        <view class='wx_li'>
+            <view class='font-w6 overflowfont msgTitle'>{{item.msgTitle}}</view>
+            <view wx:if="{{item.status == 1}}" class='status text-shadow text-pink'>展示中</view>
+            <view wx:if="{{item.status == 2}}" class='status text-shadow text-brown'>已下架</view>
+            <view wx:if="{{item.status == 3}}" class='status text-shadow text-gray'>已失效</view>
+            <view wx:if="{{item.status == 4}}" class='status text-shadow text-gray'>已删除</view>
         </view>
-        <view class='text-gray'>{{item.firstPublishTime}}</view>
-      </view>
-      <view class='wx_li overflowfont c-666'>
-        {{item.content}}
-      </view>
-  </view>
-<!-- 
-  <navigator  url="/pages/releaseList/details" class='list_panl needs shadow-just'>
-      <view class='wx_li'>
-        <view class='font-w6'>提供毛毯</view>
-        <view>2015-12-01</view>
-         <view  class='text-shadow text-brown'>已下架</view>
-      </view>
         <view class='see_panl'>
-        <icon class='iconfont iconliulan'></icon><text class='see'>12313</text>
-      </view>
-      <view class='wx_li overflowfont c-666'>
-        我这里有很多毛毯
-      </view>
-  </navigator>
-
-
-  <navigator url="/pages/releaseList/details" class='list_panl needs shadow-just'>
-      <view class='wx_li'>
-        <view class='font-w6'>提供毛毯</view>
-        <view>2015-12-01</view>
-         <view class='text-shadow text-gray'>已失效</view>
-      </view>
-        <view class='see_panl'>
-        <icon class='iconfont iconliulan'></icon><text class='see'>12313</text>
-      </view>
-      <view class='wx_li overflowfont c-666'>
-        我这里有很多毛毯
-      </view>
-  </navigator> -->
-
+            <view class='sebox'>
+                <icon class='iconfont iconliulan'></icon>
+                <text class='see'>{{item.viewCount?item.viewCount:0}}</text>
+            </view>
+            <view class='text-gray slltext'>{{item.firstPublishTime}}</view>
+        </view>
+        <view class='wx_li2 overflowfont2 c-666'>
+            {{item.content}}
+        </view>
+    </view>
+     <view class='nulldata' wx:if="{{isNull}}">
+            <view class='tlte_null'>没有数据了~~~</view>
+        </view> 
+</view>
+ <view class='nulldata' wx:if="{{msgList.length<=0}}">
+    <icon class='iconfont iconqunfengweizhaodaoshangjia'></icon>
+    <view class='tlte_null'>暂无数据~~~</view>
 </view>

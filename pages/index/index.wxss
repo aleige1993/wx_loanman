@@ -28,7 +28,7 @@
 }
 .listProud{
   border-top:1px solid #ccc;
-  padding:20rpx 0 60rpx 0; 
+  padding:20rpx 0 20rpx 0; 
 }
 .list_bar{
   display: flex;
@@ -54,9 +54,23 @@
   padding: 20rpx;
 }
 .list_panl .wx_li{
-  display: flex;
+  display: -webkit-flex;
   justify-content:space-between;
 }
 .list_panl .wx_li:last-child{
   margin-top: 30rpx;
+}
+.nulldata{
+    margin-top: 20rpx;
+}
+.mg-ud{
+    margin-top: 10rpx;
+    margin-bottom: 20rpx;
+    font-size: 24rpx;
+}
+.hd-title{
+    font-size: 30rpx;
+}
+.wx_li2{
+    margin-top:20rpx;
 }

@@ -32,13 +32,32 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 1,
+			"list": [
+				{
+					"id": 0,
+					"name": "分享",
+					"pathName": "pages/info/index",
+					"query": "fenx=&msgId=MG201906191606002101248100001",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分享",
+					"pathName": "pages/info/index",
+					"query": "fenx=1&msgId=MG201906191606002101248100001",
+					"scene": null
+				}
+			]
 		}
 	}
 }

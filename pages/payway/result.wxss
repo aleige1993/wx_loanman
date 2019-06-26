@@ -1,0 +1,23 @@
+/* pages/payway/result.wxss */
+page{
+    background-color: #fff;
+}
+.result{
+    margin-top: 100rpx;
+}
+.result .res{
+    text-align: center;
+}
+.res .iconfont{
+    font-size:200rpx;
+    margin-bottom: 30rpx;
+}
+.showRes{
+    text-align: center;
+}
+.showRes .show{ 
+    width: 100%;
+}
+.showRes .show navigator{
+   margin: 30rpx;
+}

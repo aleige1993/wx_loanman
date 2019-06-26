@@ -8,11 +8,12 @@
 .header{
  padding: 20rpx;
  border-bottom: 1px solid #eee;
- display: flex;
- justify-content: space-between;
 }
 .header view{
      font-size: 24rpx;
+}
+.header view:last-child{
+    margin-top:10rpx; 
 }
 .order_center{
     padding: 20rpx;

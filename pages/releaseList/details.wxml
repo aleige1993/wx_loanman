@@ -40,7 +40,7 @@
     <view class='button_panl'>
         <button bindtap='msgRefresh' class="cu-btn  bg-green" >刷新</button>
         <button bindtap='gotoBack'  class="cu-btn   bg-blue" >编辑</button>
-        <button bindtap='msgDown' class="cu-btn  bg-grey">下架</button>
+        <button wx:if="{{msgItem.status == 1}}" bindtap='msgDown' class="cu-btn  bg-grey">下架</button>
     </view>
 
 </view>

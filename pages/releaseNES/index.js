@@ -32,8 +32,43 @@ Page({
     indType: null,
     tNum:0,
     freeCount:0,
-    showFree:true
+    maxPublishCount:0,
+    showFree:true,
+    cunt:true,
+    isDisabled:false,
+      mobile: app.UserLogin.get('userInfo') ? app.UserLogin.get('userInfo').mobile:null,
+      msgTitle: '',
+      msgConent: '',
+      msgName: ''
   },
+  getPhoneNumber(e){
+      let _this = this;
+    wx.login({
+      success(log) {
+        if (log.code) {
+          let parms = {
+            code: log.code,
+            encData: e.detail.encryptedData,
+            iv: e.detail.iv, 
+          }
+          app.Formdata.post('/api/wx/auth', parms, (res) => {
+            if (res.code == '0000') {
+                let userInfo = app.UserLogin.get('userInfo');
+                userInfo.mobile = res.data.mobile;
+                app.UserLogin.set('userInfo', userInfo);
+                _this.setData({
+                    mobile: res.data.mobile
+                })
+                
+            }
+          });
+
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    }) 
+    },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     let _this = this;
@@ -63,6 +98,9 @@ Page({
       app.Tools.showToast('请输入有效手机号');
       return false
     }
+    this.setData({
+        isDisabled:true
+    })
     let parms = {
       msgType: Number(_data.indType)+1, 
       publishRole: Number(_data.indUser)+1, 
@@ -75,10 +113,24 @@ Page({
       if (res.code == '0000') {
         wx.showToast({
           title: '发布成功!',
+          success:()=>{
+            setTimeout(() => {
+              wx.switchTab({
+                url: '/pages/index/index',
+              })
+            }, 1000)
+          }
         })
-      }
+          this.setData({
+              isDisabled: false,
+              indUser:0,
+              indType:0,
+              msgTitle:'',
+              msgConent:'',
+              msgName:''
+          })
+      } 
     })
-   
   },
   //获取输入字数
   textChange(e) {
@@ -104,18 +156,19 @@ Page({
         app.Formdata.post('/api/msg/free/publish/count',{},(res)=>{
             if(res.code == '0000'){
                 this.setData({
-                    freeCount: res.data.freeCount
+                    freeCount: res.data.freeCount,
+                    maxPublishCount: res.data.maxPublishCount
                 },()=>{
-                    if (res.data.freeCount == 0){
+                    if (res.data.freeCount == 0){ 
                         wx.showModal({
                             title: '温馨提示',
-                            content: '您每个月的发布次数已使用完',
+                            content:  ' 为保证发布信息的质量，您每天可免费发布' + res.data.maxPublishCount+'条信息，剩余'+res.data.freeCount+'条',
                             cancelText:'我知道了',
                             confirmText:'去购买',
                             success(res) {
                                 if (res.confirm) {
                                     wx.navigateTo({
-                                        url: '/pages/equity/index',
+                                      url: '/pages/equity/index?types=2',
                                     }) 
                                 } else if (res.cancel) {
                                     _this.setData({
@@ -125,6 +178,17 @@ Page({
                             } 
                         })
                     }
+                    // else{
+                    //   wx.showModal({
+                    //     title: '温馨提示',
+                    //     content: ' 为保证发布信息的质量，您每天可免费发布' + res.data.maxPublishCount+'条信息，剩余'+res.data.freeCount+'条',
+                    //     showCancel: false,
+                    //     confirmText: '我知道了',
+                    //     success(res) {
+                           
+                    //     }
+                    //   })
+                    // }
                 })
             }
         })
@@ -132,8 +196,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+onTabItemTap:function(){
+    this.publishCount();
+},
   onLoad: function (options) {
-     
+
   },
 
   /**
@@ -146,8 +213,15 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
+    onHide:function(){
+        // if (app.UserLogin.get('userInfo')) {
+        //     this.setData({
+        //         mobile: app.UserLogin.get('userInfo').mobile
+        //     })
+        // }
+    },
   onShow: function () {
-      this.publishCount();
+    
   },
 
   /**

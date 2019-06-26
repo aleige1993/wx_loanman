@@ -16,18 +16,22 @@
                     <text>请先登录</text>
                 </view>
             </view>
-            <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" disabled="{{disabled}}" class='wx_button' >
+            <!-- open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" -->
+            <button type="primary" open-type="getUserInfo" bindgetuserinfo="wxLogin"    disabled="{{isDisabled}}" class='bg-green wx_button' >
                 <icon class='iconfont iconweixin'></icon>
                 <text>微信快捷登录</text>
             </button>
-    </view>
-
+            <view class='gouxuan'> 
+                    <icon class='iconfont icondui text-blue'></icon>
+                    <navigator class='text-blue' hover-class='none' url="/pages/statement/index">贷速通平台用户协议</navigator> 
+            </view>
+    </view> 
 </view>
 
-<view class='layer' wx:if="{{isLogin}}"></view>
+<!-- <view class='layer' wx:if="{{isLogin}}"></view>
 <view class='wxuser'  wx:if="{{isLogin}}">
-    <image src='/static/images/error.png'></image>
+    <image src='/static/images/tu.png'></image>
     <view class='butBox'>
         <button class='but_info' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">授权微信用户信息</button>
     </view>
-</view>
+</view> -->

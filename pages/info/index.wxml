@@ -1,46 +1,84 @@
 <!--pages/info/index.wxml-->
- <view class='info_details'>
-  <view class='wx_li'>
-    <text>发布人角色：</text>
-    <view>{{infoItme.publishRole == '1' ? '服务需求方':'服务提供者'}}</view>
-  </view>
-  <view class='wx_li'>
-    <text>信息类型：</text>
-    <view wx:if="{{infoItme.msgType == 1}}">通道挂靠</view>
-    <view wx:if="{{infoItme.msgType == 2}}">电子签章</view>
-    <view wx:if="{{infoItme.msgType == 3}}">其他</view>
-  </view>
-  <view class='wx_li'>
-    <text>标题：</text>
-    <view>{{infoItme.msgTitle}}</view>
-  </view>
-  <view class='wx_li'>
-    <text>详情：</text>
-    <view>{{infoItme.content}}</view>
-  </view>
-  <view class='wx_li'>
-    <text>发布时间：</text>
-    <view>{{infoItme.firstPublishTime}}</view>
-  </view>
-  <view class='wx_li'>
-    <text>发布人姓名：</text>
-    <view wx:if="{{freeCount}}">{{infoItme.publishName}}</view>
-    <view wx:else class='text-orange '>
-      您本月查看{{infoItme.viewCount}}条信息的免费次数已用完，希望这些信息已为您创造了价值！
+<view class='info_details'>
+    <view class='wx_li'>
+        <text>发布人角色：</text>
+        <view>{{infoItme.publishRole == '1' ? '服务需求方':'服务提供者'}}</view>
     </view>
-  </view>
-  <view class='wx_li'>
-    <text>发布人电话：</text>
-    <view wx:if="{{freeCount}}">{{infoItme.publishMobile}}<label class='bada'  bindtap='telIpone'>拨打</label></view>
-    <view  wx:else class='text-orange'>
-      为了能持续为您创造价值，点击下方按钮获取无限信息查询权限!
+    <view class='wx_li'>
+        <text>信息类型：</text>
+        <view wx:if="{{infoItme.msgType == 1}}">通道挂靠</view>
+        <view wx:if="{{infoItme.msgType == 2}}">电子签章</view>
+        <view wx:if="{{infoItme.msgType == 3}}">其他</view>
     </view>
-  </view>
+    <view class='wx_li'>
+        <text>标题：</text>
+        <view>{{infoItme.msgTitle}}</view>
+    </view>
+    <view class='wx_li'>
+        <text>详情：</text>
+        <view>{{infoItme.content}}</view>
+    </view>
+    <view class='wx_li'>
+        <text>发布时间：</text>
+        <view>{{infoItme.firstPublishTime}}</view>
+    </view>
+    <view class='wx_li'>
+        <text>发布人姓名：</text>
+        <view wx:if="{{freeCount}}">{{infoItme.publishName}}</view>
+        <view wx:else class='text-orange '>
+           {{token ? '您本月查看'+maxFreeCount+'条信息的免费次数已用完，希望这些信息已为您创造了价值!':'请先去登录，希望这些信息能为您创造价值!'}} 
+        </view>
+    </view>
+    <view class='wx_li'>
+        <text>发布人电话：</text>
+        <view wx:if="{{freeCount}}">{{infoItme.publishMobile}}
+            <label wx:if="{{iphone}}" class='bada' bindtap='telIpone'>拨打</label>
+        </view>
+        <view wx:else class='text-orange'>
+         {{token ? '为了能持续为您创造价值，点击下方按钮获取无限信息查询权限!':'请先去登录，希望能持续为您创造价值!'}} 
+        </view>
+    </view>
 
-  <view class="padding flex flex-direction"> 
-    <button bindtap='gotoBack' class="cu-btn margin-tb-sm lg bg-gradual-blue shadow-blur">获取无限查询权限</button>
-  </view>
-  
- </view>
+    <view class="padding flex flex-direction" wx:if="{{isbut && token}}">
+        <button bindtap='gotoBack' class="cu-btn margin-tb-sm lg bg-gradual-blue shadow-blur">获取无限查询权限</button>
+    </view>
+     <view class="padding flex flex-direction" wx:if="{{!token}}">
+        <navigator url='/pages/login/index' class="cu-btn round margin-tb-sm lg bg-gradual-blue shadow-blur">去登录</navigator>
+    </view>
 
- <!-- <button open-type='share'>转发</button> -->
+</view>
+<view class='fenx' bindtap='toggle' wx:if="{{token}}">
+    <icon class='iconfont iconfabu'></icon>
+</view>
+<view class='layer' wx:if="{{layer}}"></view>
+<view class='imgdown' wx:if="{{imgdown}}">
+    <icon class='hideImg iconfont iconcuo1' bindtap='hideImg'></icon>
+    <view>
+        <image src='{{imgUrl}}'></image>
+    </view>
+    <view  class='but_box'>
+        <button class='cu-btn round bg-orange' bindtap='setImage'>保存图片</button>
+    </view>
+</view>
+<view class='fenx_but animation-slide-bottom' wx:if="{{fenx}}" >
+    <view class='but_hader'>
+        <icon class='iconfont iconcuo' bindtap='hideTogg'></icon>
+    </view>
+    <view class='but_center'>
+        <button  class='center' open-type="share">
+            <icon class='iconfont iconweixin-copy'></icon>
+            <view>微信好友</view>
+        </button>
+        <view class='center' data-msgId="{{infoItme.msgId}}" bindtap='showBut'>
+            <icon class='iconfont iconpengyouquan'></icon>
+            <view>微信朋友圈</view>
+        </view>
+    </view>
+</view>
+
+<navigator  url='/pages/index/index' open-type='switchTab'  class='backIndex' wx:if="{{fenxHome }}">
+<icon class='iconfont icontubiaozhizuo-'></icon>
+<text>返回首页</text>
+</navigator>
+
+<view class='layer' wx:if="{{islayer}}"></view>

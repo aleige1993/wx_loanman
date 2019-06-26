@@ -8,14 +8,13 @@
         <view class='font-w6 text-blue'>{{wxUserInfo.nickName}}</view>
         <view class='level'>
           <view class='nechens'>
-            <text class='text-orange'>大地主</text>
-            <icon class="iconfont iconiconfontwenhao c-999"></icon>
+            <text class='text-orange'>{{memberData.memberRole}}</text>
+            <!-- <icon class="iconfont iconiconfontwenhao c-999"></icon> -->
             <!-- <label>购买了查看信息和发布信息的客户</label> -->
           </view>
           <view class='days c-999'>
-            权益剩余天数：<text class='text-green font-w6'>90天</text>
+            权益剩余天数：<text class='text-green font-w6'>{{memberData.powerLeft}}天</text>
           </view>
-
         </view>
       </view>
     </view>

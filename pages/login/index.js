@@ -6,7 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        disabled:false,
+        isDisabled:false,
         userCode:null,
         bannerList:[],
         isLogin:false
@@ -16,63 +16,97 @@ Page({
      * 生命周期函数--监听页面加载
      */
     //获取用户信息
-    onGotUserInfo(e){
-        let wxUserInfo = e.detail.userInfo;
-        if (wxUserInfo){
+    onGotUserInfo(e){ 
+      wx.getUserInfo({
+        success: function (res) { 
+          console.log(res);
+          let wxUserInfo = res.userInfo
+          if (wxUserInfo) {
             app.UserLogin.set('wxUserInfo', wxUserInfo);
-            this.setData({
-                isLogin:false
-            })
+            this.wxLogin()
+          }
         }
+      })  
     }, 
     //一键登录
-    getPhoneNumber(e){
-        console.log(e)
-        this.wxLogin();
-        // let parms = {
-        //     code: this.data.userCode,
-        //     encData: e.detail.encData,
-        //     iv: e.detail.iv
-        // }
-        // app.Formdata.post('/api/wx/auth', parms,(res) => {
-        //     if(res.code == '0000') {
-        //         app.UserLogin.set('userInfo',res.data);
-        //         this.wxLogin(res.data.miobile)
-        //     }
-        // });
-    },
-    wxLogin(mobile){
-        let parms = {
-            mobile: '15683098850',
-            password: app.Md5.hexMD5('123456')
+    // getPhoneNumber(e){
+    //     wx.showLoading({
+    //         title: '登录中...',
+    //     })
+    //     this.setData({
+    //         isDisabled:true
+    //     })
+    //     let parms = {
+    //         code: this.data.userCode,
+    //         encData: e.detail.encryptedData,
+    //         iv: e.detail.iv,
+    //         sex: app.UserLogin.get('wxUserInfo') ? app.UserLogin.get('wxUserInfo').gender : '',
+    //         avatarUri: app.UserLogin.get('wxUserInfo') ? app.UserLogin.get('wxUserInfo').avatarUrl : ''
+    //     }
+    //     app.Formdata.post('/api/wx/auth', parms,(res) => {
+    //         if(res.code == '0000') {
+    //             app.UserLogin.set('userInfo',res.data);
+    //             this.wxLogin(res.data.mobile)
+    //         } 
+    //     });
+
+    // },
+      wxLogin(e){
+        console.log(e);
+        let wxUserInfo = e.detail.userInfo
+        if (wxUserInfo) {
+          app.UserLogin.set('wxUserInfo', wxUserInfo);
         }
-        app.Formdata.post('/api/wx/login',parms,(res) => {
-            if(res.code == '0000'){
-                app.UserLogin.set('userInfo', res.data);
-                wx.showToast({
+        wx.showLoading({
+            title: '登录中...',
+        })
+        this.setData({
+            isDisabled:true
+        })
+        wx.login({
+          success(log) {
+            if (log.code) {
+              console.log(log);
+              let parms = {
+                code: log.code,
+                sex: app.UserLogin.get('wxUserInfo') ? app.UserLogin.get('wxUserInfo').gender : '',
+                avatarUri: app.UserLogin.get('wxUserInfo') ? app.UserLogin.get('wxUserInfo').avatarUrl : '',
+                nickName: app.UserLogin.get('wxUserInfo') ? app.UserLogin.get('wxUserInfo').nickName : ''
+              }
+              app.Formdata.post('/api/wx/login', parms, (res) => {
+                wx.hideLoading();
+                if (res.code == '0000') {
+                  app.UserLogin.set('userInfo', res.data);
+                  wx.showToast({
                     title: '成功登录！',
-                    success(){
-                       setTimeout(()=>{
-                           wx.switchTab({
-                               url: '/pages/index/index',
-                           })
-                       },2000)
+                    success() {
+                      setTimeout(() => {
+                        if (app.globalData.msgId){
+                          wx.redirectTo({
+                              url: '/pages/info/index?fenx=1&msgId=' + app.globalData.msgId,
+                          })
+                        }else{
+                          wx.switchTab({
+                            url: '/pages/index/index',
+                          })
+                        }
+                      }, 2000)
                     }
-                })
+                  })
+                } else {
+                  this.setData({
+                    isDisabled: false
+                  })
+                }
+              })
+              wx.hideLoading();
             }
+          }
         })
     },
     onLoad: function (options) {
         let _this = this;
-        wx.login({
-            success(log) {
-                if (log.code) {
-                    _this.setData({
-                        userCode: log.code
-                    })
-                }
-            }
-        })
+      // _this.onGotUserInfo();
     },
 
     /**
@@ -86,12 +120,12 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        let wxUserInfo =  app.UserLogin.get('wxUserInfo');
-        if (!wxUserInfo){
-            this.setData({
-                isLogin:true
-            })
-        }
+        // let wxUserInfo =  app.UserLogin.get('wxUserInfo');
+        // if (!wxUserInfo){
+        //     this.setData({
+        //         isLogin:true
+        //     })
+        // }
     },
 
     /**
