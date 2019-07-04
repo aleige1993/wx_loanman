@@ -10,7 +10,7 @@
             <view class='font-w600  text-shadow text-mauve'>{{item.productName}}</view>
             <view class='text-orange  text-shadow'>{{item.fee}}元</view>
             <view>
-                <button class="cu-btn button-hover  bg-red"  data-productNo="{{item.productNo}}"  role="button" aria-label="" aria-disabled="false"  bindtap='palyMoeny'>去支付</button>
+                <button class="cu-btn button-hover  bg-red"  data-productNo="{{item.productNo}}"  role="button" aria-label="" aria-disabled="false" disabled='{{ispay}}'   bindtap='palyMoeny'>去支付</button>
             </view>
         </view>
     </view>
@@ -25,7 +25,7 @@
             <view class='font-w600 text-shadow text-blue'>{{item.productName}}</view>
             <view class='text-orange  text-shadow'>{{item.fee}}元</view>
             <view>
-                <button class="cu-btn button-hover  bg-red" role="button" aria-label="" aria-disabled="false" data-productNo="{{item.productNo}}"  bindtap='palyMoeny'>去支付</button>
+                <button class="cu-btn button-hover  bg-red" role="button" aria-label="" aria-disabled="false" data-productNo="{{item.productNo}}"  disabled='{{ispay}}' bindtap='palyMoeny'>去支付</button>
             </view>
         </view>
     </view>

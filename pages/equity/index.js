@@ -8,11 +8,16 @@ Page({
     data: {
       viewProducts:[],
       publishProducts:[],
-      types:0
+      types:0,
+      ispay:false
     },
    //支付
     palyMoeny(e){
         console.log(e);
+        let _this = this;
+        this.setData({
+            ispay:true
+        })
         let productNo = e.currentTarget.dataset.productno;
         wx.login({
             success(data){
@@ -31,13 +36,13 @@ Page({
                                 signType: res.data.signType,
                                 paySign: res.data.paySign,
                                 success(rult) {
-                                   wx.redirectTo({
+                                   wx.navigateTo({
                                        url: '/pages/payway/result?isTrue=1',
                                    })
                                 },
                                 fail(err) {
-                                    wx.redirectTo({
-                                        url: '/pages/payway/result?isTrue=2',
+                                    wx.navigateTo({
+                                        url: '/pages/payway/result?isTrue=2&productNo=' + productNo,
                                     })
                                 }
                             })
@@ -62,6 +67,9 @@ Page({
                 wx.showToast({
                     title: '支付失败',
                     icon:'none'
+                })
+                _this.setData({
+                    ispay: false
                 })
             }
         })
@@ -103,7 +111,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.setData({
+            ispay: false
+        })
     },
 
     /**

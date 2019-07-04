@@ -32,13 +32,23 @@
 }
 .back_bar{
     display:flex;
-    padding: 0 22rpx;
+    padding: 0 100rpx;
 }
 .back_bar view{
     width: 50%;
     line-height: 80rpx;
-    color: #fff;
     text-align: center;
+    color: #fff;
+    background-color: #8799a3;
+}
+.back_bar view:nth-child(1){
+    border-right:1px solid #ccc; 
+    border-top-left-radius:10rpx;
+    border-bottom-left-radius: 10rpx;
+}
+.back_bar view:nth-child(2){
+    border-top-right-radius:10rpx;
+    border-bottom-right-radius: 10rpx;
 }
 .back_bar view.provide{
     background-color: #0081ff;

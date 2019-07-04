@@ -6,9 +6,7 @@
     </view>
     <view class='wx_li'>
         <text>信息类型：</text>
-        <view wx:if="{{infoItme.msgType == 1}}">通道挂靠</view>
-        <view wx:if="{{infoItme.msgType == 2}}">电子签章</view>
-        <view wx:if="{{infoItme.msgType == 3}}">其他</view>
+        <view>{{infoItme.msgTypeName}}</view> 
     </view>
     <view class='wx_li'>
         <text>标题：</text>
@@ -54,7 +52,7 @@
 <view class='imgdown' wx:if="{{imgdown}}">
     <icon class='hideImg iconfont iconcuo1' bindtap='hideImg'></icon>
     <view>
-        <image src='{{imgUrl}}'></image>
+        <image  class='imgheigt' src='{{imgUrl}}'></image>
     </view>
     <view  class='but_box'>
         <button class='cu-btn round bg-orange' bindtap='setImage'>保存图片</button>
@@ -81,4 +79,4 @@
 <text>返回首页</text>
 </navigator>
 
-<view class='layer' wx:if="{{islayer}}"></view>
+<view class='islayer' wx:if="{{islayer}}"></view>

@@ -17,13 +17,14 @@ Page({
      */
     //获取用户信息
     onGotUserInfo(e){ 
+        let _this = this;
       wx.getUserInfo({
         success: function (res) { 
           console.log(res);
           let wxUserInfo = res.userInfo
           if (wxUserInfo) {
             app.UserLogin.set('wxUserInfo', wxUserInfo);
-            this.wxLogin()
+              _this.wxLogin()
           }
         }
       })  
@@ -53,6 +54,7 @@ Page({
     // },
       wxLogin(e){
         console.log(e);
+        let  _this  = this;
         let wxUserInfo = e.detail.userInfo
         if (wxUserInfo) {
           app.UserLogin.set('wxUserInfo', wxUserInfo);
@@ -60,7 +62,7 @@ Page({
         wx.showLoading({
             title: '登录中...',
         })
-        this.setData({
+          _this.setData({
             isDisabled:true
         })
         wx.login({
@@ -94,7 +96,7 @@ Page({
                     }
                   })
                 } else {
-                  this.setData({
+                    _this.setData({
                     isDisabled: false
                   })
                 }

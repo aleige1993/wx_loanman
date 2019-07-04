@@ -6,9 +6,7 @@
     </view>
     <view class='wx_li'>
         <text>信息类型：</text>
-        <view wx:if="{{msgItem.msgType == 1}}">通道挂靠</view>
-    <view wx:if="{{msgItem.msgType == 2}}">电子签章</view>
-    <view wx:if="{{msgItem.msgType == 3}}">其他</view>
+        <view>{{msgItem.msgTypeName}}</view>
     </view>
     <view class='wx_li'>
         <text>标题：</text>
@@ -38,7 +36,7 @@
     </view>
 
     <view class='button_panl'>
-        <button bindtap='msgRefresh' class="cu-btn  bg-green" >刷新</button>
+        <button wx:if="{{msgItem.status == 1}}" bindtap='msgRefresh' class="cu-btn  bg-green" >刷新</button>
         <button bindtap='gotoBack'  class="cu-btn   bg-blue" >编辑</button>
         <button wx:if="{{msgItem.status == 1}}" bindtap='msgDown' class="cu-btn  bg-grey">下架</button>
     </view>

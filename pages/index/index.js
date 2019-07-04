@@ -18,23 +18,7 @@ Page({
                 id: 2
             }
         ],
-        arrType: [{
-                lable: '全部',
-                id: 0
-            },
-            {
-                lable: '通道挂靠',
-                id: 1
-            },
-            {
-                lable: '电子签章',
-                id: 2
-            },
-            {
-                lable: '其他',
-                id: 3
-            }
-        ],
+        arrType: null,
         arrPaixu: [{
                 lable: '最新发布',
                 id: 1
@@ -85,7 +69,6 @@ Page({
     getBannerLIst() {
         let parms = {}
         app.Formdata.post('/api/banner/list', parms, (res) => {
-            console.log(res);
             this.setData({
                 swiperList: res.data
             })
@@ -96,6 +79,7 @@ Page({
         wx.showLoading({
             title: '刷新中...',
         })
+        console.log(this.data.arrType[this.data.indType]);
         let parms = {
             page: this.data.page,
             limit: this.data.limit,
@@ -117,12 +101,13 @@ Page({
                 this.setData({
                     msgList: this.data.msgList.concat(res.data.data)
                 })
+                app.globalData.showType = null;
             }
         })
-        setTimeout(()=>{
+        setTimeout(() => {
             wx.hideLoading()
             wx.stopPullDownRefresh()
-        },1000);
+        }, 1000);
     },
     //跳转h5
     gotoBack(e) {
@@ -139,28 +124,62 @@ Page({
             url: '/pages/info/index?msgId=' + infoItme.msgId
         })
     },
-    onLoad: function() {
-        //   this.getBannerLIst();
-        //   this.getMsgList();
+    getMsgType() {
+        app.Formdata.post('/api/msg/all/type', {}, (res) => {
+            if (res.code == '0000') {
+                app.UserLogin.set('arrType', res.data.arrType)
+            }
+        });
+    },
+    onLoad: function(query) {
+        if (!app.UserLogin.get('arrType')) {
+            this.getMsgType();
+        }
+        // this.setData({
+        //   arrType: app.UserLogin.get('arrType')
+        // });
         wx.showShareMenu({
             withShareTicket: true
         })
     },
     onShow: function() {
-      this.getBannerLIst();
-      this.setData({
-        publishOrder: 1,
-        page: 1,
-        msgType: 0,
-        publishRole: 0,
-        msgList: []
-      }, () => {
-        this.getMsgList();
-      })
-        //   this.getMsgList();
-        // if (this.data.msgList.length <= 0) {
-            
-        // }
+        this.getBannerLIst();
+        if (app.globalData.showType) {
+            this.setData({
+                indUser: null,
+                indType: null,
+                indPaixu: null
+            })
+        }
+        if (this.data.arrType) {
+            this.setData({
+                publishOrder: 1,
+                page: 1,
+                msgType: 0,
+                publishRole: 0,
+                msgList: []
+            }, () => {
+                this.getMsgList();
+            })
+        } else {
+            setTimeout(() => {
+                let arrType = app.UserLogin.get('arrType');
+                arrType.unshift({
+                    lable: "全部",
+                    id: "0"
+                });
+                this.setData({
+                    arrType: arrType,
+                    publishOrder: 1,
+                    page: 1,
+                    msgType: 0,
+                    publishRole: 0,
+                    msgList: []
+                }, () => {
+                    this.getMsgList();
+                })
+            }, 1500)
+        }
     },
     onPullDownRefresh: function() {
         this.setData({

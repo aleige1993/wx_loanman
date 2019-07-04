@@ -50,12 +50,13 @@
   margin: 0 3%;
   background-color: #fff;
   border-radius:6rpx;
-  margin-top: 20rpx;
+  margin-top: 40rpx;
   padding: 20rpx;
 }
 .list_panl .wx_li{
   display: -webkit-flex;
   justify-content:space-between;
+  position: relative;
 }
 .list_panl .wx_li:last-child{
   margin-top: 30rpx;
@@ -73,4 +74,21 @@
 }
 .wx_li2{
     margin-top:20rpx;
+}
+.chakan{
+    position: absolute;
+    right:-30rpx;
+    top:-40rpx;
+    width: 50rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    color:#fff;
+    border-radius:100%;
+    z-index: 2; 
+    background-color: #fbbd08;
+    font-size: 24rpx;
+}
+.status{
+    margin-right: 30rpx;
 }

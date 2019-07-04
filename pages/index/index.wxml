@@ -7,15 +7,15 @@
     <view class='picker_model'>
         <picker bindchange="onPickerUser" value="{{indUser}}" range-key="lable" range="{{arrUser}}">
             <view class="picker">
-                <text class='overflowfont'>{{arrUser[indUser]?arrUser[indUser].lable:'发布人角色'}}</text>
+                <text class='overflowfont'>{{arrUser[indUser]?arrUser[indUser].lable == '全部'?'发布人角色':arrUser[indUser].lable:'发布人角色'}}</text>
                 <icon class='iconfont iconxiala'></icon>
             </view>
         </picker>
     </view>
     <view class='picker_model'>
-        <picker bindchange="onPickerType" value="{{indType}}" range-key="lable" range="{{arrType}}">
+        <picker  bindchange="onPickerType" value="{{indType}}" range-key="lable" range="{{arrType}}">
             <view class="picker">
-                <text class='overflowfont'>{{arrType[indType]?arrType[indType].lable:'信息类型'}}</text>
+                <text class='overflowfont'>{{arrType[indType]?arrType[indType].lable == '全部'?'信息类型':arrType[indType].lable:'信息类型'}}</text>
                 <icon class='iconfont iconxiala'></icon>
             </view>
         </picker>
@@ -37,8 +37,9 @@
     </view>
     <view wx:for="{{msgList}}" wx:key="msgList" data-item="{{item}}" bindtap='gotoBackInfo' class='list_panl {{item.publishRole == 1?"needs":"provide"}} shadow-just'>
         <view class='wx_li'>
-            <view class='font-w6  hd-title'>{{item.msgType == 1? '通道挂靠':item.msgType == 2? '电子签章':'其他'}}</view>
-            <view class='c-999 '>{{item.firstPublishTime}}</view>
+            <view class='font-w6  hd-title'>{{item.msgTypeName}}</view>
+            <view class='c-999 status'>{{item.firstPublishTime}}</view>
+            <view class='chakan'>{{item.viewCount}}</view>
         </view>
         <view class='wx_li2 overflowfont c-666'>
             {{item.msgTitle}}

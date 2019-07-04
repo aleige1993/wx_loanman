@@ -1,7 +1,7 @@
 'use strict';
 let app = getApp();
 let DEV_CONFIG = {
-  HTTPOPENAPIURL: 'http://dgfqu4.natappfree.cc'//
+    HTTPOPENAPIURL: 'http://pgfv43.natappfree.cc'//
 };
 let SIT_CONFIG = {
     HTTPOPENAPIURL: 'https://dev.api.songchejr.com' // 请求OPENAPI的接口

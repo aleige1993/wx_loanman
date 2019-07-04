@@ -15,19 +15,7 @@ Page({
         lable: '服务提供方',
         id: 2
       }],
-    arrType: [
-      {
-        lable: '通道挂靠',
-        id: 1
-      },
-      {
-        lable: '电子签章',
-        id: 2
-      },
-      {
-        lable: '其他',
-        id: 3
-      }],
+    arrType: [],
     indUser: null,
     indType: null,
     tNum:0,
@@ -86,8 +74,9 @@ Page({
           title: '发布成功!',
             success: () => {
                 setTimeout(() => {
+                    app.globalData.showType = 1;
                     wx.switchTab({
-                      url: '/pages/index/index',
+                        url: '/pages/index/index',
                     })
                 }, 1000)
             }
@@ -165,6 +154,9 @@ Page({
         })
     },
   onLoad: function (options) {
+    this.setData({
+      arrType: app.UserLogin.get('arrType')
+    });
     let msgItem = JSON.parse(options.msgItem);
     if (msgItem){
       this.setData({

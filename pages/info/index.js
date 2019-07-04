@@ -281,12 +281,12 @@ Page({
    */
   onShareAppMessage: function () {
       let infoItme = this.data.infoItme;
-      let magtype = infoItme.msgType == 1 ? '通道挂靠' : infoItme.msgType == 2 ? '电子签章' : '其他' 
+      let magtype = infoItme.msgTypeName;
       let _this = this;
       return {
           title: '[' + magtype+']'+infoItme.msgTitle,
           path: '/pages/info/index?fenx=1&msgId=' + infoItme.msgId,
-          imageUrl: _this.data.imgUrl
+          imageUrl: '/static/images/fenx.png'
       }
   }
 })

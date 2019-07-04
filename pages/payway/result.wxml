@@ -16,8 +16,9 @@
             <navigator class='cu-btn round line-green' hover-class='none' url="/pages/orderList/index">查看订单</navigator>
         </view>
         <view class='show showEorr' wx:if="{{isTrue==2}}">
-            <navigator  class='cu-btn round line-red' hover-class='none'  open-type="switchTab"  url="/pages/index/index">返回首页</navigator>
-            <navigator class='cu-btn round line-orange' hover-class='none' url="/pages/equity/index">重新购买</navigator>
+            <navigator  class='cu-btn round line-red' hover-class='none'  url="/pages/equity/index">返回商品列表</navigator>
+
+            <button  class='cu-btn round line-orange'  disabled='{{ispay}}' bindtap='palyMoeny'>重新购买</button>
         </view>
     </view>
 </view>

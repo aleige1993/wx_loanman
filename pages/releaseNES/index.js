@@ -15,19 +15,7 @@ Page({
         lable: '服务提供方',
         id: 2
       }],
-    arrType: [
-      {
-        lable: '通道挂靠',
-        id: 1
-      },
-      {
-        lable: '电子签章',
-        id: 2
-      },
-      {
-        lable: '其他',
-        id: 3
-      }],
+    arrType: [],
     indUser: null,
     indType: null,
     tNum:0,
@@ -115,6 +103,7 @@ Page({
           title: '发布成功!',
           success:()=>{
             setTimeout(() => {
+                app.globalData.showType = 1;
               wx.switchTab({
                 url: '/pages/index/index',
               })
@@ -123,11 +112,10 @@ Page({
         })
           this.setData({
               isDisabled: false,
-              indUser:0,
-              indType:0,
+              indUser: null,
+              indType: null,
               msgTitle:'',
-              msgConent:'',
-              msgName:''
+              msgConent:''
           })
       } 
     })
@@ -197,10 +185,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
 onTabItemTap:function(){
+    this.setData({
+      indUser: null,
+      indType: null,
+      msgTitle: '',
+      msgConent: ''
+    })
     this.publishCount();
 },
   onLoad: function (options) {
-
+    this.setData({
+      arrType: app.UserLogin.get('arrType')
+    })
   },
 
   /**
@@ -212,16 +208,8 @@ onTabItemTap:function(){
 
   /**
    * 生命周期函数--监听页面显示
-   */
-    onHide:function(){
-        // if (app.UserLogin.get('userInfo')) {
-        //     this.setData({
-        //         mobile: app.UserLogin.get('userInfo').mobile
-        //     })
-        // }
-    },
-  onShow: function () {
-    
+   */ 
+  onShow: function () { 
   },
 
   /**

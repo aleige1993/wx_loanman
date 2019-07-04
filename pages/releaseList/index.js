@@ -9,8 +9,24 @@ Page({
     data: {
         limit: 10,
         page: 1,
+        publishRole:0,
       msgList:[],
-        isNull: false
+        isNull: false,
+        clcss:null
+    },
+    tabhader(e){
+        console.log(e)
+        let index = e.currentTarget.dataset.index 
+        this.setData({
+            clcss: index,
+            publishOrder: 1,
+            page: 1,
+            msgType: 0,
+            publishRole: index,
+            msgList: []
+        }, () => {
+            this.getMagList();
+        }) 
     },
     //跳转详情
   gotoBackDetail(e){
@@ -21,13 +37,16 @@ Page({
   },
     //获取个人发布
     getMagList(){
+        wx.showLoading({
+            title: '查询中...',
+        })
       let parms = {
           memberNo: app.UserLogin.get('userInfo') ? app.UserLogin.get('userInfo').memberNo : '',
           limit: this.data.limit,
           page: this.data.page,
         publishOrder:'1',//排序
         msgType: '0',//消息类型
-        publishRole: '0'//发布角色
+          publishRole: this.data.publishRole//发布角色
       }
       app.Formdata.post('/api/msg/page', parms, (res) => {
         if (res.code == '0000') {
@@ -45,7 +64,10 @@ Page({
           })
         }
       })
-        wx.stopPullDownRefresh()
+      setTimeout(()=>{
+          wx.hideLoading();
+          wx.stopPullDownRefresh()
+      },1500)
     },
     /**
      * 生命周期函数--监听页面加载

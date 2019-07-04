@@ -5,26 +5,27 @@
         <view class='needs'>服务需求方</view>
     </view> -->
     <view class='back_bar'>
-         <view class='provide'>服务提供方</view>
-        <view class='needs'>服务需求方</view>
+         <view data-index="1" bindtap='tabhader' class='{{clcss==1?"provide":""}}'>服务提供方</view>
+        <view data-index="2" bindtap='tabhader' class='{{clcss==2?"needs":""}}'>服务需求方</view>
     </view>
-    <view wx:for="{{msgList}}" wx:key="msgList" data-item="{{item}}" bindtap='gotoBackDetail' class='list_panl {{item.publishRole == 1?"needs":"provide"}}  shadow-just'>
+    <view wx:for="{{msgList}}" wx:key="msgList" data-item="{{item}}" bindtap='gotoBackDetail' class='list_panl {{item.publishRole == 1?"provide":"needs"}}  shadow-just'>
         <view class='wx_li'>
-            <view class='font-w6 overflowfont msgTitle'>{{item.msgTitle}}</view>
+            <view class='font-w6 overflowfont msgTitle'>{{item.msgTypeName}}</view>
             <view wx:if="{{item.status == 1}}" class='status text-shadow text-pink'>展示中</view>
             <view wx:if="{{item.status == 2}}" class='status text-shadow text-brown'>已下架</view>
             <view wx:if="{{item.status == 3}}" class='status text-shadow text-gray'>已失效</view>
             <view wx:if="{{item.status == 4}}" class='status text-shadow text-gray'>已删除</view>
+            <view class='chakan'>{{item.viewCount}}</view>
         </view>
         <view class='see_panl'>
-            <view class='sebox'>
+            <!-- <view class='sebox'>
                 <icon class='iconfont iconliulan'></icon>
                 <text class='see'>{{item.viewCount?item.viewCount:0}}</text>
-            </view>
+            </view> -->
             <view class='text-gray slltext'>{{item.firstPublishTime}}</view>
         </view>
         <view class='wx_li2 overflowfont2 c-666'>
-            {{item.content}}
+            {{item.msgTitle}}
         </view>
     </view>
      <view class='nulldata' wx:if="{{isNull}}">
