@@ -24,7 +24,7 @@ Page({
     showFree:true,
     cunt:true,
     isDisabled:false,
-      mobile: app.UserLogin.get('userInfo') ? app.UserLogin.get('userInfo').mobile:null,
+    mobile: app.UserLogin ? app.UserLogin.get('userInfo').mobile:null,
       msgTitle: '',
       msgConent: '',
       msgName: ''

@@ -21,12 +21,15 @@
         </picker>
     </view>
     <view class='picker_model'>
-        <picker bindchange="onPickerPaixu" value="{{indPaixu}}" range-key="lable" range="{{arrPaixu}}">
+     <view class="picker">
+      <navigator url=''>高级搜索</navigator>
+     </view>
+        <!-- <picker bindchange="onPickerPaixu" value="{{indPaixu}}" range-key="lable" range="{{arrPaixu}}">
             <view class="picker">
                 <text class='overflowfont'>{{arrPaixu[indPaixu].lable?arrPaixu[indPaixu].lable:'最新发布'}}</text>
                 <icon class='iconfont iconxiala'></icon>
             </view>
-        </picker>
+        </picker> -->
     </view>
     <!-- <icon class='iconfont iconpaixu paixu'></icon> -->
 </view>

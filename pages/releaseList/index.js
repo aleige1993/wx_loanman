@@ -37,9 +37,6 @@ Page({
   },
     //获取个人发布
     getMagList(){
-        wx.showLoading({
-            title: '查询中...',
-        })
       let parms = {
           memberNo: app.UserLogin.get('userInfo') ? app.UserLogin.get('userInfo').memberNo : '',
           limit: this.data.limit,
@@ -65,7 +62,6 @@ Page({
         }
       })
       setTimeout(()=>{
-          wx.hideLoading();
           wx.stopPullDownRefresh()
       },1500)
     },

@@ -282,11 +282,12 @@ Page({
   onShareAppMessage: function () {
       let infoItme = this.data.infoItme;
       let magtype = infoItme.msgTypeName;
+      let img = this.data.imgUrl
       let _this = this;
       return {
           title: '[' + magtype+']'+infoItme.msgTitle,
           path: '/pages/info/index?fenx=1&msgId=' + infoItme.msgId,
-          imageUrl: '/static/images/fenx.png'
+          imageUrl: img
       }
   }
 })
