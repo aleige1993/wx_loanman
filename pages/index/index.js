@@ -31,7 +31,7 @@ Page({
         indUser: null,
         indType: null,
         indPaixu: null,
-        userInfo: app.UserLogin.get('userInfo') || null,
+       userInfo: app.UserLogin ? app.UserLogin.get('userInfo') : null,
         limit: 10,
         page: 1,
         msgList: [],
@@ -75,10 +75,7 @@ Page({
         })
     },
     //信息查询列表
-    getMsgList() {
-        wx.showLoading({
-            title: '刷新中...',
-        })
+    getMsgList() { 
         console.log(this.data.arrType[this.data.indType]);
         let parms = {
             page: this.data.page,
@@ -105,7 +102,6 @@ Page({
             }
         })
         setTimeout(() => {
-            wx.hideLoading()
             wx.stopPullDownRefresh()
         }, 1000);
     },
@@ -132,9 +128,17 @@ Page({
         });
     },
     onLoad: function(query) {
-        if (!app.UserLogin.get('arrType')) {
+        wx.showLoading({
+          title: '初始化中',
+        })
+        setTimeout(()=>{
+          if (!app.UserLogin.get('arrType')) {
             this.getMsgType();
-        }
+          }
+          this.getBannerLIst();
+          wx.hideLoading();
+        },3000)
+        
         // this.setData({
         //   arrType: app.UserLogin.get('arrType')
         // });
@@ -142,44 +146,46 @@ Page({
             withShareTicket: true
         })
     },
+  onTabItemTap(){
+
+  },
     onShow: function() {
-        this.getBannerLIst();
+      setTimeout(() => {
         if (app.globalData.showType) {
-            this.setData({
-                indUser: null,
-                indType: null,
-                indPaixu: null
-            })
+          this.setData({
+            indUser: null,
+            indType: null,
+            indPaixu: null
+          })
         }
         if (this.data.arrType) {
-            this.setData({
-                publishOrder: 1,
-                page: 1,
-                msgType: 0,
-                publishRole: 0,
-                msgList: []
-            }, () => {
-                this.getMsgList();
-            })
+          this.setData({
+            publishOrder: 1,
+            page: 1,
+            msgType: 0,
+            publishRole: 0,
+            msgList: []
+          }, () => {
+            this.getMsgList();
+          })
         } else {
-            setTimeout(() => {
-                let arrType = app.UserLogin.get('arrType');
-                arrType.unshift({
-                    lable: "全部",
-                    id: "0"
-                });
-                this.setData({
-                    arrType: arrType,
-                    publishOrder: 1,
-                    page: 1,
-                    msgType: 0,
-                    publishRole: 0,
-                    msgList: []
-                }, () => {
-                    this.getMsgList();
-                })
-            }, 1500)
+          let arrType = app.UserLogin.get('arrType');
+          arrType.unshift({
+            lable: "全部",
+            id: "0"
+          });
+          this.setData({
+            arrType: arrType,
+            publishOrder: 1,
+            page: 1,
+            msgType: 0,
+            publishRole: 0,
+            msgList: []
+          }, () => {
+            this.getMsgList();
+          })
         }
+      },3000)
     },
     onPullDownRefresh: function() {
         this.setData({

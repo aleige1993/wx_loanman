@@ -419,11 +419,16 @@ Page({
   onShareAppMessage: function () {
       let infoItme = this.data.infoItme;
       let magtype = infoItme.msgTypeName;
+      let img = this.data.imgUrl
       let _this = this;
       return {
           title: '[' + magtype+']'+infoItme.msgTitle,
           path: '/pages/info/index?fenx=1&msgId=' + infoItme.msgId,
+<<<<<<< HEAD
         imageUrl: 'https://aishenghuo2019.oss-cn-shanghai.aliyuncs.com/201907/12/20190815210932.png'
+=======
+          imageUrl: img
+>>>>>>> 3d7119a465e3671ab53cb5ebd184bead84335d0d
       }
   }
 })

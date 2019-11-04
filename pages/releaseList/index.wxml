@@ -5,10 +5,10 @@
         <view class='needs'>服务需求方</view>
     </view> -->
     <view class='back_bar'>
-         <view data-index="1" bindtap='tabhader' class='{{clcss==1?"provide":""}}'>服务提供方</view>
-        <view data-index="2" bindtap='tabhader' class='{{clcss==2?"needs":""}}'>服务需求方</view>
+         <view data-index="2" bindtap='tabhader' class='{{clcss==2?"provide":""}}'>服务提供方</view>
+        <view data-index="1" bindtap='tabhader' class='{{clcss==1?"needs":""}}'>服务需求方</view>
     </view>
-    <view wx:for="{{msgList}}" wx:key="msgList" data-item="{{item}}" bindtap='gotoBackDetail' class='list_panl {{item.publishRole == 1?"provide":"needs"}}  shadow-just'>
+    <view wx:for="{{msgList}}" wx:key="msgList" data-item="{{item}}" bindtap='gotoBackDetail' class='list_panl {{item.publishRole == 1?"needs":"provide"}}  shadow-just'>
         <view class='wx_li'>
             <view class='font-w6 overflowfont msgTitle'>{{item.msgTypeName}}</view>
             <view wx:if="{{item.status == 1}}" class='status text-shadow text-pink'>展示中</view>
