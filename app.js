@@ -16,7 +16,7 @@ App({
           _this.Tools = require('/utils/Tools.js');
           _this.Date = require('/utils/Date.js');
           _this.Md5 = require('/utils/md5.js');
-          //console.log('UserLogin', this.UserLogin)
+          console.log('UserLogin', _this.UserLogin)
            let userInfo = _this.UserLogin.get('userInfo');
           _this.getMsgType();
         }

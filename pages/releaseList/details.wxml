@@ -12,10 +12,14 @@
         <text>标题：</text>
         <view>{{msgItem.msgTitle}}</view>
     </view>
+    <view class='wx_li' wx:if="{{msgItem.publishComp}}">
+        <text>公司：</text>
+        <view>{{msgItem.publishComp}}</view>
+    </view>
     <view class='wx_li'>
         <text>详情：</text>
-        <view>
-          <view class='contitem' wx:key="content" wx:for="{{msgItem.newContent}}">{{item}}</view>
+        <view class="details_panl">
+          <text selectable="true" class='contitem' wx:key="content" wx:for="{{msgItem.newContent}}">{{item}}</text>
         </view>
     </view>
     <view class='wx_li'>

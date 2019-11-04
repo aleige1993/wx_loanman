@@ -96,7 +96,8 @@ Page({
       msgTitle: valueItem.msgTitle,
       content: valueItem.msgConent, 
       publishName: valueItem.msgName,
-      publishMobile: valueItem.msgIpone
+      publishMobile: valueItem.msgIpone,
+      publishComp: valueItem.msgComp
     }
     app.Formdata.post('/api/msg/publish', parms, (res) => {
       if (res.code == '0000') {

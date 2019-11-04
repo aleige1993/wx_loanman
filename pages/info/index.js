@@ -21,8 +21,8 @@ Page({
     fenxHome:false,
     islayer:true,
     debugOpen: false,
-    wxUserInfo: app.UserLogin.get('wxUserInfo') || null,
-    userInfo: app.UserLogin.get('userInfo') || null
+    wxUserInfo: null,
+    userInfo: null
   },
   getUrldeug() {
     app.Formdata.post('/api/wx/debug/open', {}, (res) => {
@@ -345,6 +345,10 @@ Page({
   },
   onLoad: function (options) {
     let _this = this;
+      _this.setData({
+        wxUserInfo: app.UserLogin? app.UserLogin.get('wxUserInfo') : null,
+        userInfo: app.UserLogin? app.UserLogin.get('userInfo') : null
+      })
       wx.showLoading({
         title: '加载中...',
         mask:true
@@ -424,11 +428,7 @@ Page({
       return {
           title: '[' + magtype+']'+infoItme.msgTitle,
           path: '/pages/info/index?fenx=1&msgId=' + infoItme.msgId,
-<<<<<<< HEAD
-        imageUrl: 'https://aishenghuo2019.oss-cn-shanghai.aliyuncs.com/201907/12/20190815210932.png'
-=======
           imageUrl: img
->>>>>>> 3d7119a465e3671ab53cb5ebd184bead84335d0d
       }
   }
 })

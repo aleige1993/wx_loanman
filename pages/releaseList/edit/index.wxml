@@ -23,7 +23,9 @@
     <view class='wx_li'>
       <input type='text' value='{{msgItem.msgTitle}}'  name='msgTitle' placeholder='标题：建议限20字以内'></input>
     </view>
-
+    <view class='wx_li'>
+      <input type='text' value='{{msgItem.publishComp}}'  name='msgComp' placeholder='公司名称(非必填)'></input>
+    </view>
     <view class='wx_li'>
       <textarea value='{{msgItem.content}}' maxlength='500'name='msgConent' bindinput='textChange' placeholder='建议按照“公司名字”+“产品亮点”，重点描述“产品亮点”，达到迅速抓住观看者兴趣的效果'></textarea>
       <view class='text_num'>{{tNum}}/500</view>

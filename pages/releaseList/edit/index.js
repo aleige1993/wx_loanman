@@ -66,7 +66,8 @@ Page({
       msgType: indType, 
       publishRole: indUser, 
       publishName: valueItem.msgName,
-      publishMobile: valueItem.msgIpone
+      publishMobile: valueItem.msgIpone,
+      publishComp: valueItem.msgComp
     }
       app.Formdata.post('/api/msg/republish',parms,(res)=>{
       if(res.code == '0000'){

@@ -11,3 +11,7 @@
 .contitem{
   margin-top: 10rpx;
 }
+.details_panl text{
+  display:block;
+  font-weight: initial;
+}
