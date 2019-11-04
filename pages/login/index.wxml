@@ -6,7 +6,7 @@
              <image src='/static/images/logo.png'></image>
         </view> 
     </view>
-    <view class='text_panl text-shadow text-blue'>
+    <view wx:if="{{!debugOpen}}" class='text_panl text-shadow text-blue'>
         贷速通：金融服务一网打尽，金融零配件服务平台
     </view>
 
@@ -17,10 +17,15 @@
                 </view>
             </view>
             <!-- open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" -->
-            <button type="primary" open-type="getUserInfo" bindgetuserinfo="wxLogin"    disabled="{{isDisabled}}" class='bg-green wx_button' >
+            <button wx:if="{{!debugOpen}}" type="primary" open-type="getUserInfo" bindgetuserinfo="wxLogin"    disabled="{{isDisabled}}" class='bg-green wx_button' >
                 <icon class='iconfont iconweixin'></icon>
                 <text>微信快捷登录</text>
             </button>
+
+            <navigator wx:if="{{debugOpen}}" url="/pages/login/regin" class='bg-green wx_button' > 
+                <text>手机快捷登录</text>
+            </navigator>
+
             <view class='gouxuan'> 
                     <icon class='iconfont icondui text-blue'></icon>
                     <navigator class='text-blue' hover-class='none' url="/pages/statement/index">贷速通平台用户协议</navigator> 

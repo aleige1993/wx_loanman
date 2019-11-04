@@ -3,7 +3,7 @@
   <view class='b_g bg-gradual-blue  text-center shadow-blur'></view>
   <view class='conter_model'>
     <view class='user_info'>
-      <image src='{{wxUserInfo?wxUserInfo.avatarUrl:"/static/images/error.png"}}'></image>
+      <image src='{{wxUserInfo ? wxUserInfo.avatarUrl : userInfo ? userInfo.avatarUri : "/static/images/error.png"}}'></image>
       <view class='user_model'>
         <view class='font-w6 text-blue'>{{wxUserInfo.nickName}}</view>
         <view class='level'>

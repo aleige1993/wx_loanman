@@ -16,17 +16,29 @@ Page({
     iphone:true,
     isIndex:false,
     imgUrl:null,
+    shareImage:null,
     token:null,
     fenxHome:false,
-    islayer:true
+    islayer:true,
+    debugOpen: false,
+    wxUserInfo: app.UserLogin.get('wxUserInfo') || null,
+    userInfo: app.UserLogin.get('userInfo') || null
   },
-
+  getUrldeug() {
+    app.Formdata.post('/api/wx/debug/open', {}, (res) => {
+      if (res.code == '0000') {
+        this.setData({
+          debugOpen: res.data.debugOpen
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   //保存图片
     setImage(){
-        let imgSrc = this.data.imgUrl;
+      let imgSrc = this.data.shareImage;
         wx.getSetting({
             success(res) {
                 if (!res.authSetting['scope.writePhotosAlbum']) {
@@ -98,11 +110,125 @@ Page({
         }) 
     },
     showBut(e){
+      let _this = this;
+      wx.showLoading({
+        title: '绘制分享图片中',
+        mask: true
+      })
+      this.setData({
+        painting: {
+          width: 375,
+          height: 555,
+          clear: true,
+          views: [
+            {
+              type: 'image',
+              url: '/static/images/bgfx.png',
+              top: 0,
+              left: 0,
+              width: 375,
+              height: 555
+            },
+            {
+              type: 'image',
+              url: _this.data.wxUserInfo.avatarUrl,
+              top: 27.5,
+              left: 29,
+              width: 55,
+              height: 55
+            }, 
+            {
+              type: 'text',
+              content: `您的好友【${_this.data.wxUserInfo.nickName}】`,
+              fontSize: 16,
+              color: '#402D16',
+              textAlign: 'left',
+              top: 33,
+              left: 96,
+              bolder: true
+            },
+            {
+              type: 'text',
+              content: '发现薅羊毛好工具，邀您免费看商机！', 
+              fontSize: 15,
+              color: '#563D20',
+              textAlign: 'left',
+              top: 59.5,
+              left: 96
+            },
+            {
+              type: 'image',
+              url: '/static/images/fxtu.png',
+              top: 136,
+              left: 42.5,
+              width: 290,
+              height: 186
+            },
+            {
+              type: 'image',
+              url: '/static/images/erwei.png',
+              top: 443,
+              left: 85,
+              width: 68,
+              height: 68
+            },
+            {
+              type: 'text',
+              content: `【${_this.data.infoItme.msgTypeName}】${_this.data.infoItme.msgTitle}`,
+              fontSize: 16,
+              lineHeight: 21,
+              color: '#383549',
+              textAlign: 'left',
+              top: 336,
+              left: 44,
+              width: 287,
+              MaxLineNumber: 2,
+              breakWord: true,
+              bolder: true
+            },
+            // {
+            //   type: 'text',
+            //   content: '￥0.00',
+            //   fontSize: 19,
+            //   color: '#E62004',
+            //   textAlign: 'left',
+            //   top: 387,
+            //   left: 44.5,
+            //   bolder: true
+            // },
+            {
+              type: 'text',
+              content: `发布时间：${_this.data.infoItme.firstPublishTime}`,
+              fontSize: 13,
+              color: '#7E7E8B',
+              textAlign: 'left',
+              top: 387,
+              left: 44.5,
+              // textDecoration: 'line-through'
+            },
+            {
+              type: 'text',
+              content: '长按识别图中二维码',
+              fontSize: 14,
+              color: '#383549',
+              textAlign: 'left',
+              top: 470,
+              left: 165.5,
+              lineHeight: 20,
+              MaxLineNumber: 2,
+              breakWord: true,
+              width: 125
+            }
+          ]
+        }
+      })
+
+
         this.setData({
             imgdown:true,
             layer:true,
             fenx:false
-        })
+        })  
     },
     hideImg(e) {
         this.setData({
@@ -110,6 +236,17 @@ Page({
             imgdown: false,
             fenx: false
         })
+    },
+    //制作完成
+    eventGetImage(event) {
+      console.log(event)
+      wx.hideLoading()
+      const { tempFilePath, errMsg } = event.detail
+      if (errMsg === 'canvasdrawer:ok') {
+        this.setData({
+          shareImage: tempFilePath
+        })
+      }
     },
     //获取图片
     getImges(){
@@ -187,21 +324,20 @@ Page({
         let _this = this;
         app.Formdata.post('/api/msg/view',{msgId: msgId},(res)=>{
             if(res.code == '0000'){
-                this.setData({
+              res.data.content = res.data.content.split('\n');
+                _this.setData({
                     infoItme: res.data
                 },()=>{
+                  
                     if (_this.data.token){
-                        this.getCount();
-                        this.getImges();
+                        _this.getCount();
+                        _this.getImges();
                     }else{
-                        app.globalData.msgId = _this.data.msgId;
-                        this.setData({
-
-                        })
+                        app.globalData.msgId = _this.data.msgId; 
                     } 
                 })
             }else{
-              this.setData({
+              _this.setData({
                 isshow:false
               })
             }
@@ -232,22 +368,23 @@ Page({
         _this.setData({
           islayer:false
         })
-      },2000)
+      },800)
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
+  // /static/images/logo.png
   onShow: function () {
-  },
-
+    this.getUrldeug()
+  }, 
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -286,7 +423,7 @@ Page({
       return {
           title: '[' + magtype+']'+infoItme.msgTitle,
           path: '/pages/info/index?fenx=1&msgId=' + infoItme.msgId,
-          imageUrl: '/static/images/fenx.png'
+        imageUrl: 'https://aishenghuo2019.oss-cn-shanghai.aliyuncs.com/201907/12/20190815210932.png'
       }
   }
 })

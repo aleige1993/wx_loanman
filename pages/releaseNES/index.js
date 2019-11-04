@@ -89,8 +89,9 @@ Page({
     this.setData({
         isDisabled:true
     })
+    console.log(this.data.arrType[this.data.indType]);
     let parms = {
-      msgType: Number(_data.indType)+1, 
+      msgType: this.data.arrType[this.data.indType].id, 
       publishRole: Number(_data.indUser)+1, 
       msgTitle: valueItem.msgTitle,
       content: valueItem.msgConent, 
@@ -134,6 +135,7 @@ Page({
     })
   },
   onPickerType(e) {
+    console.log(e);
     this.setData({
       indType: e.detail.value
     })

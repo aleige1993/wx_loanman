@@ -18,7 +18,7 @@ Page({
     arrType: [],
     indUser: null,
     indType: null,
-    tNum:0,
+    tNum: 0,
     msgItem:'',
     cunt:true,
     showFree:true,
@@ -30,7 +30,7 @@ Page({
     let _data = this.data;
     let valueItem = e.detail.value;
     let indUser = Number(_data.indUser)+1;
-    let indType = Number(_data.indType) + 1;
+    let indType = this.data.arrType[this.data.indType].id;
     console.log(indUser)
     if (indUser == '') {
       app.Tools.showToast('请选择发布人角色');
@@ -154,18 +154,28 @@ Page({
         })
     },
   onLoad: function (options) {
+    let _this = this;
+    let _index='';
+    let msgItem = JSON.parse(options.msgItem);
     this.setData({
       arrType: app.UserLogin.get('arrType')
-    });
-    let msgItem = JSON.parse(options.msgItem);
-    if (msgItem){
-      this.setData({
-        msgItem: msgItem,
-        indUser: Number(msgItem.publishRole) - 1,
-        indType: Number(msgItem.msgType) - 1,
-        tNum: msgItem.content.length
+    },()=>{
+      console.log(_this.data.arrType);
+      _this.data.arrType.map((item, index) => {
+        if (item.id == msgItem.msgType) {
+          _index = index
+        }
       })
-    } 
+      if (msgItem) {
+        _this.setData({
+          msgItem: msgItem,
+          indUser: Number(msgItem.publishRole) - 1,
+          indType: _index,
+          tNum: msgItem.content.length
+        })
+      } 
+    }); 
+    
   },
 
   /**

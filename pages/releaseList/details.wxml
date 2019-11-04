@@ -14,7 +14,9 @@
     </view>
     <view class='wx_li'>
         <text>详情：</text>
-        <view>{{msgItem.content}}</view>
+        <view>
+          <view class='contitem' wx:key="content" wx:for="{{msgItem.newContent}}">{{item}}</view>
+        </view>
     </view>
     <view class='wx_li'>
         <text>发布时间：</text>
@@ -36,8 +38,9 @@
     </view>
 
     <view class='button_panl'>
-        <button wx:if="{{msgItem.status == 1}}" bindtap='msgRefresh' class="cu-btn  bg-green" >刷新</button>
-        <button bindtap='gotoBack'  class="cu-btn   bg-blue" >编辑</button>
+        <button wx:if="{{msgItem.status == 1}}" bindtap='msgRefresh' class="cu-btn  bg-green" >置顶</button>
+        <button  wx:if="{{msgItem.status == 1}}" bindtap='gotoBack'  class="cu-btn   bg-blue" >编辑</button>
+        <button  wx:if="{{msgItem.status == 2}}" bindtap='gotoBack'  class="cu-btn   bg-blue" >重新发布</button>
         <button wx:if="{{msgItem.status == 1}}" bindtap='msgDown' class="cu-btn  bg-grey">下架</button>
     </view>
 

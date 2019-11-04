@@ -73,7 +73,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      this.getMagList();
+      // this.setData({
+      //   msgList:[]
+      // })
+      // this.getMagList();
     },
 
     /**
@@ -87,7 +90,13 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+      this.setData({
+        msgList: [],
+        page:1
+      },()=>{
+        this.getMagList();
+      })
+      
     },
 
     /**

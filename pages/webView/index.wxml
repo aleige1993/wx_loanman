@@ -1,2 +1,2 @@
 <!--pages/webView/index.wxml-->
-<web-view src="{{link}}"></web-view>
+<web-view src="{{links}}"></web-view>

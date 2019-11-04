@@ -9,7 +9,8 @@ Page({
         isDisabled:false,
         userCode:null,
         bannerList:[],
-        isLogin:false
+        isLogin:false,
+        debugOpen:false
     },
 
     /**
@@ -52,6 +53,15 @@ Page({
     //     });
 
     // },
+      getUrldeug(){
+        app.Formdata.post('/api/wx/debug/open',{},(res)=>{
+            if(res.code == '0000'){
+              this.setData({
+                debugOpen: res.data.debugOpen
+              })
+            }
+        })
+      },
       wxLogin(e){
         console.log(e);
         let  _this  = this;
@@ -122,6 +132,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+      this.getUrldeug();
         // let wxUserInfo =  app.UserLogin.get('wxUserInfo');
         // if (!wxUserInfo){
         //     this.setData({

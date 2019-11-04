@@ -1,51 +1,52 @@
 {
-    "pages": [
-      "pages/index/index",
-      "pages/about/index",
-        "pages/info/index",
-        "pages/login/index",
-        "pages/payway/result",
-        "pages/releaseList/edit/index",
-        "pages/releaseList/index",
-        "pages/releaseNES/index",
-        "pages/payway/index",
-        "pages/orderList/index",
-        "pages/center/index",
-        "pages/statement/index",
-        "pages/releaseList/details",
-        "pages/equity/index",
-        "pages/webView/index"
+  "pages": [
+    "pages/index/index",
+    "pages/login/regin",
+    "pages/about/index",
+    "pages/info/index",
+    "pages/login/index",
+    "pages/payway/result",
+    "pages/releaseList/edit/index",
+    "pages/releaseList/index",
+    "pages/releaseNES/index",
+    "pages/payway/index",
+    "pages/orderList/index",
+    "pages/center/index",
+    "pages/statement/index",
+    "pages/releaseList/details",
+    "pages/equity/index",
+    "pages/webView/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "贷速通",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "selectedIconPath": "/static/images/home_b.png",
+        "iconPath": "/static/images/home_a.png"
+      },
+      {
+        "pagePath": "pages/releaseNES/index",
+        "text": "发布",
+        "selectedIconPath": "/static/images/shop_b.png",
+        "iconPath": "/static/images/shop_a.png"
+      },
+      {
+        "pagePath": "pages/center/index",
+        "text": "我的",
+        "selectedIconPath": "/static/images/user_b.png",
+        "iconPath": "/static/images/user_a.png"
+      }
     ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "贷速通",
-        "navigationBarTextStyle": "black"
-    },
-    "tabBar": {
-        "list": [
-            {
-                "pagePath": "pages/index/index",
-                "text": "首页",
-                "selectedIconPath": "/static/images/home_b.png",
-                "iconPath": "/static/images/home_a.png"
-            },
-            {
-                "pagePath": "pages/releaseNES/index",
-                "text": "发布",
-                "selectedIconPath": "/static/images/shop_b.png",
-                "iconPath": "/static/images/shop_a.png"
-            },
-            {
-                "pagePath": "pages/center/index",
-                "text": "我的",
-                "selectedIconPath": "/static/images/user_b.png",
-                "iconPath": "/static/images/user_a.png"
-            }
-        ],
-        "color": "#BFBFBF",
-        "selectedColor": "#3984ff",
-        "borderStyle": "white"
-    },
-    "sitemapLocation": "sitemap.json"
+    "color": "#BFBFBF",
+    "selectedColor": "#3984ff",
+    "borderStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
 }

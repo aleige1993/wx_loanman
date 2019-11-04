@@ -8,3 +8,6 @@
     margin: 0 30rpx;
     padding:  0  40rpx;
 }
+.contitem{
+  margin-top: 10rpx;
+}

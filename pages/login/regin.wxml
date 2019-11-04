@@ -1,0 +1,18 @@
+<!--pages/login/regin.wxml-->
+<view  class='dengl'>
+   <image class='logo_box' src='/static/images/logo.png'></image>
+
+  <view class='panl_box'>
+    <form bindsubmit="formSubmit">
+      	<view class="cu-form-group margin-top">
+          <view class="title">手机号</view>
+          <input placeholder="请输入手机号" name="ipone"></input>
+        </view>
+        <view class="cu-form-group">
+          <view class="title">密码</view>
+          <input type='password' placeholder="请输入密码" name="password"></input>
+        </view>
+         <button class='logoin bg-green' form-type="submit">登录</button>
+    </form>
+  </view>
+</view>

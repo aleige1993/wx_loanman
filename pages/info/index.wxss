@@ -81,10 +81,10 @@
     position: fixed;
     z-index: 12;
     top: 10%;
-    left: 10%;
-    background-color: #fff;
-    width: 80%;
-    padding: 20rpx;
+    left: 15%;
+    /* background-color: #fff; */
+    width: 70%;
+    padding:0rpx;
     border-radius:10rpx; 
 }
 .hideImg{
@@ -92,7 +92,7 @@
     right: -50rpx;
     top: -50rpx;
     z-index: 13;
-    font-size: 60rpx;
+    font-size: 50rpx;
     color: #fff;
     transform: rotateZ(15deg);
 }
@@ -131,4 +131,7 @@
 }
 .imgheigt{
     height: 70vh;
+}
+.contitem{
+  margin-top: 10rpx;
 }

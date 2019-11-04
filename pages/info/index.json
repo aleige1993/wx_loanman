@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "信息详情",
-  "usingComponents": {}
+  "usingComponents": {
+    "canvasdrawer": "/components/canvasdrawer/canvasdrawer"
+  }
 }

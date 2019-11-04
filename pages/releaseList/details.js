@@ -48,12 +48,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) { 
-      let infoItem = JSON.parse(options.infoItem);
-      console.log(infoItem);
+      let infoItem = JSON.parse(options.infoItem); 
+      infoItem.newContent = infoItem.content.split('\n');
       if (infoItem){
         this.setData({
           msgItem: infoItem
-        })
+        }) 
       }
     }, 
     /**

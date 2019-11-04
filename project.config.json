@@ -10,11 +10,11 @@
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
-		"checkInvalidKey": true,
-		"uglifyFileName": true
+		"uglifyFileName": true,
+		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.1",
+	"libVersion": "2.7.7",
 	"appid": "wx5aae51df89a8dafb",
 	"projectname": "wx_loan",
 	"debugOptions": {

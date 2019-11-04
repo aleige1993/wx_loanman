@@ -27,7 +27,7 @@
   /* line-height: 40rpx; */
 }
 .listProud{
-  border-top:1px solid #ccc;
+  /* border-top:1px solid #ccc; */
   padding:20rpx 0 20rpx 0; 
 }
 .list_bar{
