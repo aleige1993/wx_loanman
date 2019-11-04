@@ -139,3 +139,7 @@
   display:block;
   font-weight: initial;
 }
+.bg-style{
+  background: linear-gradient(to bottom, #70dee1 0%,#5eb8f0 100%);
+  color: #fff;
+}

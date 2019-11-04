@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/info/index",
     "pages/login/regin",
     "pages/about/index",
-    "pages/info/index",
     "pages/login/index",
     "pages/payway/result",
     "pages/releaseList/edit/index",

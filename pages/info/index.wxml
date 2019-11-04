@@ -61,7 +61,7 @@
         <image  class='imgheigt' src='{{shareImage}}'></image>
     </view>
     <view  class='but_box'>
-        <button class='cu-btn round bg-orange' bindtap='setImage'>保存图片</button>
+        <button class='cu-btn round bg-style' bindtap='setImage'>保存图片</button>
     </view>
 </view>
 <view class='fenx_but animation-slide-bottom' wx:if="{{fenx}}" >

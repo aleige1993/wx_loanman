@@ -118,7 +118,7 @@ Page({
       this.setData({
         painting: {
           width: 375,
-          height: 555,
+          height: 667,
           clear: true,
           views: [
             {
@@ -127,61 +127,62 @@ Page({
               top: 0,
               left: 0,
               width: 375,
-              height: 555
+              height: 667
             },
             {
               type: 'image',
               url: _this.data.wxUserInfo.avatarUrl,
-              top: 27.5,
-              left: 29,
-              width: 55,
-              height: 55
+              top: 80,
+              left: 37,
+              width: 50,
+              height: 50,
+
             }, 
             {
               type: 'text',
               content: `您的好友【${_this.data.wxUserInfo.nickName}】`,
               fontSize: 16,
-              color: '#402D16',
+              color: '#fff',
               textAlign: 'left',
-              top: 33,
+              top: 85,
               left: 96,
               bolder: true
             },
             {
               type: 'text',
               content: '发现薅羊毛好工具，邀您免费看商机！', 
-              fontSize: 15,
-              color: '#563D20',
+              fontSize: 14,
+              color: '#fff',
               textAlign: 'left',
-              top: 59.5,
+              top: 115,
               left: 96
             },
-            {
-              type: 'image',
-              url: '/static/images/fxtu.png',
-              top: 136,
-              left: 42.5,
-              width: 290,
-              height: 186
-            },
+            // {
+            //   type: 'image',
+            //   url: '/static/images/fxtu.png',
+            //   top: 136,
+            //   left: 42.5,
+            //   width: 290,
+            //   height: 186
+            // },
             {
               type: 'image',
               url: '/static/images/erwei.png',
-              top: 443,
+              top: 500,
               left: 85,
               width: 68,
               height: 68
             },
             {
-              type: 'text',
+              type: 'text',   
               content: `【${_this.data.infoItme.msgTypeName}】${_this.data.infoItme.msgTitle}`,
-              fontSize: 16,
+              fontSize: 12,
               lineHeight: 21,
-              color: '#383549',
+              color: '#535353',
               textAlign: 'left',
-              top: 336,
-              left: 44,
-              width: 287,
+              top: 416,
+              left: 64,
+              width: 236,
               MaxLineNumber: 2,
               breakWord: true,
               bolder: true
@@ -196,28 +197,29 @@ Page({
             //   left: 44.5,
             //   bolder: true
             // },
-            {
-              type: 'text',
-              content: `发布时间：${_this.data.infoItme.firstPublishTime}`,
-              fontSize: 13,
-              color: '#7E7E8B',
-              textAlign: 'left',
-              top: 387,
-              left: 44.5,
-              // textDecoration: 'line-through'
-            },
+            // {
+            //   type: 'text',
+            //   content: `发布时间：${_this.data.infoItme.firstPublishTime}`,
+            //   fontSize: 13,
+            //   color: '#7E7E8B',
+            //   textAlign: 'left',
+            //   top: 387,
+            //   left: 44.5,
+            //   // textDecoration: 'line-through'
+            // },
             {
               type: 'text',
               content: '长按识别图中二维码',
               fontSize: 14,
-              color: '#383549',
+              color: '#535353',
               textAlign: 'left',
-              top: 470,
+              top: 530,
               left: 165.5,
               lineHeight: 20,
               MaxLineNumber: 2,
               breakWord: true,
-              width: 125
+              width: 125,
+              bolder: true
             }
           ]
         }
