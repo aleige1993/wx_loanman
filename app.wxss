@@ -4,16 +4,16 @@
 @import '/static/fonts/iconfont.wxss';
 
 page{
-  background-color: #f2f2f2;
+  background-color: #F8FAFF;
 }
 navigator,button,view,input,text,icon,input,label,textarea,radio,switch,:checked,form,picker,rich-text,image{
- font-family:Helvetica Neue,Helvetica,Roboto,Segoe UI,Arial,sans-serif;
+ font-family:PingFang SC,Helvetica Neue,Helvetica,Roboto,Segoe UI,Arial,sans-serif;
  box-sizing: border-box;
- font-size:28rpx;
+ font-size:24rpx;
  color: #414141;
 }
 icon{
-  color: #8799a3;
+  color: #959595;
 }
 button{
   margin:0;
@@ -47,10 +47,10 @@ view{
   color: #ccc;
 }
 .c-333{
-      color: #333 !important;
+      color: #313131 !important;
 }
 .c-666{
-    color: #666666;
+    color: #898989;
 }
 .c-bf{
   color: #bfbfbf;
@@ -233,4 +233,61 @@ overflow: hidden;
 }
 .nulldata .tlte_null{
     color: #999;
+}
+.chakanNeeds{
+  background-color: #FF5F5F;
+}
+.chakanProvide{
+  background-color: #5F90FF;
+}
+.my_padding{
+  padding:20rpx;
+}
+.my_padding button, .my_padding navigator{
+  color: #fff;
+  background-color: #5F90FF;
+  font-size: 24rpx;
+  border-radius:10rpx;
+  line-height: 88rpx; 
+  text-align: center;
+}
+.msgbox{
+  margin: 20rpx;
+  background-color: #fff;
+  position: fixed;
+  z-index: 100;
+  border-radius: 10rpx;
+  padding: 60rpx;
+  top: 30%;
+  
+}
+.msgbox .title{
+  text-align: center;
+  color: #959595;
+  margin-bottom: 40rpx;
+}
+.msgtext .wxLi{
+display: flex;
+line-height: 40rpx;
+}
+.msgtext .wxLi .icongantan{
+  color: #FFC000;
+  margin-right: 10rpx;
+}
+.msgbut{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40rpx;
+}
+.msgbut view{
+  width: 47%;
+  text-align: center;
+  padding: 15rpx 0;
+  border: 1px solid #5F90FF;
+  color: #5F90FF;
+  border-radius:10rpx; 
+}
+.msgbut view.active{
+  background-color: #5F90FF;
+  color: #fff;
 }

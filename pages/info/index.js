@@ -16,6 +16,7 @@ Page({
     iphone:true,
     isIndex:false,
     imgUrl:null,
+    imgUrlF:null,
     shareImage:null,
     token:null,
     fenxHome:false,
@@ -167,7 +168,8 @@ Page({
             // },
             {
               type: 'image',
-              url: '/static/images/erwei.png',
+              // url: '/static/images/erwei.png',
+              url: this.data.imgUrl,
               top: 500,
               left: 85,
               width: 68,
@@ -253,7 +255,7 @@ Page({
     //获取图片
     getImges(){
         let msgId = this.data.infoItme.msgId;
-        app.Formdata.post('/api/msg/share', { msgId: msgId }, (res) => { 
+        app.Formdata.post('/api/msg/shareFC', { msgId: msgId }, (res) => { 
             if (res.code == '0000') {
                 this.setData({
                     imgUrl: res.data.url
@@ -261,6 +263,15 @@ Page({
             }
         })
     },
+  getImgShF() {
+    app.Formdata.post('/api/msg/shareF',{}, (res) => {
+      if (res.code == '0000') {
+          this.setData({
+            imgUrlF:res.data.url
+          })
+      }
+    })
+  },
   //去充值
     gotoBack(){
         wx.navigateTo({
@@ -346,6 +357,7 @@ Page({
         })
   },
   onLoad: function (options) {
+    this.getImgShF();
     let _this = this;
       _this.setData({
         wxUserInfo: app.UserLogin? app.UserLogin.get('wxUserInfo') : null,
@@ -425,7 +437,7 @@ Page({
   onShareAppMessage: function () {
       let infoItme = this.data.infoItme;
       let magtype = infoItme.msgTypeName;
-      let img = this.data.imgUrl
+      let img = this.data.imgUrlF;
       let _this = this;
       return {
           title: '[' + magtype+']'+infoItme.msgTitle,

@@ -1,20 +1,35 @@
 /* pages/releaseNES/index.wxss */
-
+page{
+  background-color: #fff;
+}
 .rele_panl{
   padding:30rpx;
 }
 .wx_li{
+  display: flex;
   background-color: #fff;
   border-radius:6rpx;
-  margin-bottom: 40rpx;
-  padding:14rpx 30rpx; 
+  margin-bottom: 50rpx;
+  padding:16rpx 30rpx; 
   position: relative;
+  border: 1px solid #DCDCDC;
+  justify-content: space-between;
+  align-items: center;
+}
+.wx_li input{
+  color: #5F90FF;
+  text-align: right;
+  flex: 1;
 }
 .wx_li textarea{
   width: 100%;
 }
 .text_num{
   text-align: right;
+  color: #959595;
+}
+.text_num text.num{
+  color: #5F90FF;
 }
 .text_white{
     color: #fff;
@@ -27,7 +42,31 @@ button[disabled] {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  line-height: 44rpx;
+  flex: 1;
 }
 .picker icon{
-  margin-top:-10rpx;
+  margin-top:-18rpx;
+  margin-left:6rpx;
+  font-size: 20rpx;
+}
+.picker text{
+  color: #5F90FF;
+}
+.ftw6{
+  color: #B5B5B5 !important;
+}
+.msg_lis{
+  border: none;
+  margin-bottom: 20rpx;
+}
+.msg_lis textarea{
+  border: 1px solid #DCDCDC;
+  padding: 20rpx;
+  width: 100%;
+  border-radius:6rpx; 
+  margin-bottom: 20rpx;
+}
+.my_padding{
+  padding: 0 !important;
 }

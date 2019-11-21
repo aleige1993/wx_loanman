@@ -13,7 +13,7 @@ let PROD_CONFIG = {
   HTTPOPENAPIURL: 'https://www.360daoliu.com' // 请求OPENAPI的接口
 };
 let OPEN_API = {
-  HTTPOPENAPIURL: app.OPEN_API //切换域名
+ HTTPOPENAPIURL: app.OPEN_API //切换域名
 }
 let CONFIG = OPEN_API; // 选取当前环境配置
 

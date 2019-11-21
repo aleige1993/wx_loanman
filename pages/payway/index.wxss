@@ -1,36 +1,113 @@
 /* pages/payway/index.wxss */
+page{
+  background-color: #fff;
+}
 .meony_panl{
   width: 94%;
   margin:30rpx 3%;
   background-color: #fff;
   padding: 30rpx;
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  flex-wrap:wrap;
+  flex-wrap:wrap; */
 }
 .selThis{
-  flex: 1;
+  /* flex: 1;
   min-width:40%;
-  display: inline-block;
+  display: inline-block; */
   text-align: center;
-  border:1px solid #f37b1d;
-  margin:12rpx;
+  /* border:1px dotted #f37b1d; */
+  margin-bottom: 60rpx;
   /* margin-right: 30rpx; */
   padding:20rpx 15rpx;
   border-radius:10rpx; 
+  position: relative;
+}
+.iconjinpai{
+  display: inline-block;
+  width: 50rpx;
+  height: 60rpx;
+}
+.fout_c{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fout_c text{
+  font-size: 32rpx;
 }
 .selThis text{
   display:block;
   font-weight: 600;
-  font-size: 24rpx;
-  color: #f37b1d;
 }
+
 view.active{
-  background-color: #f37b1d;
+  /* background-color: #f37b1d; */
 }
 view.active text{
   color: #fff;
 }
 .migbton{
   margin: 0 10%;
+}
+.selThis_0{
+
+}
+.selThis_0{
+   border:1px dotted #FFAE20;
+}
+.selThis_1{
+  border:1px dotted #5F90FF;
+}
+.selThis_2{
+  border:1px dotted #FF6600;
+} 
+.selThis_2 .fout_c  .iconjinpai ,.selThis_2 .fout_c  text{
+  color: #FF6600;
+
+}
+
+.selThis_1 .fout_c  .iconjinpai ,.selThis_1 .fout_c  text{
+  color: #5F90FF;
+
+}
+.selThis_0 .fout_c  .iconjinpai ,.selThis_0 .fout_c  text{
+  color: #FFAE20;
+ 
+}
+.selThis_2 .icontuijian{
+  font-size: 80rpx;
+  position: absolute;
+  left: -4rpx;
+  top: 0;
+  color: #FF6600;
+  z-index: 2;
+  border-top-left-radius:10rpx; 
+}
+.selThis .font_n{
+  color: #A0A0A0;
+}
+
+.selThis_2.active, .selThis_2.active text, .selThis_2.active icon , .selThis_2.active view{
+  color: #fff !important;
+   border: none;
+  background-color: #FF6600;
+}
+.selThis_1.active, .selThis_1.active text, .selThis_1.active icon , .selThis_1.active view{
+  color: #fff !important;
+   border: none;
+  background-color: #5F90FF;
+}
+.selThis_0.active, .selThis_0.active text, .selThis_0.active icon , .selThis_0.active view{
+  color: #fff !important;
+   border: none;
+  background-color: #FFAE20;
+}
+.tip_text{
+  text-align: center;
+  font-size: 24rpx;
+  color: #A0A0A0;
+}
+.my_padding{
+  margin: 0 30rpx;
 }

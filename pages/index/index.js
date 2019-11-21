@@ -76,7 +76,6 @@ Page({
     },
     //信息查询列表
     getMsgList() { 
-        console.log(this.data.arrType[this.data.indType]);
         let parms = {
             page: this.data.page,
             limit: this.data.limit,
@@ -108,7 +107,6 @@ Page({
     //跳转h5
     gotoBack(e) {
         let links = e.currentTarget.dataset.links;
-        console.log(e);
         wx.navigateTo({
             url: '/pages/webView/index?links=' + links,
         })
@@ -128,6 +126,12 @@ Page({
         });
     },
     onLoad: function(query) {
+      console.log('query', query)
+      if (query.scene){
+        wx.navigateTo({
+          url: '/pages/info/index?msgId=' + query.scene
+        })
+      }
         wx.showLoading({
           title: '初始化中',
         })
@@ -185,7 +189,7 @@ Page({
             this.getMsgList();
           })
         }
-      },3000)
+      },300)
     },
     onPullDownRefresh: function() {
         this.setData({

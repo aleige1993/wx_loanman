@@ -1,19 +1,19 @@
 <!--pages/center/index.wxml-->
 <view class='center_panl'>
-  <view class='b_g bg-gradual-blue  text-center shadow-blur'></view>
+  <!-- <view class='b_g bg-gradual-blue  text-center shadow-blur'></view> -->
   <view class='conter_model'>
     <view class='user_info'>
       <image src='{{wxUserInfo ? wxUserInfo.avatarUrl : userInfo ? userInfo.avatarUri : "/static/images/error.png"}}'></image>
       <view class='user_model'>
-        <view class='font-w6 text-blue'>{{wxUserInfo.nickName}}</view>
+        <view class='font-w6 nickname'>{{wxUserInfo.nickName}}</view>
         <view class='level'>
           <view class='nechens'>
-            <text class='text-orange'>{{memberData.memberRole}}</text>
+            <text class='memberRole'>{{memberData.memberRole}}</text>
             <!-- <icon class="iconfont iconiconfontwenhao c-999"></icon> -->
             <!-- <label>购买了查看信息和发布信息的客户</label> -->
           </view>
-          <view class='days c-999'>
-            权益剩余天数：<text class='text-green font-w6'>{{memberData.powerLeft}}天</text>
+          <view class='days'>
+            权益剩余天数：<text class=''>{{memberData.powerLeft}}天</text>
           </view>
         </view>
       </view>
@@ -22,7 +22,7 @@
     <view class='ul_panl'>
     <navigator class='wx_li'  url='/pages/equity/index'>
       <view class='heder'>
-        <icon class='iconfont iconbaitiaoquanyi text-mauve text-shadow'></icon>
+        <icon class='iconfont iconhuiyuan text-mauve text-shadow'></icon>
         <text>更多权益</text>
       </view>
       <icon class='iconfont icontubiaozhizuo-1'></icon>
@@ -30,7 +30,7 @@
 
     <navigator class='wx_li' url='/pages/orderList/index'>
       <view class='heder'>
-        <icon class='iconfont icondingdanjilu text-shadow text-blue'></icon>
+        <icon class='iconfont icondingdan text-shadow text-blue'></icon>
         <text>订单记录</text>
       </view>
       <icon class='iconfont icontubiaozhizuo-1'></icon>
@@ -38,7 +38,7 @@
 
     <navigator class='wx_li' url='/pages/releaseList/index'>
       <view class='heder'>
-        <icon class='iconfont iconfabu text-shadow text-red'></icon>
+        <icon class='iconfont iconfabu1 text-shadow text-red'></icon>
         <text>已发布信息</text>
       </view>
       <icon class='iconfont icontubiaozhizuo-1'></icon>
@@ -46,8 +46,8 @@
 
     <navigator class='wx_li' url='/pages/statement/index'>
       <view class='heder'>
-        <icon class='iconfont iconxitongzhiguize text-shadow text-brown'></icon>
-        <text>规则声明</text>
+        <icon class='iconfont iconxiaoxi text-shadow text-brown'></icon>
+        <text>平台声明</text>
       </view>
       <icon class='iconfont icontubiaozhizuo-1'></icon>
     </navigator>

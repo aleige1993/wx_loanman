@@ -22,7 +22,29 @@ Page({
     msgItem:'',
     cunt:true,
     showFree:true,
-    isDisabled: false
+    isDisabled: false,
+    layer:false,
+    freeCount: 0,
+    maxPublishCount: 0
+  },
+  //显示
+  showlayer() {
+    this.setData({
+      layer: true
+    })
+  },
+  //隐藏
+  closelayer() {
+    this.setData({
+      layer: false,
+      showFree: false
+    })
+  },
+  //successfunc
+  successfunc() {
+    wx.navigateTo({
+      url: '/pages/equity/index?types=2',
+    })
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
@@ -117,27 +139,28 @@ Page({
         app.Formdata.post('/api/msg/free/publish/count', {}, (res) => {
             if (res.code == '0000') {
                 this.setData({
-                    freeCount: res.data.freeCount
+                  freeCount: res.data.freeCount,
+                  maxPublishCount: res.data.maxPublishCount
                 }, () => {
                     if (res.data.freeCount == 0) {
-                        
-                        wx.showModal({
-                            title: '温馨提示',
-                            content: '为保证发布信息的质量，您每天可免费发布' + res.data.maxPublishCount + '条信息，剩余' + res.data.freeCount + '条',
-                            cancelText: '我知道了',
-                            confirmText: '去购买',
-                            success(res) {
-                                if (res.confirm) {
-                                    wx.navigateTo({
-                                      url: '/pages/equity/index?types=2',
-                                    })
-                                } else if (res.cancel) {
-                                    _this.setData({
-                                        showFree: false
-                                    })
-                                }
-                            }
-                        })
+                      _this.showlayer();
+                        // wx.showModal({
+                        //     title: '温馨提示',
+                        //     content: '为保证发布信息的质量，您每天可免费发布' + res.data.maxPublishCount + '条信息，剩余' + res.data.freeCount + '条',
+                        //     cancelText: '我知道了',
+                        //     confirmText: '去购买',
+                        //     success(res) {
+                        //         if (res.confirm) {
+                        //             wx.navigateTo({
+                        //               url: '/pages/equity/index?types=2',
+                        //             })
+                        //         } else if (res.cancel) {
+                        //             _this.setData({
+                        //                 showFree: false
+                        //             })
+                        //         }
+                        //     }
+                        // })
                     }
                     //  else {
                     //   wx.showModal({
@@ -155,6 +178,7 @@ Page({
         })
     },
   onLoad: function (options) {
+    console.log(options)
     let _this = this;
     let _index='';
     let msgItem = JSON.parse(options.msgItem);

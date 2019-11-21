@@ -3,11 +3,17 @@
   /* margin:20rpx 0;
   padding: 0 30rpx; */
   background-color: #fff;
+  position: relative;
 }
 .picker_model{
   background-color: #fff;
-  width: 33.33%;
+  width: 48%;
   padding: 30rpx 0;
+}
+.picker_seraes{
+   position: absolute;
+   top: 30rpx;
+   right: 30rpx;
 }
 .picker{
   display: flex;
@@ -17,18 +23,33 @@
 }
 .picker text{
   display: inline-block;
+  color: #313131;
+  font-size: 24rpx;
 }
 .picker icon{
   height: 60rpx;
-  margin-top:-20rpx;
-  font-size: 16rpx;
+  margin-top:-10rpx;
+  font-size:20rpx;
   margin-left:4rpx;
-
   /* line-height: 40rpx; */
+}
+.p_seraes{
+  width:50rpx;
+  height: 50rpx;
+  display: inline-block;
+  border: 1px solid rgba(95,144,255,0.3);
+  border-radius:8rpx;
+  color:#5F90FF; 
+  line-height:40rpx;
+  text-align: center;
+}
+.p_seraes icon{
+  color: #5F90FF;
+  font-size: 28rpx;
 }
 .listProud{
   /* border-top:1px solid #ccc; */
-  padding:20rpx 0 20rpx 0; 
+  padding:0rpx 0 20rpx 0; 
 }
 .list_bar{
   display: flex;
@@ -40,23 +61,39 @@
   padding-left: 10rpx; 
 }
 .provide{
- border-left:28rpx solid #0081ff;
+  position: absolute;
+  width:4rpx;
+  height: 58rpx;
+  background-color:#5F90FF;
+  left:0;
+  top:28rpx;
 }
 .needs{
- border-left:28rpx solid #e54d42;
+  position: absolute;
+  width:4rpx;
+  height: 58rpx;
+  background-color:#FF5F5F;
+  left:0;
+  top:28rpx;
+}
+.chakanNeeds{
+  background-color: #FF5F5F;
+}
+.chakanProvide{
+  background-color: #5F90FF;
 }
 .list_panl{
   width: 94%;
   margin: 0 3%;
   background-color: #fff;
-  border-radius:6rpx;
-  margin-top: 40rpx;
+  border-radius:10rpx;
+  margin-top: 14rpx;
   padding: 20rpx;
+  position: relative;
 }
 .list_panl .wx_li{
   display: -webkit-flex;
   justify-content:space-between;
-  position: relative;
 }
 .list_panl .wx_li:last-child{
   margin-top: 30rpx;
@@ -70,24 +107,22 @@
     font-size: 24rpx;
 }
 .hd-title{
-    font-size: 30rpx;
+    font-size: 24rpx;
 }
 .wx_li2{
-    margin-top:20rpx;
+    margin-top:14rpx;
+    font-size: 22rpx;
 }
 .chakan{
     position: absolute;
-    right:-30rpx;
-    top:-40rpx;
-    width: 50rpx;
-    height: 50rpx;
-    line-height: 50rpx;
+    bottom:14rpx;
+    right:30rpx;
     text-align: center;
     color:#fff;
-    border-radius:100%;
-    z-index: 2; 
-    background-color: #fbbd08;
-    font-size: 24rpx;
+    padding:4rpx 10rpx;
+    border-radius:6rpx;
+    z-index: 2;
+    font-size: 20rpx;
 }
 .status{
     margin-right: 30rpx;

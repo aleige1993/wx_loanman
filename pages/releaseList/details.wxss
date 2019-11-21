@@ -2,11 +2,22 @@
 @import '/pages/info/index.wxss';
 .button_panl{
     text-align: center;
+    margin-top: 30rpx;
 }
 
 .button_panl button{
-    margin: 0 30rpx;
-    padding:  0  40rpx;
+    margin: 0 10rpx;
+    padding:  0  88rpx;
+    font-size: 24rpx;
+}
+.button_panl button.bg-green{
+  background-color: #06C15F; 
+}
+.button_panl button.bg-blue{
+  background-color: #5F90FF; 
+}
+.button_panl button.bg-grey{
+  background-color: #FF5F5F; 
 }
 .contitem{
   margin-top: 10rpx;

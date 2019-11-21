@@ -17,7 +17,19 @@ page{
 }
 .showRes .show{ 
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30rpx;
 }
 .showRes .show navigator{
-   margin: 30rpx;
+   width: 45%;
+}
+.show button{
+   width: 45%;
+}
+.b_blue{
+  border:1px solid  #5F90FF !important;
+  color: #5F90FF !important;
+  background-color: #fff !important;
 }

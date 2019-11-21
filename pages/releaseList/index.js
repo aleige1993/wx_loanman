@@ -10,7 +10,7 @@ Page({
         limit: 10,
         page: 1,
         publishRole:0,
-      msgList:[],
+        msgList:[],
         isNull: false,
         clcss:null
     },
@@ -120,7 +120,7 @@ Page({
             publishRole: 0,
             msgList: []
         }, () => {
-            this.getMagList();
+          this.getSearchList();
         }) 
     },
 
@@ -131,7 +131,7 @@ Page({
         this.setData({
             page: ++this.data.page
         }, () => {
-            this.getMagList();
+          this.getSearchList();
         })
     },
 

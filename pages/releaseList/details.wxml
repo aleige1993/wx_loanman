@@ -1,5 +1,57 @@
 <!--pages/info/index.wxml-->
 <view class='info_details'>
+  <view class="info_role">
+    <text class="kunb"></text>
+    <view class="jes_info">
+      <view>
+        <label class="ftw3">发布人角色：</label>
+        <text class="ftw6">{{msgItem.publishRole == '1' ? '服务需求方':'服务提供者'}}</text>
+      </view>
+      <view>
+        <label class="ftw3">信息类型：</label>
+        <text class="ftw6">{{msgItem.msgTypeName}}</text>
+      </view>
+    </view>
+    <view class="jes_title">
+      <label class="ftw3">标题：</label>
+      <text class="ftw6">{{msgItem.msgTitle}}</text>
+    </view>
+  </view>
+  <view class="jes_details">
+    <text class="de_title">详情</text>
+    <view class='details_panl'>
+     <text selectable="true" class='contitem' wx:key="content" wx:for="{{msgItem.newContent}}">{{item}}</text>
+    </view>
+  </view>
+  <view class="jes_about"> 
+    <view wx:if="{{infoItme.publishComp}}">
+      <label class="ftw3">公司名称：</label>
+      <text class="ftw6"  >{{msgItem.publishComp}}</text>
+ 
+    </view>
+    <view>
+      <label class="ftw3">发布人姓名：</label>
+      <text class="ftw6" >{{msgItem.publishName}}</text>
+ 
+    </view>
+    <view>
+      <label class="ftw3">发布人电话：</label>
+      <text  class="ftw6" >{{msgItem.publishMobile}}</text> 
+    </view>
+    <view>
+      <label class="ftw3">发布时间：</label>
+      <text class="ftw6">{{msgItem.firstPublishTime}}</text>
+    </view>
+  </view>
+</view>
+
+ <view class='button_panl'>
+      <button wx:if="{{msgItem.status == 1}}" bindtap='msgRefresh' class="cu-btn  bg-green" >置顶</button>
+      <button  wx:if="{{msgItem.status == 1}}" bindtap='gotoBack'  class="cu-btn   bg-blue" >编辑</button>
+      <button  wx:if="{{msgItem.status == 2}}" bindtap='gotoBack'  class="cu-btn   bg-blue" >重新发布</button>
+      <button wx:if="{{msgItem.status == 1}}" bindtap='showlayer' class="cu-btn  bg-grey">下架</button>
+  </view>
+<!-- <view class='info_details'>
     <view class='wx_li'>
         <text>发布人角色：</text>
         <view>{{msgItem.publishRole == '1' ? '服务需求方':'服务提供者'}}</view>
@@ -29,16 +81,12 @@
     <view class='wx_li'>
         <text>发布人姓名：</text>
         <view>{{msgItem.publishName}}</view>
-        <!-- <view>
-      您本月查看3条信息的免费次数已用完，希望这些信息已为您创造了价值！
-    </view> -->
+       
     </view>
     <view class='wx_li'>
         <text>发布人电话：</text>
         <view>{{msgItem.publishMobile}} </view>
-        <!-- <view>
-      为了能持续为您创造价值，点击下方按钮获取无限信息查询权限!
-    </view> -->
+        
     </view>
 
     <view class='button_panl'>
@@ -48,4 +96,18 @@
         <button wx:if="{{msgItem.status == 1}}" bindtap='msgDown' class="cu-btn  bg-grey">下架</button>
     </view>
 
+</view> -->
+<view class="layer" wx:if="{{layer}}"></view>
+<view class="msgbox" wx:if="{{layer}}">
+  <view class="title">下架提示</view>
+  <view class="msgtext">
+      <view class="wxLi">
+        <text  class="iconfont icongantan"></text>
+        <text>该信息下架后，将会在首页信息列表中置底显示，但任何人都无权看到发布人信息</text>
+      </view>
+  </view>
+  <view class="msgbut">
+      <view class="butone" bindtap="closelayer">取消</view>
+      <view class="buttwo active" bindtap="msgDown">下架</view>
+  </view>
 </view>

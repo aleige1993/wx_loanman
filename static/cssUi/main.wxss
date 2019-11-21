@@ -2544,13 +2544,14 @@ swiper .a-swiper-dot {
 
 swiper[class*="-dot"] .wx-swiper-dots {
 	display: flex;
-	align-items: center;
+	align-items:flex-start;
 	width: 100%;
-	justify-content: center;
+	justify-content:flex-start;
+  margin-left: 20rpx;
 }
 
 swiper.square-dot .wx-swiper-dot {
-	background-color: var(--white);
+	background-color:#5F90FF;
 	opacity: 0.4;
 	width: 10rpx;
 	height: 10rpx;

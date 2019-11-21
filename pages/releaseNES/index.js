@@ -27,7 +27,8 @@ Page({
     mobile: app.UserLogin ? app.UserLogin.get('userInfo').mobile:null,
       msgTitle: '',
       msgConent: '',
-      msgName: ''
+      msgName: '',
+      layer:false
   },
   getPhoneNumber(e){
       let _this = this;
@@ -141,6 +142,25 @@ Page({
       indType: e.detail.value
     })
   },
+  //显示
+  showlayer() {
+    this.setData({
+      layer:true
+    })
+  },
+  //隐藏
+  closelayer () {
+    this.setData({
+      layer:false,
+      showFree: false
+    })
+  },
+  //successfunc
+  successfunc (){
+    wx.navigateTo({
+      url: '/pages/equity/index?types=2',
+    }) 
+  },
   //可发布次数
     publishCount(){
         let _this = this;
@@ -150,24 +170,25 @@ Page({
                     freeCount: res.data.freeCount,
                     maxPublishCount: res.data.maxPublishCount
                 },()=>{
-                    if (res.data.freeCount == 0){ 
-                        wx.showModal({
-                            title: '温馨提示',
-                            content:  ' 为保证发布信息的质量，您每天可免费发布' + res.data.maxPublishCount+'条信息，剩余'+res.data.freeCount+'条',
-                            cancelText:'我知道了',
-                            confirmText:'去购买',
-                            success(res) {
-                                if (res.confirm) {
-                                    wx.navigateTo({
-                                      url: '/pages/equity/index?types=2',
-                                    }) 
-                                } else if (res.cancel) {
-                                    _this.setData({
-                                        showFree:false
-                                    }) 
-                                }
-                            } 
-                        })
+                    if (res.data.freeCount == 0){
+                        _this.showlayer();
+                        // wx.showModal({
+                        //     title: '温馨提示',
+                        //     content:  ' 为保证发布信息的质量，您每天可免费发布' + res.data.maxPublishCount+'条信息，剩余'+res.data.freeCount+'条',
+                        //     cancelText:'我知道了',
+                        //     confirmText:'去购买',
+                        //     success(res) {
+                        //         if (res.confirm) {
+                        //             wx.navigateTo({
+                        //               url: '/pages/equity/index?types=2',
+                        //             }) 
+                        //         } else if (res.cancel) {
+                        //             _this.setData({
+                        //                 showFree:false
+                        //             }) 
+                        //         }
+                        //     } 
+                        // })
                     }
                     // else{
                     //   wx.showModal({

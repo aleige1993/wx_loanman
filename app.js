@@ -16,14 +16,22 @@ App({
           _this.Tools = require('/utils/Tools.js');
           _this.Date = require('/utils/Date.js');
           _this.Md5 = require('/utils/md5.js');
-          console.log('UserLogin', _this.UserLogin)
            let userInfo = _this.UserLogin.get('userInfo');
           _this.getMsgType();
         }
       }
     })
     
-      
+    // _this.Config = require('/config/index.js');
+    // _this.UserLogin = require('/utils/UserLogin.js');
+    // _this.Formdata = require('/utils/Formdata.js');
+    // _this.Utils = require('/utils/util.js');
+    // _this.Bezier = require('/utils/Bezier.js');
+    // _this.Tools = require('/utils/Tools.js');
+    // _this.Date = require('/utils/Date.js');
+    // _this.Md5 = require('/utils/md5.js');
+    // let userInfo = _this.UserLogin.get('userInfo');
+    // _this.getMsgType();
     //   if (!userInfo){
     //       setTimeout(()=>{
     //           wx.navigateTo({
@@ -35,7 +43,6 @@ App({
   },
   getMsgType(){
     this.Formdata.post('/api/msg/all/type',{},(res)=>{
-      console.log('getMsgType',res);
       if(res.code == '0000'){
         this.UserLogin.set('arrType', res.data.arrType)
         // arrTypeAll.splice(0,0,{ lable: "全部", id: "0" }); 

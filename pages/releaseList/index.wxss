@@ -1,5 +1,6 @@
 /* pages/releaseList/index.wxss */
 @import '/pages/index/index.wxss';
+@import '/pages/search/result.wxss';
 .see_panl{
     display:flex;
     align-items: center;
@@ -56,3 +57,15 @@
 .back_bar view.needs{
     background-color: #e54d42;
 }
+.wx_li1{
+  display: flex;
+  justify-content: space-between;
+}
+.wx_li1 .tips{
+  
+}
+.wx_li1 .tips image{
+  width: 64rpx;
+  height: 24rpx;
+}
+

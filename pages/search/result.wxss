@@ -1,0 +1,167 @@
+/* pages/search/result.wxss */
+@import '/pages/index/index.wxss';
+/* @import "/pages/releaseList/index.wxss"; */
+.res_hader{
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+}
+.res_hader .serve{
+  width: 33%;
+  text-align: center;
+  position: relative;
+}
+.serve .lint{
+  text-align: center;
+  height: 6rpx;
+}
+.serve .lint .ctext{
+  display: inline-block;
+  width:20rpx;
+  height:4rpx;
+  background:#fff;
+  border-radius:2rpx;
+}
+.tileH{
+  color: #959595;
+  border-right:1px solid #E5E5E5; 
+  margin-top: 37rpx;
+  margin-bottom: 10rpx;
+}
+.res_hader .serve:last-child .tileH{
+  border-right:none; 
+}
+.tileH .hunk{
+  width:22rpx;
+height:22rpx;
+border-radius:4rpx;
+display: inline-block;
+margin-right: 6rpx;
+margin-bottom: -2rpx;
+}
+.res_hader .active .tileH{
+  color: #313131;
+  font-weight: 600;
+}
+.res_hader .active .lint .ctext{
+  background-color: #313131;
+}
+.res_coent{
+  margin-top: 100rpx;
+  margin-bottom: 30rpx;
+}
+.res_coent .section{
+  display: none;
+}
+.res_coent .active{
+  display: block !important;
+}
+.resP_box{
+  padding:0 20rpx;
+  padding-top: 24rpx;
+}
+.resP_titname{
+  width:198rpx;
+  height:44rpx;
+  background:rgba(95,144,255,1);
+  border-radius:6rpx 6rpx 0rpx 0rpx;
+  color:#fff;
+  line-height: 44rpx;
+  text-align: center;
+}
+.resP_titcont{
+  background-color: #fff;
+
+}
+.resP_titcont .list_box{
+  border-bottom:1px solid #f2f2f2;
+  padding: 24rpx; 
+  position: relative;
+}
+.resP_titcont .list_box .lint{
+  position: absolute;
+  width:4rpx;
+height:58rpx;
+  left: 0;
+  top: 30rpx;
+}
+.list_box .wx_li1{
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
+.wx_li2{
+  display: flex;
+  justify-content: space-between;
+}
+.wx_li2 .cunts{
+  color: #fff;
+  font-size: 20rpx;
+  padding: 5rpx 10rpx;
+  border-radius:4rpx; 
+}
+.Provide .cunts{
+  background-color: #5F90FF;
+  margin-left: 10rpx;
+}
+.Needs .cunts{
+  background-color: #FF5F5F;
+}
+.Provide .lint{
+  background-color: #5F90FF;
+}
+.Needs .lint{
+  background-color: #FF5F5F;
+}
+.resP_bot{
+  display: flex;
+  justify-content: space-between;
+  padding:0 30rpx 20rpx 30rpx;
+  background-color: #fff;
+  color: #AAAAAA;
+}
+.moave{
+  color: #AAAAAA;
+}
+.moave .iconfont{
+  font-size: 20rpx;
+  margin-right:6rpx; 
+}
+.moave text,.moave icon{
+  color: #AAAAAA;
+}
+.downMO .iconfont{
+  font-size: 20rpx;
+  color: #AAAAAA;
+}
+.resP_active{
+  height:250rpx;
+  overflow: hidden;
+}
+.upmove{
+  margin-top: 20rpx;
+  color: #AAAAAA;
+}
+.upMO{
+  height: 30rpx;
+}
+.upMO .iconfont{
+  font-size: 20rpx;
+  transform: rotateX(180deg);
+  height: 20rpx;
+  margin-top: 50rpx;
+}
+.nulldata{
+  color: #959595;
+  font-size: 24rpx;
+  text-align: center;
+  margin-top: 300rpx;
+}
+.tltedata{
+  margin-top: 20rpx !important;
+}

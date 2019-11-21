@@ -8,7 +8,7 @@ Page({
   data: {
     viewProducts:[],
     publishProducts:[],
-    proIndex:0
+    proIndex:2
   },
   //获取产品
   getProduct(e){ 

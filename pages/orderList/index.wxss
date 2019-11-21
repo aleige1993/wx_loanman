@@ -2,8 +2,9 @@
 .order_model{
     width: 94%;
     background-color: #fff;
-    margin: 30rpx 3%; 
+    margin: 30rpx 3% 0 3%; 
     border-radius:10rpx; 
+    position: relative;
 }
 .header{
  padding: 20rpx;
@@ -16,11 +17,29 @@
     margin-top:10rpx; 
 }
 .order_center{
-    padding: 20rpx;
+    padding: 30rpx;
 }
 .order_center view{
     margin-bottom: 20rpx;
 }
+.order_center view text{
+  color: #959595;
+}
 .order_center view:last-child{
     margin-bottom: 0;
+}
+.pre_text{
+  position: absolute;
+  display: inline-block;
+  height: 24rpx;
+  width: 4rpx;
+  top: 36rpx;
+  left: 0;
+  z-index: 1;
+}
+.pre_t1{
+  background-color: #5F90FF;
+}
+.pre_t2{
+  background-color: #FF5F5F;
 }

@@ -1,0 +1,61 @@
+/* pages/search/index.wxss */
+page{
+  background-color: #fff;
+}
+.sear_panl{
+  padding: 30rpx 80rpx;
+}
+.ser_input{
+  display: flex;
+  justify-content: center;
+  border: 1px solid rgba(220,220,220,1);
+  border-radius:10rpx; 
+}
+.ser_input input{
+  line-height: 68rpx;
+  color: #A0A0A0;
+  height: 68rpx;
+}
+.ser_input icon{
+  color: #A0A0A0;
+  font-size: 24rpx;
+}
+.sear_title{
+  display: flex;
+  justify-content: center;
+  margin: 60rpx 0;
+}
+.title_ser{
+  display:flex;
+  
+}
+.title_ser .lint{
+  width:8rpx;
+height:38rpx;
+background:rgba(95,144,255,1);
+opacity:0.5;
+border-radius:4rpx;
+margin-right: 10rpx;
+display: inline-block;
+}
+.title_ser .lint_text{
+  padding: 4rpx 10rpx;
+  background:rgba(95,144,255,1);
+  opacity:0.5;
+  color: #fff;
+  border-radius:4px;
+}
+.list_panl{
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -10rpx;
+}
+.list_panl view{
+  width: 33%;
+  text-align: center;
+  margin-bottom: 60rpx;
+  border-right:1px solid #E5E5E5; 
+}
+.list_panl view:last-child{
+  border-right:none; 
+}

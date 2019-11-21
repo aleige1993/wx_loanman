@@ -2,15 +2,19 @@
 .pice_panl{
     width: 94%;
     margin:40rpx 3%;
-    background-color: #fff;
+    /* background-color: #fff; */
     padding: 20rpx;
     border-radius:6rpx; 
 }
+.viewProductsli{
+  background-color: #fff;
+  padding:0 30rpx;
+}
 .wx_li{
     display: flex;
-    margin-bottom: 60rpx;
+    border-bottom:1px solid #eee; 
     justify-content: space-between;
-    padding: 20rpx;
+    padding:20rpx 0;
     align-items: center;
 }
 .wx_li:last-child{
@@ -18,4 +22,43 @@
 }
 .font-w600{
     font-weight: 600;
+}
+.action{
+  display: inline-block;
+  width: 240rpx;
+  text-align: center;
+  color:#fff;
+  background-color: #5F90FF;
+  border-radius:6px 6px 0px 0px;
+  padding:8rpx 0;
+}
+.newBUT{
+  background-color: #FFF;
+  color: #5F90FF;
+  border-radius:40rpx;
+  border: 1px solid  #5F90FF;
+  line-height: 50rpx; 
+}
+.onepr .wx_li view:first-child{
+  padding-left: 10rpx;
+  border-left: 4rpx solid  #5F90FF; 
+}
+
+.twopr .wx_li view:first-child{
+  padding-left: 10rpx;
+  border-left: 4rpx solid  #FF5F5F; 
+}
+
+.twoBUT{
+  background-color: #FFF;
+  color: #FF5F5F;
+  border-radius:40rpx;
+  border: 1px solid  #FF5F5F;
+  line-height: 50rpx; 
+}
+.twoac{
+  background-color: #FF5F5F !important;
+}
+.wx_li:last-child{
+  border-bottom:none; 
 }

@@ -2,6 +2,9 @@
 page{
     background-color: #fff;
 }
+.action .text-orange{
+  color: #5F90FF;
+}
 .wx_li{
     display: flex;
     padding: 30rpx;
@@ -10,6 +13,7 @@ page{
 }
 .cope{
     margin-left: 20rpx;
+    padding:0 30rpx !important;
 }
 .flexBut{
     padding: 0 30%;
@@ -30,4 +34,7 @@ page{
   font-size: 24rpx;
   color: #999;
   text-align: center;
+}
+.bg-blue{
+  background-color: #5F90FF;
 }

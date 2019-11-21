@@ -6,7 +6,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-      msgItem:null
+      msgItem:null,
+      layer:false
     },
     //刷新
   msgRefresh(){
@@ -21,6 +22,19 @@ Page({
       }
     })
   },
+  
+  //显示
+  showlayer () {
+    this.setData({
+      layer:true
+    })
+  },
+  //隐藏
+  closelayer () {
+    this.setData({
+      layer:false
+    })
+  },
   //下架
   msgDown(){
     let parms = {
@@ -30,6 +44,8 @@ Page({
       if (res.code == '0000') {
         this.setData({
             'msgItem.status':2
+        },()=>{
+          this.closelayer();
         })
         wx.showToast({
           title: '下架成功！',

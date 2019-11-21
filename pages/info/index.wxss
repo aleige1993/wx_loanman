@@ -1,6 +1,6 @@
 /* pages/info/index.wxss */
 .info_details{
-  margin:60rpx  30rpx;
+  margin:20rpx;
   padding:30rpx;
   border-radius:6rpx; 
   background-color: #fff;
@@ -23,12 +23,12 @@
   margin-left:10rpx;
   border-radius:6rpx; 
 }
-.fenx{
+/* .fenx{
     position: fixed;
     z-index: 9;
     top: 16rpx;
     right: 16rpx;
-}
+} */
 .iconfabu{
     width: 80rpx;
     height: 80rpx;
@@ -43,24 +43,37 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 95%;
+    border-radius:10rpx; 
     background-color: #fff;
     z-index: 11;
+    margin: 20rpx;
 }
 .but_hader{
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    /* text-align: right; */
     padding: 10rpx 30rpx;
-    border-bottom: 1px solid #eee;
+    align-items: center;
+
+    /* border-bottom: 1px solid #eee; */
+}
+.but_hader .text1{
+  color: #959595;
 }
 .but_center{
     display: flex;
-    margin: 30rpx 0;
+    margin: 0 0 30rpx 0;
 }
 .but_center .center{
     width: 50%;
     text-align: center;
     line-height:normal;
     background-color: #fff;
+}
+.but_center .center image{
+  width: 54rpx;
+  height: 54rpx;
 }
 .but_center .center .iconfont{
     font-size: 100rpx;
@@ -109,7 +122,7 @@
     z-index: 9;
     left: 0;
     top: 20rpx;
-    background-color: #1cbbb4;
+    background-color:#5F90FF;
     border-top-right-radius:30rpx;
     border-bottom-right-radius:30rpx;
     color: #fff;
@@ -118,6 +131,7 @@
 }
 .backIndex icon,.backIndex text{
     color: #fff;
+    margin-top: -4rpx;
 }
 
 .islayer{
@@ -133,7 +147,7 @@
     height: 70vh;
 }
 .contitem{
-  margin-top: 10rpx;
+  margin-top: 18rpx;
 }
 .details_panl text{
   display:block;
@@ -143,3 +157,100 @@
   background: linear-gradient(to bottom, #70dee1 0%,#5eb8f0 100%);
   color: #fff;
 }
+.kunb{
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius:100%;
+  background-color: #EDF2FF;
+  position: absolute; 
+  left:0;
+  top: -50rpx;
+}
+.info_role{
+  position: relative;
+}
+.info_details{
+  position: relative;
+}
+.jes_info{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50rpx;
+}
+label.ftw3{
+  color: #313131;
+}
+text.ftw6{
+  color: #959595;
+}
+.jes_info view,.jes_about view{
+  margin-bottom: 20rpx;
+}
+.info_role{
+  padding-bottom: 30rpx;
+  border-bottom:1px solid #eee;  
+}
+.jes_details{
+  padding: 30rpx 0;
+  border-bottom:1px solid #eee;
+}
+.jes_details .de_title{
+  background-color: #5F90FF;
+  color: #fff;
+  padding: 4rpx 10rpx;
+  border-radius: 4rpx;
+  display: inline-block;
+}
+.details_panl text{
+
+}
+.jes_about {
+  padding-top: 30rpx;
+  position: relative;
+}
+.fenx{
+  position: absolute;
+  bottom:0;
+  right: 0;
+  z-index: 2;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius:100%;
+  text-align: center;
+  border:1px solid #5F90FF;
+  margin-bottom: 0 !important;
+}
+.fenx icon{
+  color: #5F90FF;
+  margin-top: 8rpx;
+}
+.showMSG{
+  background: #fff;
+  margin: 20rpx;
+  padding: 30rpx;
+  border-radius:4rpx;
+  display: flex; 
+}
+.showMSG .iconfont{
+  color: #FFC15F;
+  height:30rpx;
+  margin-top:-12rpx;
+}
+.showMSG view{
+  color: #FFC15F;
+  line-height: 40rpx;
+  padding-left: 4rpx;
+}
+.my_padding{
+  padding:20rpx;
+}
+.my_padding button, .my_padding navigator{
+  color: #fff;
+  background-color: #5F90FF;
+  font-size: 24rpx;
+  border-radius:10rpx;
+  line-height: 88rpx; 
+  text-align: center;
+}
+ 
