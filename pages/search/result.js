@@ -15,7 +15,9 @@ Page({
     publishRole:0,
     id:0,
     listData:[],
-    datanull:false
+    datanull:false,
+    ismove:null,
+    listishow:[]
   },
 
   /**
@@ -25,16 +27,16 @@ Page({
     wx.showLoading({
       title: '加载中..',
     })
-    if (options.lablelist){
-      let lablelist = JSON.parse(options.lablelist)
+   
+    if (options.cofid){
       this.setData({
         // lable: lablelist ? lablelist.lable : '',
-        msgType: lablelist ? lablelist.id : 0,
+        msgType: options.cofid ? options.cofid : 0,
         listData:[],
         page: 1,
         publishRole:0,
         index:0,
-        queryParam:''
+        queryParam: options.coftext ? options.coftext :''
       }, ()=>{
         this.getSearchList()
       }) 
@@ -49,7 +51,7 @@ Page({
       }, ()=>{
         this.getSearchList()
       })
-    }
+   }
   },
   getSearchList() {
     let parm = {
@@ -59,13 +61,14 @@ Page({
       publishRole: this.data.index,//发布角色
       queryParam: this.data.queryParam
     }
-    app.Formdata.post('/api/msg/page',parm,(res)=>{
-      console.log(res)
+      // / api / msg / page
+    app.Formdata.post('/api/msg/page/global',parm,(res)=>{
+      let _this = this;
       if(res.code == '0000') {
         this.setData({
-          listData: this.data.listData.concat(res.data.data)
+          listData: this.data.listData.concat(res.data)
         })
-        if (this.data.page >= 2 && res.data.data.length == 0){
+        if (this.data.page >= 2 && Object.keys(res.data).length == 0){
           this.setData({
               datanull:true
           })
@@ -93,8 +96,18 @@ Page({
   //跳转详情
   gotoBackInfo(e) {
     let infoItme = e.currentTarget.dataset.item;
+    console.log(infoItme)
     wx.navigateTo({
       url: '/pages/info/index?msgId=' + infoItme.msgId
+    })
+  },
+  //展示更多
+  addmoave(e){
+    let ins = e.currentTarget.dataset.ins;
+    let item = e.currentTarget.dataset.item; 
+    let listData = 'listData['+ins+'].isShow'
+    this.setData({
+      [listData]: !item.isShow
     })
   },
   /**
@@ -144,11 +157,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.setData({
-      page: ++this.data.page
-    }, () => {
-      this.getSearchList();
-    })
+    // this.setData({
+    //   page: ++this.data.page
+    // }, () => {
+    //   this.getSearchList();
+    // })
   },
 
   /**

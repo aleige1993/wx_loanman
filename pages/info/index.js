@@ -56,6 +56,7 @@ Page({
             url: imgSrc,
             success: function (res) { 
                 //图片保存到本地
+                console.log('gongg',res)
                 wx.saveImageToPhotosAlbum({
                     filePath: res.tempFilePath,
                     success: function (data) {
@@ -68,6 +69,7 @@ Page({
                         })
                     },
                     fail: function (err) {
+                      console.log(err)
                         if (err.errMsg == "saveImageToPhotosAlbum:fail auth deny") {
                             wx.openSetting({
                                 success(settingdata) {
@@ -81,6 +83,7 @@ Page({
                         }
                     },
                     complete(rult) {
+                      console.log(rult)
                         if (rult.errMsg === "saveImageToPhotosAlbum:fail auth deny") {
                             wx.openSetting({
                                 success(settingdata) {
@@ -94,6 +97,9 @@ Page({
                         }
                     }
                 })
+            },
+            fail: function(erring){
+              console.log('erring',erring)
             }
         })
     },
@@ -243,7 +249,6 @@ Page({
     },
     //制作完成
     eventGetImage(event) {
-      console.log(event)
       wx.hideLoading()
       const { tempFilePath, errMsg } = event.detail
       if (errMsg === 'canvasdrawer:ok') {

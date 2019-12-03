@@ -1,6 +1,9 @@
 /* pages/search/result.wxss */
 @import '/pages/index/index.wxss';
 /* @import "/pages/releaseList/index.wxss"; */
+page{
+  background-color: #F8FAFF;
+}
 .res_hader{
   position: fixed;
   z-index: 10;
@@ -79,6 +82,9 @@ margin-bottom: -2rpx;
   background-color: #fff;
 
 }
+.heightCont{
+  overflow: hidden;
+}
 .resP_titcont .list_box{
   border-bottom:1px solid #f2f2f2;
   padding: 24rpx; 
@@ -100,10 +106,14 @@ height:58rpx;
   justify-content: space-between;
 }
 .wx_li2 .cunts{
-  color: #fff;
-  font-size: 20rpx;
-  padding: 5rpx 10rpx;
-  border-radius:4rpx; 
+    text-align: center;
+    color:#fff;
+    /* padding:4rpx 10rpx; */
+    width: 80rpx;
+    height: 30rpx;
+    border-radius:6rpx;
+    font-size: 20rpx;
+    line-height: 32rpx;
 }
 .Provide .cunts{
   background-color: #5F90FF;
@@ -164,4 +174,7 @@ height:58rpx;
 }
 .tltedata{
   margin-top: 20rpx !important;
+}
+.taishow{
+  border-top:1px solid #f2f2f2; 
 }

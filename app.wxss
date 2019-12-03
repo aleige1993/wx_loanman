@@ -9,7 +9,7 @@ page{
 navigator,button,view,input,text,icon,input,label,textarea,radio,switch,:checked,form,picker,rich-text,image{
  font-family:PingFang SC,Helvetica Neue,Helvetica,Roboto,Segoe UI,Arial,sans-serif;
  box-sizing: border-box;
- font-size:24rpx;
+ font-size:26rpx;
  color: #414141;
 }
 icon{

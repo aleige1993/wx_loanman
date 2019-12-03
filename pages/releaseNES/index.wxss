@@ -16,9 +16,16 @@ page{
   justify-content: space-between;
   align-items: center;
 }
+.wx_li button{
+  flex: 1;
+  text-align: center;
+}
 .wx_li input{
   color: #5F90FF;
   text-align: right;
+  flex: 1;
+}
+.wx_li picker{
   flex: 1;
 }
 .wx_li textarea{
@@ -40,9 +47,10 @@ button[disabled] {
 
 .picker{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
+  align-items:center;
   line-height: 44rpx;
+  text-align: right;
   flex: 1;
 }
 .picker icon{

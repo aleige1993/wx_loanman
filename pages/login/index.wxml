@@ -7,7 +7,22 @@
         </view> 
     </view>
     <view wx:if="{{!debugOpen}}" class='text_panl text-shadow text-blue'>
-        贷速通：金融服务一网打尽，金融零配件服务平台
+        <view class="ext_li li1 text-shadow text-blue">
+          【客企互联旺】
+        </view>
+         <view class="ext_li li2 text-shadow text-blue">
+          聚客企精英
+        </view>
+         <view class="ext_li li3 text-shadow text-blue">
+          汇供需信息
+        </view>
+         <view class="ext_li li4 text-shadow text-blue">
+          促客企直联
+        </view>
+         <view class="ext_li li5 text-shadow text-blue">
+          旺万事如意
+        </view>
+            
     </view>
 
     <view class='button_panl'>
@@ -28,7 +43,7 @@
 
             <view class='gouxuan'> 
                     <icon class='iconfont icondui text-blue'></icon>
-                    <navigator class='text-blue' hover-class='none' url="/pages/statement/index">贷速通平台用户协议</navigator> 
+                    <navigator class='text-blue' hover-class='none' url="/pages/statement/index">客企互联旺平台用户协议</navigator> 
             </view>
     </view> 
 </view>

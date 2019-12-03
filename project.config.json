@@ -14,7 +14,7 @@
 		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.7",
+	"libVersion": "2.9.4",
 	"appid": "wx5aae51df89a8dafb",
 	"projectname": "wx_loan",
 	"debugOptions": {

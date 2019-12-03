@@ -1,59 +1,73 @@
 <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="3000" duration="500">
-    <swiper-item wx:for="{{swiperList}}" wx:key="swiperList" data-links="{{item.hyperLinks}}" bindtap='gotoBack'>
-        <image src="{{item.h5Url}}" mode="aspectFill"></image>
-    </swiper-item>
+  <swiper-item wx:for="{{swiperList}}" wx:key="swiperList" data-links="{{item.hyperLinks}}" bindtap='gotoBack'>
+    <image src="{{item.h5Url}}" mode="aspectFill"></image>
+  </swiper-item>
 </swiper>
 <view class='section_panl'>
-    <view class='picker_model'>
-        <picker bindchange="onPickerUser" value="{{indUser}}" range-key="lable" range="{{arrUser}}">
-            <view class="picker">
-                <text class='overflowfont'>{{arrUser[indUser]?arrUser[indUser].lable == '全部'?'发布人角色':arrUser[indUser].lable:'发布人角色'}}</text>
-                <icon class='iconfont iconsanjiaoxing'></icon>
-            </view>
-        </picker>
-    </view>
-    <view class='picker_model'>
-        <picker  bindchange="onPickerType" value="{{indType}}" range-key="lable" range="{{arrType}}">
-            <view class="picker">
-                <text class='overflowfont'>{{arrType[indType]?arrType[indType].lable == '全部'?'信息类型':arrType[indType].lable:'信息类型'}}</text>
-                <icon class='iconfont iconsanjiaoxing'></icon>
-            </view>
-        </picker>
-    </view>
-    <view class='picker_seraes'>
-     <view class="picker">
+  <view class='picker_model'>
+    <picker bindchange="onPickerUser" value="{{indUser}}" range-key="lable" range="{{arrUser}}">
+      <view class="picker">
+        <text class='overflowfont'>{{arrUser[indUser]?arrUser[indUser].lable == '全部'?'发布人角色':arrUser[indUser].lable:'发布人角色'}}</text>
+        <icon class='iconfont iconsanjiaoxing'></icon>
+      </view>
+    </picker>
+  </view>
+  <view class='picker_model'>
+    <picker bindchange="onPickerType" value="{{indType}}" range-key="lable" range="{{arrType}}">
+      <view class="picker">
+        <text class='overflowfont'>{{arrType[indType]?arrType[indType].lable == '全部'?'信息类型':arrType[indType].lable:'信息类型'}}</text>
+        <icon class='iconfont iconsanjiaoxing'></icon>
+      </view>
+    </picker>
+  </view>
+  <view class='picker_model'>
+    <navigator url='/pages/search/index'>
+      <view class="picker">
+        <text class='overflowfont'>智慧搜索</text>
+        <icon class='iconfont iconfangdajing'></icon>
+      </view>
+    </navigator>
+  </view>
+  <!-- <view class='picker_seraes'>
+    <view class="picker">
       <navigator url='/pages/search/index' class="p_seraes">
         <icon class="iconfont iconfangdajing"></icon>
       </navigator>
-     </view>
-        <!-- <picker bindchange="onPickerPaixu" value="{{indPaixu}}" range-key="lable" range="{{arrPaixu}}">
+    </view>
+  </view> -->
+  <!-- <picker bindchange="onPickerPaixu" value="{{indPaixu}}" range-key="lable" range="{{arrPaixu}}">
             <view class="picker">
                 <text class='overflowfont'>{{arrPaixu[indPaixu].lable?arrPaixu[indPaixu].lable:'最新发布'}}</text>
                 <icon class='iconfont iconxiala'></icon>
             </view>
         </picker> -->
-    </view>
-    <!-- <icon class='iconfont iconpaixu paixu'></icon> -->
+  <!-- <icon class='iconfont iconpaixu paixu'></icon> -->
 </view>
 <view class='listProud'>
-    <!-- <view class='list_bar'>
+  <!-- <view class='list_bar'>
         <view class='provide'>服务提供方</view>
         <view class='needs'>服务需求方</view>
     </view> -->
-    <view wx:for="{{msgList}}" wx:key="msgList" data-item="{{item}}" bindtap='gotoBackInfo' class='list_panl  shadow-just'>
-        <view class='{{item.publishRole == 1?"needs":"provide"}}'></view>
-        <view class='wx_li'>
-            <view class='font-w6  hd-title'>{{item.msgTypeName}}</view>
-            <!-- <view class='c-999 status'>{{item.firstPublishTime}}</view> -->
-            <view class='chakan {{item.publishRole == 1?"chakanNeeds":"chakanProvide"}}'>{{item.viewCount>9999 ? '9999+': item.viewCount}}</view>
-        </view>
-        <view class='wx_li2 overflowfont c-666'>
-            {{item.msgTitle}}
-        </view>
+  <view wx:for="{{msgList}}" wx:key="msgList" data-item="{{item}}" bindtap='gotoBackInfo' class='list_panl'>
+    <!-- <view class='{{item.publishRole == 1?"needs":"provide"}}'></view> -->
+    <image wx:if="{{item.publishRole == 1}}"  src="/static/images/ic_red.png" class="png_needs"></image>
+    <image wx:if="{{item.publishRole == 2}}" src="/static/images/ic_bule.png"  class="png_needs"></image>
+    <view class="balc_right">
+      <view class='wx_li'>
+      <view class='font-w6  hd-title'>{{item.msgTitle}}</view>
+      <!-- <view class='c-999 status'>{{item.firstPublishTime}}</view> -->
+      <view class='chakan {{item.publishRole == 1?"chakanNeeds":"chakanProvide"}}'>{{item.viewCount>9999 ? '9999+': item.viewCount}}</view>
     </view>
-    <view>
-        <view class='nulldata' wx:if="{{isNull}}">
-            <view class='tlte_null'>没有数据啦</view>
-        </view>
+    <view class='wx_li2 overflowfont c-666'>
+      {{item.msgTypeName}}
     </view>
+    </view>
+   
+  </view>
+  <view>
+    <view class='nulldata' wx:if="{{isNull}}">
+      <view class='tlte_null'>没有数据啦</view>
+    </view>
+  </view>
 </view>
+<icon wx:if="{{biTop}}" bindtap="sorllToping" class="iconfont iconzhiding"></icon>

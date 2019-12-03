@@ -1,12 +1,15 @@
+page{
+  background-color: #fff;
+}
 .section_panl{
   display: flex;
   /* margin:20rpx 0;
   padding: 0 30rpx; */
-  background-color: #fff;
+  background-color: #f6f6f6;
   position: relative;
 }
 .picker_model{
-  background-color: #fff;
+  /* background-color: #fff; */
   width: 48%;
   padding: 30rpx 0;
 }
@@ -24,7 +27,7 @@
 .picker text{
   display: inline-block;
   color: #313131;
-  font-size: 24rpx;
+  font-size: 26rpx;
 }
 .picker icon{
   height: 60rpx;
@@ -83,13 +86,12 @@
   background-color: #5F90FF;
 }
 .list_panl{
-  width: 94%;
-  margin: 0 3%;
   background-color: #fff;
   border-radius:10rpx;
-  margin-top: 14rpx;
-  padding: 20rpx;
+  padding: 20rpx 20rpx 0 20rpx;
   position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 .list_panl .wx_li{
   display: -webkit-flex;
@@ -107,23 +109,50 @@
     font-size: 24rpx;
 }
 .hd-title{
-    font-size: 24rpx;
+    font-size: 26rpx;
 }
 .wx_li2{
     margin-top:14rpx;
-    font-size: 22rpx;
+    font-size: 24rpx;
 }
 .chakan{
     position: absolute;
-    bottom:14rpx;
-    right:30rpx;
+    bottom:0rpx;
+    right:20rpx;
     text-align: center;
     color:#fff;
-    padding:4rpx 10rpx;
-    border-radius:6rpx;
+    /* padding:4rpx 10rpx; */
+    width: 80rpx;
+    height: 30rpx;
     z-index: 2;
     font-size: 20rpx;
+    line-height: 32rpx;
+    border-top-left-radius:20rpx; 
 }
 .status{
     margin-right: 30rpx;
+}
+.iconzhiding{
+  position: fixed;
+  z-index: 2;
+  bottom: 20rpx;
+  right: 30rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius:100%; 
+  color: #5F90FF;
+  font-size: 80rpx;
+  overflow: hidden;
+  background-color: #fff;
+}
+.png_needs{
+  width: 32rpx;
+  height: 64rpx;
+  margin-right:20rpx;
+  margin-top: 8rpx; 
+}
+.balc_right{
+  flex: 1;
+  padding-bottom: 30rpx;
+  border-bottom:1px solid #eee; 
 }

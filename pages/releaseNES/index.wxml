@@ -27,7 +27,7 @@
       <input type='text' name='msgTitle' maxlength='20' value='{{msgTitle}}' placeholder='请输入20个字以内'></input>
     </view>
     <view class='msg_lis'>
-      <textarea value='{{msgConent}}' maxlength='500'name='msgConent' bindinput='textChange' placeholder='请输入信息详细描述（详情），建议按照“公司名字”+“产品亮点”，重点描述“产品亮点”，达到迅速抓住观看者兴趣的效果'></textarea>
+      <textarea value='{{msgConent}}' maxlength='500'name='msgConent' bindinput='textChange' placeholder='{{layer?"":"请输入信息详细描述（详情），建议按照“公司名字”+“产品亮点”，重点描述“产品亮点”，达到迅速抓住观看者兴趣的效果"}}'></textarea>
       <view class='text_num'><text class="num">{{tNum}}</text>/500</view>
     </view>
      <view class='wx_li'>

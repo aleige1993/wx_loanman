@@ -17,11 +17,11 @@
   text-align: right;
 }
 
-.picker{
+/* .picker{
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 .picker icon{
   margin-top:-10rpx;
 }

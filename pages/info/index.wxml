@@ -1,7 +1,7 @@
 <!--pages/info/index.wxml-->
 <view class='info_details'>
   <view class="info_role">
-    <text class="kunb"></text>
+    <!-- <text class="kunb"></text> -->
     <view class="jes_info">
       <view>
         <label class="ftw3">发布人角色：</label>
@@ -14,11 +14,13 @@
     </view>
     <view class="jes_title">
       <label class="ftw3">标题：</label>
-      <text class="ftw6">{{infoItme.msgTitle}}</text>
+      <text class=" jmsgTitle">{{infoItme.msgTitle}}</text>
     </view>
   </view>
+  <view class="detais_panl"><text class="de_title">详情</text> </view>
+  
   <view class="jes_details">
-    <text class="de_title">详情</text>
+    <!-- <text class="de_title">详情</text> -->
     <view class='details_panl'>
       <text selectable='true' class='contitem' wx:key="content" wx:for="{{infoItme.content}}">{{item}}</text>
     </view>

@@ -22,8 +22,8 @@
       </view>
     </view>
   </view>
- <view class="res_coent">
-    <view class="active section section_one">
+  <!-- <view class="res_coent"> -->
+    <!-- <view class="active section section_one">
       <view class="resP_box">
           <view class="resP_titcont">
           <view  wx:for="{{listData}}" wx:key="listData" data-item="{{item}}" bindtap='gotoBackInfo' class='list_box Provide {{item.publishRole == 1?"Needs":"Provide"}}'>
@@ -38,190 +38,59 @@
           </view>
         </view>
       </view>
+    </view> -->
+    <!-- <view wx:if="{{listData.length == 0}}" class="active section section_there">
+      <view class="nulldata">
+        没有符合条件的搜索结果，试试其他内容
+      </view>
+    </view> -->
+    <!-- <view class="nulldata tltedata" wx:if="{{datanull}}">
+      <view class='tlte_null'>没有数据啦</view>
+    </view> -->
+  <!-- </view> -->
+
+  <view class="res_coent">
+    <view class="active section section_one">
+      <view class="resP_box" wx:for="{{listData}}" wx:for-index="index" wx:key="rsp">
+        <view class="resP_titname">{{listData[index].tpdata[0].msgTypeName}}</view>
+        <view class="resP_titcont {{ item.isShow ? 'resP_active': ''}}">
+          <view wx:for="{{item.tpdata}}" wx:for-item="itemArr" wx:key="cont" class="list_box {{itemArr.publishRole == 1? 'Needs':'Provide'}}" data-item="{{itemArr}}" bindtap='gotoBackInfo' >
+            <text class="lint"></text>
+            <view class="wx_li1">{{itemArr.publishName}}</view>
+            <view class="wx_li2">
+              <text class="c-666">{{itemArr.msgTypeName}}</text>
+              <text class="cunts">{{itemArr.viewCount>9999? '9999+':itemArr.viewCount}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="taishow" wx:if="{{item.tpdata.length>2}}">
+          <view class="resP_bot" wx:if="{{item.isShow}}"  data-item="{{item}}" data-ins="{{index}}" bindtap="addmoave">
+            <view class="moave">
+              <icon class="iconfont iconfangdajing"></icon>
+              <text>更多</text>
+            </view>
+            <view class="downMO">
+              <icon class="iconfont iconsanjiaoxing"></icon>
+            </view>
+          </view>
+          <view class="resP_bot" wx:if="{{!item.isShow}}"  data-item="{{item}}" data-ins="{{index}}" bindtap="addmoave">
+            <view class="upmove">
+              收起
+            </view>
+            <view class="upMO">
+              <icon class="iconfont iconsanjiaoxing"></icon>
+            </view>
+          </view>
+        </view>
+      </view>
     </view>
-    <view wx:if="{{listData.length == 0}}" class="active section section_there">
+   <view wx:if="{{listData.length == 0}}" class="active section section_there">
       <view class="nulldata">
         没有符合条件的搜索结果，试试其他内容
       </view>
     </view>
     <view class="nulldata tltedata" wx:if="{{datanull}}">
-        <view class='tlte_null'>没有数据啦</view> 
+      <view class='tlte_null'>没有数据啦</view>
     </view>
   </view>
-   
-  <!-- <view class="res_coent">
-    <view class="active section section_one">
-      <view class="resP_box">
-        <view class="resP_titname">信息类型名称</view>
-        <view class="resP_titcont ">
-          <view class="list_box Provide">
-            <text class="lint"></text>
-            <view class="wx_li1">小微商户贷</view>
-            <view class="wx_li2">
-              <text class="c-666">资金供求</text>
-              <text class="cunts">9999+</text>
-            </view>
-          </view>
-          <view class="list_box Needs">
-            <text class="lint"></text>
-            <view class="wx_li1">小微商户贷</view>
-            <view class="wx_li2">
-              <text class="c-666">资金供求</text>
-              <text class="cunts">9999+</text>
-            </view>
-          </view>
-          <view class="list_box Needs">
-            <text class="lint"></text>
-            <view class="wx_li1">小微商户贷</view>
-            <view class="wx_li2">
-              <text class="c-666">资金供求</text>
-              <text class="cunts">9999+</text>
-            </view>
-          </view>
-          <view class="list_box Needs">
-            <text class="lint"></text>
-            <view class="wx_li1">小微商户贷</view>
-            <view class="wx_li2">
-              <text class="c-666">资金供求</text>
-              <text class="cunts">9999+</text>
-            </view>
-          </view>
-        </view>
-        <view class="resP_bot">
-          <view class="moave">
-            <icon class="iconfont iconfangdajing"></icon>
-            <text>更多</text>
-          </view>
-          <view class="downMO">
-            <icon class="iconfont iconsanjiaoxing"></icon>
-          </view>
-        </view>
-        <!-- <view class="resP_bot">
-          <view class="upmove">
-            收起
-          </view>
-          <view class="upMO">
-            <icon class="iconfont iconsanjiaoxing"></icon>
-          </view>
-        </view> -->
-      <!-- </view>
-      <view class="resP_box">
-        <view class="resP_titname">信息类型名称</view>
-        <view class="resP_titcont ">
-          <view class="list_box Provide">
-            <text class="lint"></text>
-            <view class="wx_li1">小微商户贷</view>
-            <view class="wx_li2">
-              <text class="c-666">资金供求</text>
-              <text class="cunts">9999+</text>
-            </view>
-          </view>
-          <view class="list_box Needs">
-            <text class="lint"></text>
-            <view class="wx_li1">小微商户贷</view>
-            <view class="wx_li2">
-              <text class="c-666">资金供求</text>
-              <text class="cunts">9999+</text>
-            </view>
-          </view>
-          <view class="list_box Needs">
-            <text class="lint"></text>
-            <view class="wx_li1">小微商户贷</view>
-            <view class="wx_li2">
-              <text class="c-666">资金供求</text>
-              <text class="cunts">9999+</text>
-            </view>
-          </view>
-          <view class="list_box Needs">
-            <text class="lint"></text>
-            <view class="wx_li1">小微商户贷</view>
-            <view class="wx_li2">
-              <text class="c-666">资金供求</text>
-              <text class="cunts">9999+</text>
-            </view>
-          </view>
-        </view>
-        <view class="resP_bot">
-          <view class="moave">
-            <icon class="iconfont iconfangdajing"></icon>
-            <text>更多</text>
-          </view>
-          <view class="downMO">
-            <icon class="iconfont iconsanjiaoxing"></icon>
-          </view>
-        </view> -->
-        <!-- <view class="resP_bot">
-          <view class="upmove">
-            收起
-          </view>
-          <view class="upMO">
-            <icon class="iconfont iconsanjiaoxing"></icon>
-          </view>
-        </view> -->
-      <!-- </view>
-    </view>
-    <view class=" section section_two">
-      <view class="resP_box">
-        <view class="resP_titname">信息类型名称</view> -->
-        <!-- resP_active -->
-        <!-- <view class="resP_titcont ">
-          <view class="list_box Provide">
-            <text class="lint"></text>
-            <view class="wx_li1">小微商户贷</view>
-            <view class="wx_li2">
-              <text class="c-666">资金供求</text>
-              <text class="cunts">9999+</text>
-            </view>
-          </view>
-          <view class="list_box Provide">
-            <text class="lint"></text>
-            <view class="wx_li1">小微商户贷</view>
-            <view class="wx_li2">
-              <text class="c-666">资金供求</text>
-              <text class="cunts">9999+</text>
-            </view>
-          </view>
-          <view class="list_box Provide">
-            <text class="lint"></text>
-            <view class="wx_li1">小微商户贷</view>
-            <view class="wx_li2">
-              <text class="c-666">资金供求</text>
-              <text class="cunts">9999+</text>
-            </view>
-          </view>
-          <view class="list_box Provide">
-            <text class="lint"></text>
-            <view class="wx_li1">小微商户贷</view>
-            <view class="wx_li2">
-              <text class="c-666">资金供求</text>
-              <text class="cunts">9999+</text>
-            </view>
-          </view>
-        </view>
-        <view class="resP_bot">
-          <view class="moave">
-            <icon class="iconfont iconfangdajing"></icon>
-            <text>更多</text>
-          </view>
-          <view class="downMO">
-            <icon class="iconfont iconsanjiaoxing"></icon>
-          </view>
-        </view> -->
-        <!-- <view class="resP_bot">
-          <view class="upmove">
-            收起
-          </view>
-          <view class="upMO">
-            <icon class="iconfont iconsanjiaoxing"></icon>
-          </view>
-        </view> -->
-      <!-- </view>
-    </view>
-    <view class=" section section_there">
-      <view class="nulldata">
-        没有符合条件的搜索结果，试试其他内容
-      </view>
-    </view>
-
-  </view> -->
 </view>

@@ -52,6 +52,7 @@ App({
   globalData: {
     msgId:null,
     arrType:null,
-    showType:null
+    showType:null,
+    refresh:1 // 1-不刷新 2-刷新
   }
 })

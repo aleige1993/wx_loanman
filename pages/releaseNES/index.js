@@ -105,6 +105,7 @@ Page({
         wx.showToast({
           title: '发布成功!',
           success:()=>{
+            app.globalData.refresh = 2;
             setTimeout(() => {
                 app.globalData.showType = 1;
               wx.switchTab({

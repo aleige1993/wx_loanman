@@ -147,7 +147,11 @@
     height: 70vh;
 }
 .contitem{
-  margin-top: 18rpx;
+  margin-bottom: 15rpx;
+  font-weight: 600 !important;
+}
+.jmsgTitle{
+  font-weight: 700;
 }
 .details_panl text{
   display:block;
@@ -176,7 +180,10 @@
 .jes_info{
   display: flex;
   justify-content: space-between;
-  margin-top: 50rpx;
+  margin-top: 10rpx;
+}
+.jes_info view{
+  width: 50%;
 }
 label.ftw3{
   color: #313131;
@@ -189,21 +196,29 @@ text.ftw6{
 }
 .info_role{
   padding-bottom: 30rpx;
-  border-bottom:1px solid #eee;  
 }
 .jes_details{
-  padding: 30rpx 0;
+  padding: 15rpx 0;
   border-bottom:1px solid #eee;
 }
-.jes_details .de_title{
+.detais_panl{
+ border-bottom:1px solid #eee;
+}
+.de_title{
+  /* margin-bottom: 10rpx;
+  display: inline-block; */
   background-color: #5F90FF;
   color: #fff;
-  padding: 4rpx 10rpx;
+  padding: 2rpx 10rpx;
   border-radius: 4rpx;
   display: inline-block;
+  margin-bottom: -2rpx;
 }
-.details_panl text{
-
+.details_panl .contitem:last-child{
+  margin-bottom: 0;
+}
+.details_panl{
+  min-height: 200rpx;
 }
 .jes_about {
   padding-top: 30rpx;

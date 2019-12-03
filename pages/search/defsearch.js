@@ -6,48 +6,48 @@ Page({
    * 页面的初始数据
    */
   data: {
-    arrType:[], //枚举
-    seaText:'',
-    bulr: true
+    arrType: [], //枚举
+    seaText: '',
+    bulr: true,
+    lablelist:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    let option = JSON.parse(options.lablelist)
     this.setData({
-      arrType: app.UserLogin.get('arrType')
+      lablelist: option ? option: null
+    },() => {
+      wx.setNavigationBarTitle({
+        title: option ? option.lable+'搜索' : '客企互联旺'
+      })
     })
   },
-  getSearch(e){
-    let lablelist = e.currentTarget.dataset.lable
-    // console.log(e)
-    wx.navigateTo({
-      url: '/pages/search/defsearch?lablelist=' + JSON.stringify(lablelist),
-    })
-  },
-  updataCof(e){
+  updataCof(e) {
     console.log(e)
     let coftext = e.detail.value;
-    if (coftext == ''){
+    if (coftext == '') {
       wx.showToast({
         title: '请输入搜索内容',
-        icon:'none'
+        icon: 'none'
       })
-    }else{
+    } else {
       wx.navigateTo({
-        url: "/pages/search/result?cofid=&coftext=" + coftext,
+        url: `/pages/search/result?cofid=${this.data.lablelist.id}&coftext=${coftext}`,
       })
     }
   },
-  focusBind(e){
+  focusBind(e) {
     this.setData({
-      bulr:false
+      bulr: false
     })
   },
-  bllurBind (e) {
+  bllurBind(e) {
     this.setData({
-      bulr:true
+      bulr: true
     })
   },
   /**
@@ -62,7 +62,7 @@ Page({
    */
   onShow: function () {
     this.setData({
-      seaText:''
+      seaText: ''
     })
   },
 

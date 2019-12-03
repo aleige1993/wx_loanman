@@ -17,12 +17,13 @@
     "pages/payway/result",
     "pages/releaseList/edit/index",
     "pages/statement/index",
-    "pages/webView/index"
+    "pages/webView/index",
+    "pages/search/defsearch"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "贷速通",
+    "navigationBarTitleText": "客企互联旺",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
