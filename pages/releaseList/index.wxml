@@ -11,14 +11,14 @@
         <text class="ctext"></text>
       </view>
     </view>
-    <view   data-index="2" bindtap='tabhader' class='serve {{publishRole==2?"active":""}}'>
+    <view data-index="2" bindtap='tabhader' class='serve {{publishRole==2?"active":""}}'>
       <view class="tileH">
         <text class="chakanProvide hunk"></text>服务信息</view>
       <view class="lint">
         <text class="ctext"></text>
       </view>
     </view>
-    <view   data-index="1" bindtap='tabhader' class='serve {{publishRole==1?"active":""}}'>
+    <view data-index="1" bindtap='tabhader' class='serve {{publishRole==1?"active":""}}'>
       <view class="tileH">
         <text class="chakanNeeds hunk"></text>需求信息</view>
       <view class="lint">
@@ -27,26 +27,31 @@
     </view>
   </view>
   <view class="res_coent">
-     <view class="active section section_one">
+    <view class="active section section_one">
       <view class="resP_box">
         <!-- <view class="resP_titname">信息类型名称</view> -->
         <!-- resP_active -->
         <view class="resP_titcont">
-          <view  wx:for="{{msgList}}" wx:key="msgList" data-item="{{item}}" bindtap='gotoBackDetail' class='list_box Provide {{item.publishRole == 1?"Needs":"Provide"}}'>
-            <text class="lint"></text>
-            <view class="wx_li1">
-              <text>{{item.msgTitle}}</text>
-              <view  class="tips">
-                <image wx:if="{{item.status == 1}}" src="/static/images/ic_tips_one.png"></image>
-                <image wx:if="{{item.status == 2}}" src="/static/images/ic_tips_two.png"></image>
-                <image wx:if="{{item.status == 3}}" src="/static/images/ic_tips_three.png"></image>
-                <!-- <icon class="iconfont iconicon--1"></icon> -->
+          <view wx:for="{{msgList}}" wx:key="msgList" data-item="{{item}}" bindtap='gotoBackDetail' class=' list_panl list_box Provide {{item.publishRole == 1?"Needs":"Provide"}}'>
+            <!-- <text class="lint"></text> -->
+            <image wx:if="{{item.publishRole == 1}}" src="/static/images/ic_red.png" class="png_needs"></image>
+            <image wx:if="{{item.publishRole == 2}}" src="/static/images/ic_bule.png" class="png_needs"></image>
+            <view class="balc_right">
+              <view class="wx_li1">
+                <text>{{item.msgTitle}}</text>
+                <view class="tips">
+                  <image wx:if="{{item.status == 1}}" src="/static/images/ic_tips_one.png"></image>
+                  <image wx:if="{{item.status == 2}}" src="/static/images/ic_tips_two.png"></image>
+                  <image wx:if="{{item.status == 3}}" src="/static/images/ic_tips_three.png"></image>
+                  <!-- <icon class="iconfont iconicon--1"></icon> -->
+                </view>
+              </view>
+              <view class="wx_li2">
+                <text class="c-666">{{item.msgTypeName}}</text>
+                <text class="cunts">{{item.viewCount<9999? item.viewCount:'9999+'}}</text>
               </view>
             </view>
-            <view class="wx_li2">
-              <text class="c-666">{{item.msgTypeName}}</text>
-              <text class="cunts">{{item.viewCount<9999? item.viewCount:'9999+'}}</text>
-            </view>
+
           </view>
           <!-- <view class="list_box Needs">
             <text class="lint"></text>
@@ -74,7 +79,7 @@
             <icon class="iconfont iconsanjiaoxing"></icon>
           </view>
         </view> -->
-      </view> 
+      </view>
     </view>
     <!-- <view wx:for="{{msgList}}" wx:key="msgList" data-item="{{item}}" bindtap='gotoBackDetail' class='list_panl {{item.publishRole == 1?"needs":"provide"}}  shadow-just'>
       <view class='wx_li'>

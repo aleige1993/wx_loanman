@@ -36,8 +36,11 @@ Page({
   //隐藏
   closelayer() {
     this.setData({
-      layer: false,
-      showFree: false
+      layer: false
+    },()=>{
+      wx.switchTab({
+        url: '/pages/index/index'
+      })
     })
   },
   //successfunc

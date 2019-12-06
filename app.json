@@ -18,7 +18,8 @@
     "pages/releaseList/edit/index",
     "pages/statement/index",
     "pages/webView/index",
-    "pages/search/defsearch"
+    "pages/search/defsearch",
+    "pages/search/moveref"
   ],
   "window": {
     "backgroundTextStyle": "light",

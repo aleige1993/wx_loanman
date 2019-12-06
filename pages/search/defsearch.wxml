@@ -1,9 +1,19 @@
 <!--pages/search/index.wxml-->
 <view>
-  <view class="sear_panl">
+  <!-- <view class="sear_panl">
       <view class="ser_input">
         <icon wx:if="{{bulr}}" class="iconfont iconfangdajing"></icon>
         <input placeholder="{{bulr? lablelist.lable+'搜索': ''}}" value="{{seaText}}"  type="text" confirm-type='search' bindconfirm="updataCof" bindfocus="focusBind" bindblur="bllurBind"></input>
       </view>
+  </view> -->
+   <view class="sear_panl">
+    <view class="ser_input">
+      <view wx:if="{{bulr}}" class="serbulr">
+        <icon class="iconfont iconfangdajing"></icon>
+        <text class="c-999">{{lablelist.lable+'搜索'}}</text>
+      </view>
+      <input value="{{seaText}}" type="text" confirm-type='search' bindconfirm="updataCof" bindfocus="focusBind" bindblur="bllurBind"></input>
+    </view>
+    <view class="bindCOf" bindtap="updataCof">搜索</view>
   </view>
 </view>

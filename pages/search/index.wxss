@@ -3,22 +3,31 @@ page{
   background-color: #fff;
 }
 .sear_panl{
-  padding: 30rpx 80rpx;
+  padding: 30rpx 50rpx;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
 }
 .ser_input{
+  position: relative;
   display: flex;
   justify-content: center;
   border: 1px solid rgba(220,220,220,1);
   border-radius:10rpx; 
+  flex: 1;
 }
 .ser_input input{
   line-height: 68rpx;
   color: #A0A0A0;
   height: 68rpx;
+  flex: 1;
+  padding-left: 6rpx;
 }
 .ser_input icon{
   color: #A0A0A0;
   font-size: 24rpx;
+  display:inline-block;
+  height: 60rpx !important;
 }
 .sear_title{
   display: flex;
@@ -58,4 +67,12 @@ display: inline-block;
 }
 .list_panl view:last-child{
   border-right:none; 
+}
+.serbulr{
+  position: absolute;
+}
+.bindCOf{
+  margin-left: 40rpx;
+   color:rgba(95,144,255,1);
+   font-size: 28rpx;
 }

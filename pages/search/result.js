@@ -105,10 +105,13 @@ Page({
   addmoave(e){
     let ins = e.currentTarget.dataset.ins;
     let item = e.currentTarget.dataset.item; 
-    let listData = 'listData['+ins+'].isShow'
-    this.setData({
-      [listData]: !item.isShow
+    wx.navigateTo({
+      url: '/pages/search/moveref?iteminfo=' + JSON.stringify(item),
     })
+    // let listData = 'listData['+ins+'].isShow'
+    // this.setData({
+    //   [listData]: !item.isShow
+    // })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

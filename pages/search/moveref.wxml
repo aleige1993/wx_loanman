@@ -1,6 +1,6 @@
 <!--pages/search/result.wxml-->
 <view class="result_box">
-  <view class="res_hader">
+  <!-- <view class="res_hader">
     <view class="{{index ==0 ? 'active':''}} serve" data-index="0" bindtap="changeHader">
       <view class="tileH">全部</view>
       <view class="lint">
@@ -21,7 +21,7 @@
         <text class="ctext"></text>
       </view>
     </view>
-  </view>
+  </view> -->
   <!-- <view class="res_coent"> -->
   <!-- <view class="active section section_one">
       <view class="resP_box">
@@ -51,10 +51,10 @@
 
   <view class="res_coent">
     <view class="active section section_one">
-      <view class="resP_box" wx:for="{{listData}}" wx:for-index="index" wx:key="rsp">
-        <view class="resP_titname">{{listData[index].tpdata[0].msgTypeName}}</view>
-        <view class="resP_titcont {{ item.tpdata.length>2 ? 'resP_active': ''}}">
-          <view wx:for="{{item.tpdata}}" wx:for-item="itemArr" wx:key="cont" class="list_panl list_box {{itemArr.publishRole == 1? 'Needs':'Provide'}}" data-item="{{itemArr}}" bindtap='gotoBackInfo'>
+      <view class="resP_box" >
+        <view class="resP_titname">{{iteminfo.tpdata[0].msgTypeName}}</view>
+        <view class="resP_titcont">
+          <view wx:for="{{iteminfo.tpdata}}" wx:for-item="itemArr" wx:key="cont" class="list_panl list_box {{itemArr.publishRole == 1? 'Needs':'Provide'}}" data-item="{{itemArr}}" bindtap='gotoBackInfo'>
             <!-- <text class="lint"></text> -->
             <image wx:if="{{itemArr.publishRole == 1}}" src="/static/images/ic_red.png" class="png_needs"></image>
             <image wx:if="{{itemArr.publishRole == 2}}" src="/static/images/ic_bule.png" class="png_needs"></image>
@@ -65,10 +65,9 @@
                 <text class="cunts">{{itemArr.viewCount>9999? '9999+':itemArr.viewCount}}</text>
               </view>
             </view>
-
           </view>
         </view>
-        <view class="taishow" wx:if="{{item.tpdata.length>2}}">
+        <!-- <view class="taishow" wx:if="{{item.tpdata.length>2}}">
           <view class="resP_bot" wx:if="{{item.isShow}}" data-item="{{item}}" data-ins="{{index}}" bindtap="addmoave">
             <view class="moave">
               <icon class="iconfont iconfangdajing"></icon>
@@ -86,16 +85,16 @@
               <icon class="iconfont iconsanjiaoxing"></icon>
             </view>
           </view>
-        </view>
+        </view> -->
       </view>
     </view>
-    <view wx:if="{{listData.length == 0}}" class="active section section_there">
+    <!-- <view wx:if="{{listData.length == 0}}" class="active section section_there">
       <view class="nulldata">
         没有符合条件的搜索结果，试试其他内容
       </view>
-    </view>
-    <view class="nulldata tltedata" wx:if="{{datanull}}">
+    </view> -->
+    <!-- <view class="nulldata tltedata" wx:if="{{datanull}}">
       <view class='tlte_null'>没有数据啦</view>
-    </view>
+    </view> -->
   </view>
 </view>

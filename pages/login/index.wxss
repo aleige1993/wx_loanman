@@ -13,8 +13,8 @@
     margin: 60rpx 0;
 }
 .logo_mobel image{
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     margin-top: 10%;
 }
 .text_panl{

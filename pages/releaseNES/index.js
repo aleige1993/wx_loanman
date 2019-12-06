@@ -118,6 +118,7 @@ Page({
               isDisabled: false,
               indUser: null,
               indType: null,
+              tNum:0,
               msgTitle:'',
               msgConent:''
           })
@@ -152,8 +153,11 @@ Page({
   //隐藏
   closelayer () {
     this.setData({
-      layer:false,
-      showFree: false
+      layer:false
+    },()=>{
+      wx.switchTab({
+        url: '/pages/index/index'
+      })
     })
   },
   //successfunc

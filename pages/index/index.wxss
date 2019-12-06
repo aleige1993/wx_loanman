@@ -5,7 +5,7 @@ page{
   display: flex;
   /* margin:20rpx 0;
   padding: 0 30rpx; */
-  background-color: #f6f6f6;
+  background-color: #fff;
   position: relative;
 }
 .picker_model{
@@ -22,6 +22,7 @@ page{
   display: flex;
   justify-content:center;
   align-items: center;
+  align-content: center;
   /* border-right:1px double #eee;  */
 }
 .picker text{
@@ -30,7 +31,8 @@ page{
   font-size: 26rpx;
 }
 .picker icon{
-  height: 60rpx;
+  display: inline-block;
+  height: 60rpx !important;
   margin-top:-10rpx;
   font-size:20rpx;
   margin-left:4rpx;
@@ -117,7 +119,7 @@ page{
 }
 .chakan{
     position: absolute;
-    bottom:0rpx;
+    bottom:20rpx;
     right:20rpx;
     text-align: center;
     color:#fff;
@@ -153,6 +155,6 @@ page{
 }
 .balc_right{
   flex: 1;
-  padding-bottom: 30rpx;
+  padding-bottom: 20rpx;
   border-bottom:1px solid #eee; 
 }

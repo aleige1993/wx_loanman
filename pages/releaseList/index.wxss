@@ -1,6 +1,9 @@
 /* pages/releaseList/index.wxss */
 @import '/pages/index/index.wxss';
 @import '/pages/search/result.wxss';
+page{
+  background-color: #fff;
+}
 .see_panl{
     display:flex;
     align-items: center;
@@ -68,4 +71,9 @@
   width: 64rpx;
   height: 24rpx;
 }
-
+.list_box{
+  padding: 20rpx 0 !important;
+}
+.cunts{
+  bottom: 20rpx !important;
+}

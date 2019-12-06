@@ -1,0 +1,6 @@
+/* pages/search/moveref.wxss */
+@import '/pages/search/result.wxss';
+.res_coent{
+  margin-top:0rpx;
+  margin-bottom: 30rpx;
+}

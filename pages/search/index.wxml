@@ -1,18 +1,22 @@
 <!--pages/search/index.wxml-->
 <view>
   <view class="sear_panl">
-      <view class="ser_input">
-        <icon wx:if="{{bulr}}" class="iconfont iconfangdajing"></icon>
-        <input placeholder="{{bulr? '输入指定内容 立即搜索': ''}}" value="{{seaText}}"  type="text" confirm-type='search' bindconfirm="updataCof" bindfocus="focusBind" bindblur="bllurBind"></input>
+    <view class="ser_input">
+      <view wx:if="{{bulr}}" class="serbulr">
+        <icon class="iconfont iconfangdajing"></icon>
+        <text class="c-999">立即搜索</text>
       </view>
+      <input value="{{seaText}}" type="text" confirm-type='search' bindconfirm="updataCof" bindfocus="focusBind" bindblur="bllurBind"></input>
+    </view>
+    <view class="bindCOf" bindtap="updataCof">搜索</view>
   </view>
   <view class="sear_title">
     <view class="title_ser">
       <text class="lint"> </text>
-      <text class="lint_text">指定搜索内容</text>
+      <text class="lint_text">按信息类型搜索</text>
     </view>
   </view>
   <view class="list_panl">
-    <view wx:for="{{arrType}}" wx:key="arrType" data-lable="{{item}}"  bindtap="getSearch">{{item.lable}}</view>
+    <view wx:for="{{arrType}}" wx:key="arrType" data-lable="{{item}}" bindtap="getSearch">{{item.lable}}</view>
   </view>
 </view>
