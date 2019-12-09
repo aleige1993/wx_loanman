@@ -148,7 +148,7 @@ Page({
             {
               type: 'text',
               content: `您的好友【${_this.data.wxUserInfo.nickName}】`,
-              fontSize: 16,
+              fontSize: 18,
               color: '#fff',
               textAlign: 'left',
               top: 85,
@@ -158,7 +158,7 @@ Page({
             {
               type: 'text',
               content: '发现薅羊毛好工具，邀您免费看商机！', 
-              fontSize: 14,
+              fontSize: 15,
               color: '#fff',
               textAlign: 'left',
               top: 115,

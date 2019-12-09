@@ -25,7 +25,7 @@
     </view>
   </view>
   <view class="jes_about"> 
-    <view wx:if="{{infoItme.publishComp}}">
+    <view wx:if="{{msgItem.publishComp}}">
       <label class="ftw3">公司名称：</label>
       <text class="ftw6"  >{{msgItem.publishComp}}</text>
  

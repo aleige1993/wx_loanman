@@ -4,22 +4,21 @@
     <view class='login_panl'>
         <view class='logo_mobel'>
              <image src='/static/images/logo.png'></image>
-        </view> 
-    </view>
-    <view wx:if="{{!debugOpen}}" class='text_panl text-shadow text-blue'>
-        <view class="ext_li li1 text-shadow text-blue">
-          【客企互联旺】
         </view>
-         <view class="ext_li li2 text-shadow text-blue">
+        <icon class="left_bank clbank"></icon>
+        <icon class="right_bank clbank"></icon>
+    </view>
+    <view wx:if="{{!debugOpen}}" class='text_panl  '>
+         <view class="ext_li   ">
           聚客企精英
         </view>
-         <view class="ext_li li3 text-shadow text-blue">
+         <view class="ext_li   ">
           汇供需信息
         </view>
-         <view class="ext_li li4 text-shadow text-blue">
+         <view class="ext_li   ">
           促客企直联
         </view>
-         <view class="ext_li li5 text-shadow text-blue">
+         <view class="ext_li   ">
           旺万事如意
         </view>
             
