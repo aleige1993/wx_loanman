@@ -14,6 +14,6 @@
       </view>
       <input value="{{seaText}}" type="text" confirm-type='search' bindconfirm="updataCof" bindfocus="focusBind" bindblur="bllurBind"></input>
     </view>
-    <view class="bindCOf" bindtap="updataCof">搜索</view>
+    <view class="bindCOf" bindtap="updataCof">搜  索</view>
   </view>
 </view>

@@ -50,7 +50,8 @@
     ],
     "color": "#BFBFBF",
     "selectedColor": "#3984ff",
-    "borderStyle": "white"
+    "borderStyle": "white",
+    "backgroundColor": "#f5f5f5"
   },
   "sitemapLocation": "sitemap.json"
 }

@@ -3,7 +3,7 @@ page{
   background-color: #fff;
 }
 .sear_panl{
-  padding: 30rpx 50rpx;
+  padding: 30rpx 60rpx;
   display: flex;
   justify-content:space-between;
   align-items: center;
@@ -72,7 +72,13 @@ display: inline-block;
   position: absolute;
 }
 .bindCOf{
-  margin-left: 40rpx;
+  margin-left: 30rpx;
    color:rgba(95,144,255,1);
-   font-size: 28rpx;
+   font-size: 30rpx;
+  border:1px solid #E5E5E5; 
+  width: 140rpx;
+  height: 72rpx;
+  text-align: center;
+  line-height: 72rpx;
+  border-radius:10rpx; 
 }

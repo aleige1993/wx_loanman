@@ -174,7 +174,7 @@ Page({
             // },
             {
               type: 'image',
-              // url: '/static/images/erwei.png',
+              // url: '/static/images/erwei.jpg',
               url: this.data.imgUrl,
               top: 500,
               left: 85,
@@ -184,13 +184,13 @@ Page({
             {
               type: 'text',   
               content: `【${_this.data.infoItme.msgTypeName}】${_this.data.infoItme.msgTitle}`,
-              fontSize: 12,
+              fontSize: 14,
               lineHeight: 21,
               color: '#535353',
               textAlign: 'left',
-              top: 416,
-              left: 64,
-              width: 236,
+              top: 400,
+              left: 70,
+              width: 220,
               MaxLineNumber: 2,
               breakWord: true,
               bolder: true

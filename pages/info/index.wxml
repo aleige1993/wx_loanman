@@ -104,7 +104,7 @@
     {{token ? '您本月查看'+maxFreeCount+'条信息的免费次数已用完，希望这些信息已为您创造了价值!为了能持续为您创造价值，点击下方按钮获 取无限信息查询权限!':'请先去登录，希望这些信息能为您创造价值!'}}
   </view>
 </view>
-
+ <!-- wx:if="{{isbut && token}}" -->
 <view class="my_padding flex flex-direction" wx:if="{{isbut && token}}">
     <button bindtap='gotoBack' class="">获取无限查询权限</button>
   </view>
