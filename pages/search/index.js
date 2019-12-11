@@ -26,9 +26,29 @@ Page({
       url: '/pages/search/defsearch?lablelist=' + JSON.stringify(lablelist),
     })
   },
+  setdatacof(e){
+    let val = e.detail.value;
+    this.setData({
+      seaText:val
+    })
+  },
+  bindCof(){
+    let coftext = this.data.seaText;
+    console.log(coftext)
+    if (coftext == '') {
+      wx.showToast({
+        title: '请输入搜索内容',
+        icon: 'none'
+      })
+    } else {
+      wx.navigateTo({
+        url: "/pages/search/result?cofid=&coftext=" + coftext,
+      })
+    }
+  },
   updataCof(e){
     console.log(e)
-    let coftext = e.detail.value ? e.detail.value : this.data.seaText;
+    let coftext = e.detail.value
     // let coftext = this.data.seaText;
     if (coftext == ''){
       wx.showToast({
@@ -47,12 +67,12 @@ Page({
     })
   },
   bllurBind (e) {
-    let val = e.detail.value;
+   let val = e.detail.value;
     console.log(val);
     if(val){
       this.setData({
         bulr: false,
-        seaText:val
+        // seaText:val
       })
     }else{
       this.setData({

@@ -21,7 +21,7 @@
     </picker>
   </view>
   <view class='picker_model'>
-    <navigator url='/pages/search/index'>
+    <navigator hover-class="none" url='/pages/search/index'>
       <view class="picker">
         <text class='overflowfont'>智慧搜索</text>
         <icon class='iconfont iconfangdajing'></icon>
@@ -59,7 +59,7 @@
       <view class='chakan {{item.publishRole == 1?"chakanNeeds":"chakanProvide"}}'>{{item.viewCount>9999 ? '9999+': item.viewCount}}</view>
     </view>
     <view class='wx_li2 overflowfont c-666'>
-      {{item.msgTypeName}}
+      {{item.msgTypeName?item.msgTypeName: '类型已不存在'}}
     </view>
     </view>
    

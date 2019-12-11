@@ -28,7 +28,7 @@ Page({
   },
   updataCof(e) {
     console.log(e)
-    let coftext = e.detail.value ? e.detail.value : this.data.seaText;
+    let coftext = e.detail.value
     // let coftext = this.data.seaText;
     if (coftext == '') {
       wx.showToast({
@@ -51,8 +51,7 @@ Page({
     console.log(val);
     if (val) {
       this.setData({
-        bulr: false,
-        seaText: val
+        bulr: false
       })
     } else {
       this.setData({
@@ -60,30 +59,26 @@ Page({
       })
     }
   },
-  // updataCof(e) {
-  //   console.log(e)
-  //   let coftext = e.detail.value;
-  //   if (coftext == '') {
-  //     wx.showToast({
-  //       title: '请输入搜索内容',
-  //       icon: 'none'
-  //     })
-  //   } else {
-  //     wx.navigateTo({
-  //       url: `/pages/search/result?cofid=${this.data.lablelist.id}&coftext=${coftext}`,
-  //     })
-  //   }
-  // },
-  // focusBind(e) {
-  //   this.setData({
-  //     bulr: false
-  //   })
-  // },
-  // bllurBind(e) {
-  //   this.setData({
-  //     bulr: true
-  //   })
-  // },
+  setdatacof(e) {
+    let val = e.detail.value;
+    this.setData({
+      seaText: val
+    })
+  },
+  bindCof() {
+    let coftext = this.data.seaText;
+    console.log(coftext)
+    if (coftext == '') {
+      wx.showToast({
+        title: '请输入搜索内容',
+        icon: 'none'
+      })
+    } else {
+      wx.navigateTo({
+        url: "/pages/search/result?cofid=&coftext=" + coftext,
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -96,7 +91,8 @@ Page({
    */
   onShow: function () {
     this.setData({
-      seaText: ''
+      seaText: '',
+      bulr:true
     })
   },
 

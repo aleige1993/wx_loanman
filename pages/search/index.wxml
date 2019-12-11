@@ -6,9 +6,9 @@
         <icon class="iconfont iconfangdajing"></icon>
         <text class="c-999">立即搜索</text>
       </view>
-      <input value="{{seaText}}" type="text" confirm-type='search' bindconfirm="updataCof" bindfocus="focusBind" bindblur="bllurBind"></input>
+      <input value="{{seaText}}" type="text" confirm-type='search' bindinput="setdatacof" bindconfirm="updataCof" bindfocus="focusBind" bindblur="bllurBind"></input>
     </view>
-    <view class="bindCOf" bindtap="updataCof">搜  索</view>
+    <view class="bindCOf" bindtap="bindCof">搜  索</view>
   </view>
   <view class="sear_title">
     <view class="title_ser">

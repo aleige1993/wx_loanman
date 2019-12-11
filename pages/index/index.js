@@ -136,11 +136,63 @@ Page({
     wx.showLoading({
       title: '初始化中',
     })
+    this.getBannerLIst();
+    // if (!app.UserLogin.get('arrType')) {
+    //   this.getMsgType();
+    // }
+    if (this.data.arrType) {
+      this.setData({
+        publishOrder: 1,
+        page: 1,
+        msgType: 0,
+        publishRole: 0,
+        msgList: []
+      }, () => {
+        this.getMsgList();
+      })
+    } else {
+      let arrType = app.UserLogin.get('arrType');
+      arrType.unshift({
+        lable: "全部",
+        id: "0"
+      });
+      this.setData({
+        arrType: arrType,
+        publishOrder: 1,
+        page: 1,
+        msgType: 0,
+        publishRole: 0,
+        msgList: []
+      }, () => {
+        this.getMsgList();
+      })
+    }
     setTimeout(() => {
-      if (!app.UserLogin.get('arrType')) {
-        this.getMsgType();
-      }
+      wx.hideLoading();
+    }, 1500);
+    // this.setData({
+    //   arrType: app.UserLogin.get('arrType')
+    // });
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+  },
+  onTabItemTap() {
+
+  },
+  onShow: function() {
+    if (!this.data.msgList || !this.data.swiperList){
       this.getBannerLIst();
+      this.getMsgList();
+    }
+    if (app.globalData.refresh == 2) {
+      if (app.globalData.showType) {
+        this.setData({
+          indUser: null,
+          indType: null,
+          indPaixu: null
+        })
+      }
       if (this.data.arrType) {
         this.setData({
           publishOrder: 1,
@@ -150,6 +202,7 @@ Page({
           msgList: []
         }, () => {
           this.getMsgList();
+          app.globalData.refresh = 1
         })
       } else {
         let arrType = app.UserLogin.get('arrType');
@@ -166,61 +219,9 @@ Page({
           msgList: []
         }, () => {
           this.getMsgList();
+          app.globalData.refresh = 1
         })
       }
-      wx.hideLoading();
-    }, 3000)
-
-    // this.setData({
-    //   arrType: app.UserLogin.get('arrType')
-    // });
-    wx.showShareMenu({
-      withShareTicket: true
-    })
-  },
-  onTabItemTap() {
-
-  },
-  onShow: function() {
-    if (app.globalData.refresh == 2) {
-      setTimeout(() => {
-        if (app.globalData.showType) {
-          this.setData({
-            indUser: null,
-            indType: null,
-            indPaixu: null
-          })
-        }
-        if (this.data.arrType) {
-          this.setData({
-            publishOrder: 1,
-            page: 1,
-            msgType: 0,
-            publishRole: 0,
-            msgList: []
-          }, () => {
-            this.getMsgList();
-            app.globalData.refresh = 1
-          })
-        } else {
-          let arrType = app.UserLogin.get('arrType');
-          arrType.unshift({
-            lable: "全部",
-            id: "0"
-          });
-          this.setData({
-            arrType: arrType,
-            publishOrder: 1,
-            page: 1,
-            msgType: 0,
-            publishRole: 0,
-            msgList: []
-          }, () => {
-            this.getMsgList();
-            app.globalData.refresh = 1
-          })
-        }
-      }, 300)
     }
   },
   onPullDownRefresh: function() {

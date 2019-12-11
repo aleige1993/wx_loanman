@@ -38,9 +38,12 @@ Page({
     this.setData({
       layer: false
     },()=>{
-      wx.switchTab({
-        url: '/pages/index/index'
+      wx.navigateBack({
+        delta:1
       })
+      // wx.switchTab({
+      //   url: '/pages/index/index'
+      // })
     })
   },
   //successfunc

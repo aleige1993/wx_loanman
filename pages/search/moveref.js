@@ -12,7 +12,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.iteminfo)
     if (options.iteminfo){
       let iteminfo = JSON.parse(options.iteminfo)
       this.setData({
@@ -25,7 +24,12 @@ Page({
     }
 
   },
-
+  gotoBackInfo(e) {
+    let infoItme = e.currentTarget.dataset.item;
+    wx.navigateTo({
+      url: '/pages/info/index?msgId=' + infoItme.msgId
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
