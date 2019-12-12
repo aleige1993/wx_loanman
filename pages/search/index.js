@@ -27,14 +27,13 @@ Page({
     })
   },
   setdatacof(e){
-    let val = e.detail.value;
+    let val = e.detail.value; 
     this.setData({
       seaText:val
     })
   },
   bindCof(){
     let coftext = this.data.seaText;
-    console.log(coftext)
     if (coftext == '') {
       wx.showToast({
         title: '请输入搜索内容',
@@ -47,7 +46,6 @@ Page({
     }
   },
   updataCof(e){
-    console.log(e)
     let coftext = e.detail.value
     // let coftext = this.data.seaText;
     if (coftext == ''){
@@ -68,7 +66,6 @@ Page({
   },
   bllurBind (e) {
    let val = e.detail.value;
-    console.log(val);
     if(val){
       this.setData({
         bulr: false,

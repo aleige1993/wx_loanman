@@ -9,7 +9,7 @@ let PROD_CONFIG = {
 // let OPEN_API = {
 //  HTTPOPENAPIURL: app.OPEN_API //切换域名
 // }
-let CONFIG = DEV_CONFIG; // 选取当前环境配置
+let CONFIG = PROD_CONFIG; // 选取当前环境配置
 
 module.exports = {
     HTTPOPENAPIURL: CONFIG.HTTPOPENAPIURL // 请求OPENAPI的接口

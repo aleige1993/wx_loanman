@@ -1,7 +1,6 @@
 // pages/info/index.js
 let app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -23,7 +22,8 @@ Page({
     islayer:true,
     debugOpen: false,
     wxUserInfo: null,
-    userInfo: null
+    userInfo: null,
+    platform:''
   },
   getUrldeug() {
     app.Formdata.post('/api/wx/debug/open', {}, (res) => {
@@ -52,56 +52,73 @@ Page({
                 }
             }
         });
+      if (this.data.platform == "pc" || this.data.platform == "devtools"){
         wx.downloadFile({
-            url: imgSrc,
-            success: function (res) { 
-                //图片保存到本地
-                console.log('gongg',res)
-                wx.saveImageToPhotosAlbum({
-                    filePath: res.tempFilePath,
-                    success: function (data) {
-                        wx.showToast({
-                            title: '保存成功',
-                            icon: 'success',
-                            duration: 2000
-                        },()=>{
-                            this.hideImg();
-                        })
-                    },
-                    fail: function (err) {
-                      console.log(err)
-                        if (err.errMsg == "saveImageToPhotosAlbum:fail auth deny") {
-                            wx.openSetting({
-                                success(settingdata) {
-                                    if (settingdata.authSetting['scope.writePhotosAlbum']) {
-                                        console.log('获取权限成功，给出再次点击图片保存到相册的提示。')
-                                    } else {
-                                        console.log('获取权限失败，给出不给权限就无法正常使用的提示')
-                                    }
-                                }
-                            })
-                        }
-                    },
-                    complete(rult) {
-                      console.log(rult)
-                        if (rult.errMsg === "saveImageToPhotosAlbum:fail auth deny") {
-                            wx.openSetting({
-                                success(settingdata) {
-                                    if (settingdata.authSetting['scope.writePhotosAlbum']) {
-                                        console.log('获取权限成功，给出再次点击图片保存到相册的提示。')
-                                    } else {
-                                        console.log('获取权限失败，给出不给权限就无法正常使用的提示')
-                                    }
-                                }
-                            })
-                        }
-                    }
+          url: imgSrc,
+          success: function (res) {
+            //图片保存到本地
+            console.log('gongg', res)
+            wx.saveImageToPhotosAlbum({
+              filePath: res.tempFilePath,
+              success: function (data) {
+                wx.showToast({
+                  title: '保存成功',
+                  icon: 'success',
+                  duration: 2000
+                }, () => {
+                  this.hideImg();
                 })
-            },
-            fail: function(erring){
-              console.log('erring',erring)
-            }
+              },
+              fail: function (err) {
+                console.log(err)
+                if (err.errMsg == "saveImageToPhotosAlbum:fail auth deny") {
+                  wx.openSetting({
+                    success(settingdata) {
+                      if (settingdata.authSetting['scope.writePhotosAlbum']) {
+                        console.log('获取权限成功，给出再次点击图片保存到相册的提示。')
+                      } else {
+                        console.log('获取权限失败，给出不给权限就无法正常使用的提示')
+                      }
+                    }
+                  })
+                }
+              },
+              complete(rult) {
+                console.log(rult)
+                if (rult.errMsg === "saveImageToPhotosAlbum:fail auth deny") {
+                  wx.openSetting({
+                    success(settingdata) {
+                      if (settingdata.authSetting['scope.writePhotosAlbum']) {
+                        console.log('获取权限成功，给出再次点击图片保存到相册的提示。')
+                      } else {
+                        console.log('获取权限失败，给出不给权限就无法正常使用的提示')
+                      }
+                    }
+                  })
+                }
+              }
+            })
+          },
+          fail: function (erring) {
+            console.log('erring', erring)
+          },
+          complete: () => {
+            console.log('imgSrc', imgSrc)
+          }
         })
+        }else{
+        wx.saveImageToPhotosAlbum({
+          filePath: this.data.shareImage,
+            success: function (res) {
+              wx.showToast({
+                title: '保存成功',
+              })
+            },
+            fail: function (err) {
+              console.log('save-err', err)
+            }
+          })
+        } 
     },
  //切换显示
     toggle(e){
@@ -392,6 +409,18 @@ Page({
           islayer:false
         })
       },800)
+    wx.getSystemInfo({
+      success:(res)=>{
+        _this.setData({
+          platform:res.platform
+        })
+        console.log(res)
+      },
+      fail:(err)=>{
+          console.log(res)
+      }
+    })
+
   },
 
   /**

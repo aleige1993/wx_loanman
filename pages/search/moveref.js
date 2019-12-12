@@ -1,4 +1,5 @@
 // pages/search/moveref.js
+let  app = getApp();
 Page({
 
   /**
@@ -27,7 +28,10 @@ Page({
   gotoBackInfo(e) {
     let infoItme = e.currentTarget.dataset.item;
     wx.navigateTo({
-      url: '/pages/info/index?msgId=' + infoItme.msgId
+      url: '/pages/info/index?msgId=' + infoItme.msgId,
+      success: () => {
+        app.globalData.showViews = infoItme.msgId
+      }
     })
   },
   /**
@@ -41,7 +45,34 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let _this = this;
+    if (this.data.iteminfo.tpdata.length > 0) {
+      if (app.globalData.showViews) {
+        let viewID = app.globalData.showViews;
+        let viewCout = null;
+        let viewInd = null;
+        app.Formdata.post('/api/msg/query/count', {
+          "msgId": viewID
+        }, (res) => {
+          if (res.code == "0000") {
+            viewCout = res.data.viewCount
+            this.data.iteminfo.tpdata.map((item, index) => {
+              if (item.msgId == viewID) {
+                viewInd = index
+                let key = "iteminfo.tpdata[" + viewInd + "].viewCount"
+                _this.setData({
+                  [key]: viewCout
+                }, () => {
+                  app.globalData.showViews = null
+                })
+              }
+            })
+          } else {
+            app.globalData.showViews = null
+          }
+        })
+      }
+    }
   },
 
   /**

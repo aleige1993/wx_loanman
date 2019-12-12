@@ -30,7 +30,6 @@ Page({
    
     if (options.cofid){
       this.setData({
-        // lable: lablelist ? lablelist.lable : '',
         msgType: options.cofid ? options.cofid : 0,
         listData:[],
         page: 1,
@@ -98,7 +97,10 @@ Page({
     let infoItme = e.currentTarget.dataset.item;
     console.log(infoItme)
     wx.navigateTo({
-      url: '/pages/info/index?msgId=' + infoItme.msgId
+      url: '/pages/info/index?msgId=' + infoItme.msgId,
+      success: () => {
+        app.globalData.showViews = infoItme.msgId
+      }
     })
   },
   //展示更多
@@ -108,10 +110,6 @@ Page({
     wx.navigateTo({
       url: '/pages/search/moveref?iteminfo=' + JSON.stringify(item),
     })
-    // let listData = 'listData['+ins+'].isShow'
-    // this.setData({
-    //   [listData]: !item.isShow
-    // })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -124,7 +122,39 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let _this = this;
+    if (_this.data.listData.length > 0) {
+      if (app.globalData.showViews) {
+        console.log('这里更新', app.globalData.showViews)
+        let viewID = app.globalData.showViews;
+        let viewCout = null;
+        let viewInd = null;
+        let viewtwoInd = null;
+        app.Formdata.post('/api/msg/query/count', {
+          "msgId": viewID
+        }, (res) => {
+          if (res.code == "0000") {
+            viewCout = res.data.viewCount
+            _this.data.listData.map((item, index) => {
+              item.tpdata.map((itemARR,inttwo)=>{
+                if (itemARR.msgId == viewID){
+                  viewInd = index;
+                  viewtwoInd = inttwo;
+                  let key = "listData[" + viewInd + "].tpdata[" + viewtwoInd +"].viewCount"
+                  _this.setData({
+                    [key]: viewCout
+                  }, () => {
+                    app.globalData.showViews = null
+                  })
+                }
+              })
+            })
+          } else {
+            app.globalData.showViews = null
+          }
+        })
+      }
+    }
   },
 
   /**

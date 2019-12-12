@@ -53,6 +53,7 @@ App({
     msgId:null,
     arrType:null,
     showType:null,
-    refresh:1 // 1-不刷新 2-刷新
+    refresh:1, // 1-不刷新 2-刷新
+    showViews:null
   }
 })

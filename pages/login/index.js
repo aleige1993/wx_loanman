@@ -96,6 +96,9 @@ Page({
                         if (app.globalData.msgId){
                           wx.redirectTo({
                               url: '/pages/info/index?fenx=1&msgId=' + app.globalData.msgId,
+                              success: () => {
+                                app.globalData.showViews = app.globalData.msgId
+                              }
                           })
                         }else{
                           wx.switchTab({

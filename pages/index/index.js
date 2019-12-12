@@ -116,8 +116,12 @@ Page({
   gotoBackInfo(e) {
     let infoItme = e.currentTarget.dataset.item;
     wx.navigateTo({
-      url: '/pages/info/index?msgId=' + infoItme.msgId
+      url: '/pages/info/index?msgId=' + infoItme.msgId,
+      success: () => {
+        app.globalData.showViews = infoItme.msgId
+      }
     })
+
   },
   getMsgType() {
     app.Formdata.post('/api/msg/all/type', {}, (res) => {
@@ -130,7 +134,10 @@ Page({
     console.log('query', query)
     if (query.scene) {
       wx.navigateTo({
-        url: '/pages/info/index?msgId=' + query.scene
+        url: '/pages/info/index?msgId=' + query.scene,
+        success: () => {
+          app.globalData.showViews = query.scene
+        }
       })
     }
     wx.showLoading({
@@ -181,9 +188,37 @@ Page({
 
   },
   onShow: function() {
-    if (!this.data.msgList || !this.data.swiperList){
+    let _this = this;
+    if (this.data.msgList.length == 0 || this.data.swiperList.length == 0) {
       this.getBannerLIst();
       this.getMsgList();
+    }
+    if (this.data.msgList.length > 0) {
+      if (app.globalData.showViews) {
+        let viewID = app.globalData.showViews;
+        let viewCout = null;
+        let viewInd = null;
+        app.Formdata.post('/api/msg/query/count', {
+          "msgId": viewID
+        }, (res) => {
+          if (res.code == "0000") {
+            viewCout = res.data.viewCount
+            this.data.msgList.map((item, index) => {
+              if (item.msgId == viewID) {
+                viewInd = index
+                let key = "msgList[" + viewInd + "].viewCount"
+                _this.setData({
+                  [key]: viewCout
+                },()=>{
+                  app.globalData.showViews = null
+                })
+              }
+            })
+          }else{
+            app.globalData.showViews = null
+          }
+        })
+      }
     }
     if (app.globalData.refresh == 2) {
       if (app.globalData.showType) {
@@ -224,6 +259,13 @@ Page({
       }
     }
   },
+  // getCountView(){
+  //   app.Formdata.post('/api/msg/query/count', { "msgId": app.globalData.showViews},(res)=>{
+  //       if(res.code == "0000"){
+  //         return res.data.viewCount
+  //       }
+  //   })
+  // },
   onPullDownRefresh: function() {
     this.setData({
       publishOrder: 1,
@@ -232,6 +274,7 @@ Page({
       publishRole: 0,
       msgList: []
     }, () => {
+      this.getBannerLIst();
       this.getMsgList();
     })
   },
